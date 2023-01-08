@@ -170,6 +170,21 @@ hasChildren = true
     parent = "Members"
 
 [[Languages.en.menu.main]]
+    name = "Plex"
+    url = "https://plex.matthewshammond.com"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
+    name = "Status"
+    url = "https://status.matthewshammond.com"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
+    name = "Tautulli"
+    url = "https://tautulli.matthewshammond.com"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
 weight = 3
 url = "#"
 name = "Sections"
