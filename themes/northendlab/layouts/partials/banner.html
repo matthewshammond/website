@@ -1,0 +1,37 @@
+<section>
+  <div class="container bannerpad">
+    <div class="list-row">
+      <h1 class="mainpagetitle">Matthew S Hammond</h1>
+      <h6 class="mainpagetitle">HAA Pilot | CEH | Sec+ | Splunk | Homelab | 🇺🇸</h6>
+      <h4 class="banner-social">
+      {{ "<!-- about me -->" | safeHTML }}
+      {{ with site.Params.social_profile }}
+      <ul class="list-unstyled list-inline">
+          {{ range . }}
+          <li class="banner-social mr-3"><a href="{{ .link }}" aria-label="Social Profile"><i class="{{ .icon }}"></i></a></li>
+          {{ end }}
+      </ul>
+      {{ end }}</h4>
+    </div>
+    <p class="banner-para">Prior military professional with military aviation experience and Special Operations experience. As well as civilian aviation experience in helicopters and fixed wing stateside and abroad. Excellent personal skills, computer skills, professionalism, responsibility, reliability, and moral and ethical judgment. Consistently maintains a high degree of work principles while still remaining flexible and adaptive in dynamic environments.</p></td>
+    <p class="banner-para">Strong knowledge acquired in the areas of cyber network security analysis, DevOps tool administration, and information security system analysis. Completed DevOps (Security+, CEH, and Splunk Core User) training program and gained expertise in implementing DevOps practices into IT organizations in a cost-efficient manner in compliance with the design. Skilled in analyzing security implications when integrating systems and data with third-party vendors/solutions considering data ownership, backups, policies around unauthorized data sharing, etc. Well-versed in various threats, vulnerabilities, and attacks. Proficient in evaluating mitigation controls and deterrent techniques to handle attacks efficiently. Demonstrated knowledge of Risk Management Framework (RMF) Package, Artifacts, and SOPs as well as FISMA Compliance, NIST SP 800-53 Controls, and Cloud security. Acquired skills in tuning and configuration of Enterprise Splunk and Splunk App for Enterprise Security (ES). </p></td>
+  </div>
+</section>
+
+
+<!-- original banner 
+<section class="banner-creative" style="background-image:url('{{ site.Params.banner.bg_image | absURL }}')">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-8 mb-4 mb-lg-0 order-1 order-lg-0">
+        <h1 class="title">{{ site.Params.banner.title | markdownify }}</h1>
+      </div>
+      {{ with site.Params.banner.image }}
+      <div class="col-lg-4 col-md-4 col-sm-6 order-0 order-lg-1 mb-5 mb-lg-0">
+        <img class="w-100" src="{{ . | absURL }}" alt="{{ site.Title }}">
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+/banner -->

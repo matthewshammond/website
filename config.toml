@@ -1,0 +1,218 @@
+############################ Default configuration #########################
+baseURL = "https://matthewshammond.com/"
+title = "Matthew S Hammond | HAA Pilot | CEH | Sec+ | Splunk | Homelab"
+# theme
+theme = "northendlab"
+# post pagination
+paginate = "10"
+# post excerpt
+summaryLength = "10"
+# disqus short name
+disqusShortname = "" # get your shortname form here : https://disqus.com
+
+# disable language
+disableLanguages = [""] # desable language from here
+
+[outputs]
+home = ["HTML", "AMP", "RSS", "JSON"]
+[markup.goldmark.renderer]
+    unsafe = true
+[markup.highlight]
+      codeFences = true
+      guessSyntax = true
+      hl_Lines = ""
+      lineNoStart = 1
+      lineNos = false
+      lineNumbersInTable = false
+      tabWidth = 4
+      noClasses = false
+
+######################### Default Parameters ###########################
+[params]
+# logo
+logo = "images/avatar.png"
+logoWidth = 200
+logoHeight = 200
+# favicon
+favicon = "images/favicon.png"
+# meta data
+author = "Matthew S Hammond"
+description = "HAA Pilot | CEH | Sec+ | Splunk | Homelab"
+# homepage main section
+mainSections = ["posts"]
+# contact form action
+contact_form_action = "#" # contact form works with : https://formspree.io
+# copyright
+copyright = ""
+rssLimit = 20
+# search *** true or false (if Search is disable Menu will align in Right) ***
+search = true
+
+header_search_layout = "expanded" # "expanded" or "popupable"
+# Menu align *** "left", "right" or "center" (if Search is disable Menu will align in Right) ***
+menu_align = "center"
+# Blog-details page sidebar
+sidebar = "right" # Sidebar value ("left", "right" or false)
+
+code_copy_button = true # Turn on/off the code-copy-button for code-fields
+
+######################## Site Variables #########################
+[params.variables]
+# Color Variables
+primary_color = "#ECEFF4"
+secondary_color = "#ECEFF4"
+text_color = "#ECEFF4"
+text_color_dark = "#ECEFF4"
+body_color = "#2E3440"
+border_color = "#4C566A"
+black = "#eceff4"
+white = "#4C566A"
+light = "#4C566A"
+
+# font variable
+# Give your font name from google font. add font weight using ":wght@" and separate by ";"
+# example: "Work Sans:wght@400;500;600"
+primary_font = "PT Sans:wght@400;700"
+secondary_font = ""
+icon_font = "Font Awesome 5 Free"
+
+
+######################## sidebar widgets #########################
+[params.widgets]
+sidebar = ["toc"]
+# available widget : search,about-me,authors,categories,tags,recent-post,social,promotion,subscription
+
+# preloader
+[params.preloader]
+enable = false
+preloader = "" # use png, jpg, svg or gif format
+
+# cookies
+[params.cookies]
+enable = false
+expire_days = 2
+
+########################## Plugings ######################################
+# css plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/slick/slick.min.css"
+[[params.plugins.css]]
+link = "css/custom-nav.css"
+
+
+# js plugins
+[[params.plugins.js]]
+link = "plugins/jquery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/slick/slick.min.js"
+[[params.plugins.js]]
+link = "plugins/shuffle/shuffle.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+[[params.plugins.js]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"
+attributes = "crossorigin='anonymous' defer='defer' data-search-pseudo-elements"
+
+
+############################## Social Site ##########################
+[[params.social]]
+icon = "fab fa-github" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://github.com/matthewshammond"
+[[params.social]]
+icon = "fab fa-linkedin" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://www.linkedin.com/in/matthewshammond/"
+
+######################## About Me Widget ###############################
+[Languages.en.about_me]
+title = "Matthew S Hammond"
+bio = ""
+
+[[params.social_profile]]
+icon = "fab fa-github" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://github.com/matthewshammond"
+[[params.social_profile]]
+icon = "fab fa-linkedin" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://www.linkedin.com/in/matthewshammond/"
+
+############################# English - Main Menu ########################
+[[Languages.en.menu.main]]
+weight = 1
+url = "/"
+name = "Home"
+
+[[Languages.en.menu.main]]
+weight = 2
+url = "#"
+name = "Members"
+hasChildren = true
+
+[[Languages.en.menu.main]]
+    name = "Dashboard"
+    url = "https://dashboard.matthewshammond.com"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
+    name = "Uptime"
+    url = "https://status.matthewshammond.com/status/atlas"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
+    name = "Portainer"
+    url = "https://portainer.matthewshammond.com/"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
+weight = 3
+url = "#"
+name = "Sections"
+hasChildren = true
+  
+[[Languages.en.menu.main]]
+    name = "Dev Ops"
+    url = "/categories/dev-ops"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+    name = "Linux"
+    url = "/categories/linux"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+    name = "MacOS"
+    url = "/categories/macos"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+    name = "Networking"
+    url = "/categories/networking"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+    name = "Programming"
+    url = "/categories/programming"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+    name = "CTF"
+    url = "/categories/ctf"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
+weight = 4
+url = "https://contact.matthewshammond.com/"
+name = "Contact"
+
+############################# Footer Menu ########################
+
+[[Languages.en.menu.footer]]
+weight = 3
+url = "https://keys.openpgp.org/search?q=matthew%40matthewshammond.com"
+name = "PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884"
