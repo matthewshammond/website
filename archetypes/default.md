@@ -12,6 +12,6 @@ categories:
   - Networking
   - Programming
 tags:
-  - Debian
+  - CTF
 draft: false
 ---
