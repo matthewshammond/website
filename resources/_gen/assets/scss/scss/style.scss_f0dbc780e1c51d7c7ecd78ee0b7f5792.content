@@ -422,7 +422,7 @@ textarea.form-control {
 
 .search-wrapper-expanded {
   background-color: #fff;
-  border: 1px solid #D8DEE9; }
+  border: 1px solid #ECEFF4; }
   .search-wrapper-expanded .search-box {
     padding: 11px 15px;
     font-size: 16px; }
@@ -435,7 +435,7 @@ textarea.form-control {
       height: 50%;
       top: 25%;
       left: -5px;
-      border-left: 1px solid #D8DEE9; }
+      border-left: 1px solid #ECEFF4; }
 
 /* banner */
 .banner {
