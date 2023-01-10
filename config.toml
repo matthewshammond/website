@@ -180,6 +180,11 @@ hasChildren = true
     parent = "Members"
 
 [[Languages.en.menu.main]]
+    name = "Homebridge"
+    url = "https://homebridge.matthewshammond.com"
+    parent = "Members"
+
+[[Languages.en.menu.main]]
     name = "Tautulli"
     url = "https://tautulli.matthewshammond.com"
     parent = "Members"
