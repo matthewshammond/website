@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://matthewshammond.com/"
+  to = "https://www.matthewshammond.com"
+  status = 301
+  force = true
