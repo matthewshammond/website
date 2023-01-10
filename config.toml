@@ -161,7 +161,7 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
     name = "Uptime"
-    url = "https://status.matthewshammond.com/status/atlas"
+    url = "https://status.matthewshammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
@@ -176,7 +176,7 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
     name = "Status"
-    url = "https://status.matthewshammond.com"
+    url = "https://status.matthewshammond.com/status/atlas"
     parent = "Members"
 
 [[Languages.en.menu.main]]
