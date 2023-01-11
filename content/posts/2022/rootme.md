@@ -1,9 +1,9 @@
 ---
 title: "Rootme"
 
-date: 2023-01-08
+date: 2022-12-18
 url: /rootme/
-image: images/2023-thumbs/rootme.jpg
+image: images/2022-thumbs/rootme.jpg
 categories:
   - CTF
 tags:

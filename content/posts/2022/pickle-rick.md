@@ -1,9 +1,9 @@
 ---
 title: "Pickle Rick"
 
-date: 2023-01-08
+date: 2022-12-17
 url: /pickle-rick/
-image: images/2023-thumbs/pickle-rick.jpg
+image: images/2022-thumbs/pickle-rick.jpg
 categories:
   - CTF
 tags:

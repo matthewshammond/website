@@ -1,9 +1,9 @@
 ---
 title: "Crack the Hash"
 
-date: 2023-01-08
+date: 2022-12-18
 url: /crack-the-hash/
-image: images/2023-thumbs/crack-the-hash.jpg
+image: images/2022-thumbs/crack-the-hash.jpg
 categories:
   - CTF
 tags:

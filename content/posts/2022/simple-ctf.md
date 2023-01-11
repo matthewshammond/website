@@ -1,9 +1,9 @@
 ---
 title: "Simple Ctf"
 
-date: 2023-01-08
+date: 2022-12-18
 url: /simple-ctf/
-image: images/2023-thumbs/simple-ctf.png
+image: images/2022-thumbs/simple-ctf.png
 categories:
   - CTF
 tags:

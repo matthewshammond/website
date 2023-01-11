@@ -1,9 +1,9 @@
 ---
 title: "Mr Robot"
 
-date: 2023-01-08
+date: 2022-12-17
 url: /mr-robot/
-image: images/2023-thumbs/mr-robot.jpg
+image: images/2022-thumbs/mr-robot.jpg
 categories:
   - CTF
 tags:
