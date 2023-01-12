@@ -13,6 +13,8 @@ tags:
 draft: false
 
 ---
+
+```
 .       - Any Character Except New Line
 \d      - Digit (0-9)
 \D      - Not a Digit (0-9)
@@ -41,3 +43,4 @@ Quantifiers:
 
 #### Sample Regexs ####
 [a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
+```

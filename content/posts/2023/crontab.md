@@ -13,6 +13,7 @@ tags:
 draft: false
 ---
 
+```
 # ┌───────────── minute (0 - 59)
 # │ ┌───────────── hour (0 - 23)
 # │ │ ┌───────────── day of month (1 - 31)
@@ -31,3 +32,5 @@ draft: false
 
 # Update domain ip
 */30 * * * * /bin/bash ${HOME}/.dotfiles/scripts/cloudflare.sh
+```
+
