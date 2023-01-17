@@ -3,7 +3,7 @@ title: "Steganography Payload"
 
 date: 2023-01-11
 url: /steganography-payload/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - Dev Ops
   - Linux
