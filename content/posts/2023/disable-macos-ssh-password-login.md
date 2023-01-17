@@ -15,7 +15,7 @@ draft: false
 
 Create `000-hostname.conf` in `/etc/ssh/sshd_config.d`
 
-## `000-hostname.conf`
+## 000-hostname.conf
 ```
 UsePAM no
 PasswordAuthentication no
