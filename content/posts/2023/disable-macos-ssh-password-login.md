@@ -3,7 +3,7 @@ title: "Disable MacOS SSH Password Login"
 
 date: 2023-01-16
 url: /disable-macos-ssh-password-login/
-image: images/blank.jpg
+image: images/blank.png
 categories:
   - MacOS
   - Networking
