@@ -3,7 +3,7 @@ title: "Netcat Chat Server"
 
 date: 2023-01-11
 url: /netcat-chat-server/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - Linux
   - MacOS

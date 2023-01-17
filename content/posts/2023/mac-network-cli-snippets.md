@@ -3,7 +3,7 @@ title: "Mac Network Cli Snippets"
 
 date: 2023-01-11
 url: /mac-network-cli-snippets/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - MacOS
   - Networking

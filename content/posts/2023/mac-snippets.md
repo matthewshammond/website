@@ -3,7 +3,7 @@ title: "Mac Snippets"
 
 date: 2023-01-11
 url: /mac-snippets/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - MacOS
 tags:

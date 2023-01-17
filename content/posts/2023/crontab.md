@@ -3,7 +3,7 @@ title: "Crontab"
 
 date: 2023-01-12
 url: /crontab/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - Linux
   - MacOS

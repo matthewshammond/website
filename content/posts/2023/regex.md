@@ -3,7 +3,7 @@ title: "Regex"
 
 date: 2023-01-12
 url: /regex/
-image: images/blank.png
+image: images/tux_apple.png
 categories:
   - Linux
   - MacOS
