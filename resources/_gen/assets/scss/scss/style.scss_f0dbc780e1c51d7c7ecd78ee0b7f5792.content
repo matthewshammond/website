@@ -384,7 +384,7 @@ textarea.form-control {
 /* search */
 .search-btn {
   border: 0;
-  background: transparent; }
+  background: #4C566A; }
 
 .search-wrapper {
   position: absolute;
