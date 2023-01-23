@@ -1,6 +1,6 @@
 ############################ Default configuration #########################
 baseURL = "https://www.matthewshammond.com/"
-title = "Matthew S Hammond | HAA Pilot | CEH | Sec+ | Splunk | Homelab"
+title = "Matthew S Hammond | Professional Pilot | CEH | Sec+ | Splunk | Homelab"
 # theme
 theme = "northendlab"
 # post pagination
@@ -37,7 +37,7 @@ logoHeight = 200
 favicon = "images/favicon.png"
 # meta data
 author = "Matthew S Hammond"
-description = "HAA Pilot | CEH | Sec+ | Splunk | Homelab"
+description = "Professional Pilot | CEH | Sec+ | Splunk | Homelab"
 # homepage main section
 mainSections = ["posts"]
 # contact form action
