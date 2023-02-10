@@ -1,5 +1,5 @@
 ############################ Default configuration #########################
-baseURL = "https://www.matthewshammond.com/"
+baseURL = "https://matthewshammond.com/"
 title = "Matthew S Hammond | Professional Pilot | CEH | Sec+ | Splunk | Homelab"
 # theme
 theme = "northendlab"
