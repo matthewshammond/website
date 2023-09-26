@@ -30,7 +30,7 @@ home = ["HTML", "AMP", "RSS", "JSON"]
 ######################### Default Parameters ###########################
 [params]
 # logo
-logo = "images/avatar.png"
+logo = "/content/images/avatar.png"
 logoWidth = 200
 logoHeight = 200
 # favicon
