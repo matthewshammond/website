@@ -1,3 +1,3 @@
-# MatthewSHammond.com Website
+# matthammond.dev Website
 
 This is where I am hosting and testing building my own website.
