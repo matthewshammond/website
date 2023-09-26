@@ -3,7 +3,7 @@ title: "Bounty Hacker"
 
 date: 2022-12-18
 url: /bounty-hacker/
-image: images/2023-thumbs/bounty-hacker.jpg
+image: images/2022-thumbs/bounty-hacker.jpg
 categories:
   - CTF
 tags:
