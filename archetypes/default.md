@@ -7,11 +7,12 @@ image: images/2023-thumbs/{{ .Name }}.jpg
 categories:
   - CTF
   - Dev Ops
+  - Homelab
   - Linux
   - MacOS
   - Networking
   - Programming
 tags:
-  - CTF
+  - Homelab
 draft: false
 ---
