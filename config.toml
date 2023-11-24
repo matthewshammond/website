@@ -226,6 +226,11 @@ hasChildren = true
     parent = "Sections"
 
 [[Languages.en.menu.main]]
+    name = "Homelab"
+    url = "/categories/Homelab"
+    parent = "Sections"
+
+[[Languages.en.menu.main]]
 weight = 4
 url = "https://contact.matthammond.dev/"
 name = "Contact"
