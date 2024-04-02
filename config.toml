@@ -1,5 +1,5 @@
 ############################ Default configuration #########################
-baseURL = "https://matthammond.dev/"
+baseURL = "https://matthammond.com/"
 title = "Matt Hammond | Professional Pilot | CEH | Sec+ | Splunk | Homelab"
 # theme
 theme = "northendlab"
@@ -156,37 +156,37 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
     name = "Dashboard"
-    url = "https://dashboard.matthammond.dev"
+    url = "https://dashboard.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Uptime"
-    url = "https://status.matthammond.dev"
+    url = "https://status.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Portainer"
-    url = "https://portainer.matthammond.dev/"
+    url = "https://portainer.matthammond.com/"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Plex"
-    url = "https://plex.matthammond.dev"
+    url = "https://plex.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Status"
-    url = "https://status.matthammond.dev/status/atlas"
+    url = "https://status.matthammond.com/status/atlas"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Homebridge"
-    url = "https://homebridge.matthammond.dev"
+    url = "https://homebridge.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Tautulli"
-    url = "https://tautulli.matthammond.dev"
+    url = "https://tautulli.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
@@ -232,12 +232,12 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
 weight = 4
-url = "https://contact.matthammond.dev/"
+url = "https://contact.matthammond.com/"
 name = "Contact"
 
 ############################# Footer Menu ########################
 
 [[Languages.en.menu.footer]]
 weight = 3
-url = "https://keys.openpgp.org/search?q=matt%40matthammond.dev"
+url = "https://keys.openpgp.org/search?q=matt%40matthammond.com"
 name = "PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884"
