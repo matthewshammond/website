@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CyberSecurity on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</title>
+    <link>http://localhost:1313/tags/cybersecurity/</link>
+    <description>Recent content in CyberSecurity on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Comptia Security&#43;</title>
+      <link>http://localhost:1313/comptia-security-plus/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/comptia-security-plus/</guid>
+      <description>&lt;h2 id=&#34;general-information&#34;&gt;General Information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CSR
+&lt;ul&gt;
+&lt;li&gt;CSEPOOLCSK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Encryption Alogorithms
+&lt;ul&gt;
+&lt;li&gt;RED fishES
+&amp;ndash;A&amp;mdash;&amp;ndash;S
+&amp;mdash;&amp;ndash;H&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t smoke HASH, have some integrity&lt;/li&gt;
+&lt;li&gt;Everything else is for confidentiality&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cyber Attack Identification
+&lt;ul&gt;
+&lt;li&gt;cookies = XSS = enable input validation&lt;/li&gt;
+&lt;li&gt;DNS = DNS Poisoning = Use DNSSEC for DNS integrity&lt;/li&gt;
+&lt;li&gt;multiple sources = Botnet = activate DDoS protection&lt;/li&gt;
+&lt;li&gt;spoofing = smurf = disable ip-directed broadcasts at the router&lt;/li&gt;
+&lt;li&gt;ping | maximum = ping of death = use a firewall to check fragmental IP packets for maximum size&lt;/li&gt;
+&lt;li&gt;remotely = RAT = disable remote access services&lt;/li&gt;
+&lt;li&gt;saves old messages = session replay attack = use session timestamps&lt;/li&gt;
+&lt;li&gt;self-propogating | exploit default = worm = change default app passwords&lt;/li&gt;
+&lt;li&gt;personal = spear phishing = analyze email headers&lt;/li&gt;
+&lt;li&gt;hardware device = keylogger = 2FA or MFA&lt;/li&gt;
+&lt;li&gt;malicious scripts pages = watering hole = input validation&lt;/li&gt;
+&lt;li&gt;hidden access = backdoor = execute code review&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MITRE ATT&amp;amp;CK Framework
+&lt;ul&gt;
+&lt;li&gt;RW DEICE
+&lt;ul&gt;
+&lt;li&gt;Reconnaissance&lt;/li&gt;
+&lt;li&gt;Weaponization&lt;/li&gt;
+&lt;li&gt;Delivery&lt;/li&gt;
+&lt;li&gt;Exploitation&lt;/li&gt;
+&lt;li&gt;Installation&lt;/li&gt;
+&lt;li&gt;Command &amp;amp; Control (C2)&lt;/li&gt;
+&lt;li&gt;Exfiltration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Security Control
+&lt;ul&gt;
+&lt;li&gt;Data Center
+&lt;ul&gt;
+&lt;li&gt;SMASH PP
+&lt;ul&gt;
+&lt;li&gt;Sniffer&lt;/li&gt;
+&lt;li&gt;Man Trap&lt;/li&gt;
+&lt;li&gt;Antivirus&lt;/li&gt;
+&lt;li&gt;Strong Password&lt;/li&gt;
+&lt;li&gt;Host Based Firewall&lt;/li&gt;
+&lt;li&gt;Popup Blocker&lt;/li&gt;
+&lt;li&gt;Proximity Badge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;7 Layer OSI Model
+&lt;ul&gt;
+&lt;li&gt;Please Do Not Throw Sausage Pizza Away
+&lt;ul&gt;
+&lt;li&gt;Physical&lt;/li&gt;
+&lt;li&gt;Data Link&lt;/li&gt;
+&lt;li&gt;Network&lt;/li&gt;
+&lt;li&gt;Transport&lt;/li&gt;
+&lt;li&gt;Session&lt;/li&gt;
+&lt;li&gt;Presenation&lt;/li&gt;
+&lt;li&gt;Application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud Computing Modules
+&lt;ul&gt;
+&lt;li&gt;Traditional - cloud provides nothing&lt;/li&gt;
+&lt;li&gt;SaaS - cloud provides everything&lt;/li&gt;
+&lt;li&gt;PaaS - business provides Applications&lt;/li&gt;
+&lt;li&gt;IaaS - cloud provides Networking, Storage, Server HW, Virtualization (NSSHV)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

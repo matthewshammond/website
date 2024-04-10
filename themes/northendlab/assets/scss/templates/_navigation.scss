@@ -1,5 +1,5 @@
 .navigation {
-  transition: .3s ease;
+  transition: 0.3s ease;
 
   @include desktop {
     background: $white;
@@ -44,10 +44,11 @@
     &.dropdown .dropdown-item {
       padding-top: 7px;
       padding-bottom: 7px;
+
       &:focus,
       &:hover {
         color: $primary_color;
-        background-color: rgba($body-color, 1.0);
+        background-color: rgba($body-color, 1);
         padding-left: 1.6rem;
       }
     }
@@ -66,7 +67,7 @@
 
       top: calc(50% - 7px);
       display: inline-block;
-      vertical-align: .255em;
+      vertical-align: 0.255em;
       content: "";
       height: 9px;
       width: 9px;
@@ -88,7 +89,7 @@
   border-top: 3px solid $primary-color;
 }
 
-@media (min-width:991px) {
+@media (min-width: 991px) {
   .dropdown-menu {
     display: block;
     opacity: 0;
@@ -103,7 +104,7 @@
   .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
-    box-shadow: 0 10px 30px rgba(22, 28, 45, .10);
+    box-shadow: 0 10px 30px rgba(22, 28, 45, 0.1);
     transform: translate(-50%, -6px);
   }
 
@@ -130,7 +131,7 @@
   height: 100%;
   z-index: 2;
   visibility: hidden;
-  transition: .2s ease;
+  transition: 0.2s ease;
   opacity: 0;
 
   &.open {
@@ -146,6 +147,7 @@
   background: $white;
   font-size: 20px;
   padding: 0;
+  caret-color: #eceff4;
 
   &:focus {
     box-shadow: none !important;
@@ -165,21 +167,24 @@
 
 .search-wrapper-expanded {
   background-color: #fff;
-  border: 1px solid #ECEFF4;
+  border: 1px solid #eceff4;
+
   .search-box {
     padding: 11px 15px;
     font-size: 16px;
   }
+
   .search-btn {
     width: 45px;
     position: relative;
+
     &::before {
       position: absolute;
       content: "";
       height: 50%;
       top: 25%;
       left: -5px;
-      border-left: 1px solid #ECEFF4;
+      // border-left: 1px solid #ECEFF4;
     }
   }
 }

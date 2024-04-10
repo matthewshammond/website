@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Netcat Chat Server</title>
+      <link>http://localhost:1313/netcat-chat-server/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/netcat-chat-server/</guid>
+      <description>&lt;h2 id=&#34;local-host&#34;&gt;Local Host&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netcat -l -p 1299
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;connecting-host&#34;&gt;Connecting Host&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;netcat localhost 1299
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>SSH Keys</title>
+      <link>http://localhost:1313/ssh-keys/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ssh-keys/</guid>
+      <description>&lt;h2 id=&#34;create-ssh-key-in-terminal&#34;&gt;create ssh key in terminal&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -a &lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; -t ed25519 -f ~/.ssh/id_ed25519 -C &lt;span class=&#34;s2&#34;&gt;&amp;#34;john@example.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-a&lt;/code&gt;: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-t&lt;/code&gt;: Specifies the type of key to create, in our case the Ed25519.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-f&lt;/code&gt;: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default &lt;code&gt;.ssh&lt;/code&gt; directory within your home directory.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-C&lt;/code&gt;: An option to specify a comment. It’s purely informational and can be anything. But it’s usually filled with &lt;code&gt;&amp;lt;login&amp;gt;@&amp;lt;hostname&amp;gt;&lt;/code&gt; who generated the key.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
