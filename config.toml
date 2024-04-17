@@ -129,6 +129,9 @@ link = "https://github.com/matthewshammond"
 [[params.social]]
 icon = "fab fa-linkedin" # Fontawesome icon pack https://fontawesome.com/icons
 link = "https://www.linkedin.com/in/matthewshammond/"
+[[params.social]]
+icon = "fab fa-discord" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://discord.gg/kU2wgApBgK"
 
 ######################## About Me Widget ###############################
 [Languages.en.about_me]
@@ -141,6 +144,9 @@ link = "https://github.com/matthewshammond"
 [[params.social_profile]]
 icon = "fab fa-linkedin" # Fontawesome icon pack https://fontawesome.com/icons
 link = "https://www.linkedin.com/in/matthewshammond/"
+[[params.social]]
+icon = "fab fa-discord" # Fontawesome icon pack https://fontawesome.com/icons
+link = "https://discord.gg/kU2wgApBgK"
 
 ############################# English - Main Menu ########################
 [[Languages.en.menu.main]]
