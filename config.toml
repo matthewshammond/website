@@ -132,9 +132,6 @@ link = "https://www.linkedin.com/in/matthewshammond/"
 [[params.social]]
 icon = "fab fa-discord" # Fontawesome icon pack https://fontawesome.com/icons
 link = "https://discord.gg/kU2wgApBgK"
-[[params.social]]
-icon = "fa fa-gnupg" # Fontawesome icon pack https://fontawesome.com/icons
-link = "https://keys.openpgp.org/search?q=matt%40matthammond.com"
 
 ######################## About Me Widget ###############################
 [Languages.en.about_me]
