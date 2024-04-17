@@ -30,7 +30,7 @@ home = ["HTML", "AMP", "RSS", "JSON"]
 ######################### Default Parameters ###########################
 [params]
 # logo
-logo = "images/logos/MH2_transparent.png"
+logo = "images/logos/MH2.png"
 logoWidth = 200
 logoHeight = 200
 # favicon
