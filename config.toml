@@ -172,7 +172,7 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
     name = "Portainer"
-    url = "https://portainer.matthammond.com/"
+    url = "https://voyager.matthammond.com/"
     parent = "Members"
 
 [[Languages.en.menu.main]]
@@ -185,10 +185,10 @@ hasChildren = true
     url = "https://status.matthammond.com/status/atlas"
     parent = "Members"
 
-[[Languages.en.menu.main]]
-    name = "Homebridge"
-    url = "https://homebridge.matthammond.com"
-    parent = "Members"
+# [[Languages.en.menu.main]]
+#     name = "Homebridge"
+#     url = "https://homebridge.matthammond.com"
+#     parent = "Members"
 
 [[Languages.en.menu.main]]
     name = "Tautulli"
