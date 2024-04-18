@@ -162,7 +162,7 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
     name = "Dashboard"
-    url = "https://dashboard.matthammond.com"
+    url = "https://homarr.matthammond.com"
     parent = "Members"
 
 [[Languages.en.menu.main]]
