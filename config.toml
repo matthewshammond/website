@@ -134,7 +134,7 @@ icon = "fab fa-discord" # Fontawesome icon pack https://fontawesome.com/icons
 link = "https://discord.gg/kU2wgApBgK"
 
 ######################## About Me Widget ###############################
-[Languages.en.about_me]
+[Languages.en.params.about_me]
 title = "Matt Hammond"
 bio = ""
 
