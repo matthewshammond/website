@@ -2,32 +2,57 @@
 
 <section class="section">
   <div class="container">
-    <div class="row justify-content-between">
-      <div class="col-lg-5">
+    <div class="row align-self-center">
+      <div class="col-md-5">
         <h2 class="mb-4">{{ .Title | markdownify }}</h2>
         <div class="content">{{ .Content }}</div>
-        <form method="POST" action="{{ site.Params.contact_form_action | safeURL}}" class="row">
-          <div class="col-md-6">
-            <input type="text" class="form-control mb-4" placeholder="Name" name="name" id="name">
-          </div>
-          <div class="col-md-6">
-            <input type="email" class="form-control mb-4" placeholder="Email" name="email" id="email">
+        <form
+          method="POST"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfmgvRE32CUZMDjx0E5KLu_hhlMliCfMqtMLqxmZRLwAAHwew/formResponse"
+          class="row"
+        >
+          <div class="col-12">
+            <input
+              type="text"
+              class="form-control mb-4"
+              placeholder="Name"
+              name="entry.1460174853"
+              id="name"
+            />
           </div>
           <div class="col-12">
-            <input type="text" class="form-control mb-4" placeholder="Subject" name="subject" id="subject">
+            <input
+              type="email"
+              class="form-control mb-4"
+              placeholder="Email"
+              name="entry.1109786842"
+              id="email"
+            />
           </div>
           <div class="col-12">
-            <textarea name="message" id="message" class="form-control mb-4" placeholder="Type You Message Here"
-              rows="5"></textarea>
+            <textarea
+              name="entry.1738807586"
+              id="message"
+              class="form-control mb-4"
+              placeholder="Type You Message Here"
+              rows="5"
+            ></textarea>
           </div>
           <div class="col-12">
-            <button class="btn btn-primary btn-block" type="submit">Send</button>
+            <button class="btn btn-primary btn-block" type="submit">
+              Send
+            </button>
           </div>
         </form>
       </div>
       {{ if .Params.Image }}
       <div class="col-lg-6 text-md-right">
-        <img loading="lazy" class="img-fluid" src="{{ .Params.Image | absURL }}" alt="{{ .Title }}">
+        <img
+          loading="lazy"
+          class="img-fluid"
+          src="{{ .Params.Image | absURL }}"
+          alt="{{ .Title }}"
+        />
       </div>
       {{ end }}
     </div>

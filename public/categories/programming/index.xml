@@ -6,7 +6,26 @@
     <description>Recent content in Programming on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Professional Email Signatures</title>
+      <link>http://localhost:1313/professional-email-signatures/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/professional-email-signatures/</guid>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s create a professional looking signature for your email. This tutorial will give you step-by-step instructions on creating and deploying an email signature for &lt;strong&gt;iCloud&lt;/strong&gt; (macOS Mail client and iPhone) along with &lt;strong&gt;Google&lt;/strong&gt;. It may work for other providers such as Outlook, but has not been tested.&lt;/p&gt;
+&lt;img src=&#34;http://localhost:1313/images/2024/professional-email-signatures/signature_example.jpg&#34; alt=&#34;alt&#34; title=&#34;Example Signature&#34; width=&#34;400&#34;&gt;
+&lt;p&gt;If you want a logo or photo in your signature, it is important that the image is available online and the location does not move. The next section will walk you through hosting your own images. If you are not going to have an image in your signature, skip the next section.&lt;/p&gt;
+&lt;h2 id=&#34;host-your-own-image&#34;&gt;Host Your Own Image&lt;/h2&gt;
+&lt;p&gt;To ensure the image location does not move on the internet, it is best to host the image yourself. Even if not a developer, I recommend creating a free &lt;strong&gt;&lt;a href=&#34;https://github.com&#34;&gt; Github &lt;/a&gt;&lt;/strong&gt; account to host your own image. Go to &lt;strong&gt;&lt;a href=&#34;https://github.com&#34;&gt;Github.com&lt;/a&gt;&lt;/strong&gt; and sign up. Once signed up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new repository&lt;/li&gt;
+&lt;li&gt;Name this repository &lt;em&gt;images&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>Crontab</title>
       <link>http://localhost:1313/crontab/</link>
