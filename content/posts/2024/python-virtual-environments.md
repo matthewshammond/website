@@ -41,4 +41,4 @@ export PYENV_ROOT="$HOME/.pyenv"
 - `pyenv virtualenvs`: list virtual environments
 - `pyenv activate <environment_name>`: activate virtual environment
 - `source deactivate`: deactivate virtual environment
-- `pyenv uninstall <environment name or python version>`: delete virtual environment or uninstall python version
+- `pyenv uninstall <environment_name or python version>`: delete virtual environment or uninstall python version
