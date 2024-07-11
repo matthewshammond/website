@@ -36,6 +36,9 @@
 &lt;li&gt;&lt;code&gt;source deactivate&lt;/code&gt;: deactivate virtual environment&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;pyenv uninstall &amp;lt;environment_name or python version&amp;gt;&lt;/code&gt;: delete virtual environment or uninstall python version&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;autoload-virtual-environment&#34;&gt;Autoload Virtual Environment&lt;/h2&gt;
+&lt;p&gt;Create &lt;code&gt;.python-version&lt;/code&gt; inside project directory&lt;/p&gt;
+&lt;p&gt;Inside file put the environment name you created.&lt;/p&gt;
 </description>
     </item>
     

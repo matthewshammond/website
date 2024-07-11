@@ -250,7 +250,7 @@
           
           
           <li class="nav-item">
-            <a class="nav-link" href="https://contact.matthammond.com/">Contact</a>
+            <a class="nav-link" href="http://localhost:1313/contact">Contact</a>
           </li>
           
           
@@ -291,7 +291,11 @@
         <div class="content"><p>If you have any questions, please feel free to reach out.</p>
 <p>The quickest way to get in touch with me for questions is via email. Email me at <a href="mailto:contact@matthammond.com">contact@matthammond.com</a> with any inquiries or suggestions you have.</p>
 <p>Trouble emailing me? Use this form instead.</p>
-<!-- <form name="contact" action="https://getform.io/f/aqonngka" method="POST">
+<!-- <form
+  name="contact"
+  action="https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0"
+  method="POST"
+>
   <div class="input">
     <input
       type="text"
@@ -305,7 +309,7 @@
     <input
       type="text"
       placeholder="Email"
-      name="mail"
+      name="email"
       class="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500"
       required
     />
@@ -313,8 +317,8 @@
   <div class="input">
     <input
       type="text"
-      placeholder="Title"
-      name="title"
+      placeholder="Subject"
+      name="subject"
       class="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500"
       required
     />
@@ -324,7 +328,7 @@
       rows="5"
       cols="30"
       placeholder="Message"
-      name="message"
+      name="content"
       class="p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500"
       required
     ></textarea>
@@ -337,7 +341,11 @@
 </form>
  -->
 </div>
-        <form method="POST" action="https://getform.io/f/aqonngka" class="row">
+        <form
+          method="POST"
+          action="https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0"
+          class="row"
+        >
           <div class="col-12">
             <input
               type="text"
@@ -357,9 +365,18 @@
             />
           </div>
           <div class="col-12">
+            <input
+              type="subject"
+              class="form-control mb-4"
+              placeholder="Subject"
+              name="subject"
+              id="subject"
+            />
+          </div>
+          <div class="col-12">
             <textarea
-              name="message"
-              id="message"
+              name="content"
+              id="content"
               class="form-control mb-4"
               placeholder="Type You Message Here"
               rows="5"
