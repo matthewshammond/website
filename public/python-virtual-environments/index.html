@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<title>Comptia Security&#43;</title>
+<title>Python Virtual Environments</title>
 
 <meta name="author" content="Matt Hammond">
 <meta name="description" content="Professional Pilot | CEH | Sec&#43; | Splunk | Homelab">
@@ -37,7 +37,7 @@
 </script>
 <head>
   <meta charset="utf-8">
-<title>Comptia Security&#43;</title>
+<title>Python Virtual Environments</title>
 
 <meta name="author" content="Matt Hammond">
 <meta name="description" content="Professional Pilot | CEH | Sec&#43; | Splunk | Homelab">
@@ -297,15 +297,19 @@
         class="col-lg-8 "
       >
         <div class="block shadow mb-4">
-          <h2>Comptia Security+</h2>
+          <h2>Python Virtual Environments</h2>
           <div class="mb-4 mt-3 post-meta">
             <a
               href="http://localhost:1313/author/"
               ></a
             >
-            <span class="mx-2">|</span> Oct 1, 2022<span class="mx-2">|</span> 
-            <a href="http://localhost:1313/categories/dev-ops"
-              >Dev Ops</a
+            <span class="mx-2">|</span> Jun 3, 2024<span class="mx-2">|</span> 
+            <a href="http://localhost:1313/categories/macos"
+              >MacOS</a
+            >
+            
+            <a href="http://localhost:1313/categories/programming"
+              >Programming</a
             >
             
           </div>
@@ -313,109 +317,36 @@
           
           
 
-          <div class="content mb-5"><h2 id="general-information">General Information</h2>
+          <div class="content mb-5"><p>Quick reference to installing <code>pyenv</code> and managing different python versions. Also, steps for creating and managing virtual environments.</p>
+<h2 id="install-pyenv-and-setup-environment">Install pyenv and Setup Environment</h2>
+<p>For full documentation on <a href="https://github.com/pyenv/pyenv">pyenv</a> visit <a href="https://github.com/pyenv/pyenv">Github</a></p>
 <ul>
-<li>CSR
-<ul>
-<li>CSEPOOLCSK</li>
+<li><code>brew install pyenv</code></li>
+<li>Add the following to your .zshrc file</li>
 </ul>
-</li>
-<li>Encryption Alogorithms
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Enable shims and autocompletion</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Add pyenv to $PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">[[</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> <span class="o">=</span>~ <span class="s2">&#34;:</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:&#34;</span> <span class="o">]]</span> <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h2 id="commands">Commands</h2>
 <ul>
-<li>RED fishES
-&ndash;A&mdash;&ndash;S
-&mdash;&ndash;H</li>
-<li>Don&rsquo;t smoke HASH, have some integrity</li>
-<li>Everything else is for confidentiality</li>
-</ul>
-</li>
-<li>Cyber Attack Identification
-<ul>
-<li>cookies = XSS = enable input validation</li>
-<li>DNS = DNS Poisoning = Use DNSSEC for DNS integrity</li>
-<li>multiple sources = Botnet = activate DDoS protection</li>
-<li>spoofing = smurf = disable ip-directed broadcasts at the router</li>
-<li>ping | maximum = ping of death = use a firewall to check fragmental IP packets for maximum size</li>
-<li>remotely = RAT = disable remote access services</li>
-<li>saves old messages = session replay attack = use session timestamps</li>
-<li>self-propogating | exploit default = worm = change default app passwords</li>
-<li>personal = spear phishing = analyze email headers</li>
-<li>hardware device = keylogger = 2FA or MFA</li>
-<li>malicious scripts pages = watering hole = input validation</li>
-<li>hidden access = backdoor = execute code review</li>
-</ul>
-</li>
-<li>MITRE ATT&amp;CK Framework
-<ul>
-<li>RW DEICE
-<ul>
-<li>Reconnaissance</li>
-<li>Weaponization</li>
-<li>Delivery</li>
-<li>Exploitation</li>
-<li>Installation</li>
-<li>Command &amp; Control (C2)</li>
-<li>Exfiltration</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Security Control
-<ul>
-<li>Data Center
-<ul>
-<li>SMASH PP
-<ul>
-<li>Sniffer</li>
-<li>Man Trap</li>
-<li>Antivirus</li>
-<li>Strong Password</li>
-<li>Host Based Firewall</li>
-<li>Popup Blocker</li>
-<li>Proximity Badge</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>7 Layer OSI Model
-<ul>
-<li>Please Do Not Throw Sausage Pizza Away
-<ul>
-<li>Physical</li>
-<li>Data Link</li>
-<li>Network</li>
-<li>Transport</li>
-<li>Session</li>
-<li>Presenation</li>
-<li>Application</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Cloud Computing Modules
-<ul>
-<li>Traditional - cloud provides nothing</li>
-<li>SaaS - cloud provides everything</li>
-<li>PaaS - business provides Applications</li>
-<li>IaaS - cloud provides Networking, Storage, Server HW, Virtualization (NSSHV)</li>
-</ul>
-</li>
+<li><code>pyenv install -l</code>: list versions for installation</li>
+<li><code>pyenv install &lt;version&gt;</code>: install selected version</li>
+<li><code>pyenv virtualenv &lt;version&gt; &lt;environment_name&gt;</code>: create virtual environment</li>
+<li><code>pyenv virtualenvs</code>: list virtual environments</li>
+<li><code>pyenv activate &lt;environment_name&gt;</code>: activate virtual environment</li>
+<li><code>source deactivate</code>: deactivate virtual environment</li>
+<li><code>pyenv uninstall &lt;environment_name or python version&gt;</code>: delete virtual environment or uninstall python version</li>
 </ul>
 </div>
           <div class="mb-3 post-meta">
             
             <a
               class="bg-light py-2 px-3"
-              href="http://localhost:1313/tags/devops"
-              >#DevOps</a
-            >
-            
-            <a
-              class="bg-light py-2 px-3"
-              href="http://localhost:1313/tags/cybersecurity"
-              >#CyberSecurity</a
+              href="http://localhost:1313/tags/python"
+              >#Python</a
             >
             
           </div>
@@ -481,7 +412,8 @@
 <aside>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#general-information">General Information</a></li>
+    <li><a href="#install-pyenv-and-setup-environment">Install pyenv and Setup Environment</a></li>
+    <li><a href="#commands">Commands</a></li>
   </ul>
 </nav>
 </aside>
@@ -497,6 +429,8 @@
   
   
   
+  
+  <script src="/js/code-copy.js"></script>
   
   
   

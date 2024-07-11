@@ -6,7 +6,39 @@
     <description>Recent content on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Virtual Environments</title>
+      <link>http://localhost:1313/python-virtual-environments/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/python-virtual-environments/</guid>
+      <description>&lt;p&gt;Quick reference to installing &lt;code&gt;pyenv&lt;/code&gt; and managing different python versions. Also, steps for creating and managing virtual environments.&lt;/p&gt;
+&lt;h2 id=&#34;install-pyenv-and-setup-environment&#34;&gt;Install pyenv and Setup Environment&lt;/h2&gt;
+&lt;p&gt;For full documentation on &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt; visit &lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;brew install pyenv&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add the following to your .zshrc file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Enable shims and autocompletion&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;eval&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pyenv init -&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;eval&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;pyenv virtualenv-init -&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Add pyenv to $PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PYENV_ROOT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$HOME&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/.pyenv&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;:&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;~ &lt;span class=&#34;s2&#34;&gt;&amp;#34;:&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PYENV_ROOT&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/bin:&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PYENV_ROOT&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;/bin:&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pyenv install -l&lt;/code&gt;: list versions for installation&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv install &amp;lt;version&amp;gt;&lt;/code&gt;: install selected version&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv virtualenv &amp;lt;version&amp;gt; &amp;lt;environment_name&amp;gt;&lt;/code&gt;: create virtual environment&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv virtualenvs&lt;/code&gt;: list virtual environments&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv activate &amp;lt;environment_name&amp;gt;&lt;/code&gt;: activate virtual environment&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;source deactivate&lt;/code&gt;: deactivate virtual environment&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyenv uninstall &amp;lt;environment_name or python version&amp;gt;&lt;/code&gt;: delete virtual environment or uninstall python version&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
     <item>
       <title>Professional Email Signatures</title>
       <link>http://localhost:1313/professional-email-signatures/</link>
@@ -22,6 +54,7 @@
 &lt;ul&gt;
 &lt;li&gt;Create a new repository&lt;/li&gt;
 &lt;li&gt;Name this repository &lt;em&gt;images&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Save all images in that will be used in your signature to this repo&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -1684,6 +1717,51 @@ Find SUID flags&lt;/p&gt;
       <description>&lt;p&gt;If you have any questions, please feel free to reach out.&lt;/p&gt;
 &lt;p&gt;The quickest way to get in touch with me for questions is via email. Email me at &lt;a href=&#34;mailto:contact@matthammond.com&#34;&gt;contact@matthammond.com&lt;/a&gt; with any inquiries or suggestions you have.&lt;/p&gt;
 &lt;p&gt;Trouble emailing me? Use this form instead.&lt;/p&gt;
+&lt;!-- &lt;form name=&#34;contact&#34; action=&#34;https://getform.io/f/aqonngka&#34; method=&#34;POST&#34;&gt;
+  &lt;div class=&#34;input&#34;&gt;
+    &lt;input
+      type=&#34;text&#34;
+      placeholder=&#34;Name&#34;
+      name=&#34;name&#34;
+      class=&#34;p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500&#34;
+      required
+    /&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;input&#34;&gt;
+    &lt;input
+      type=&#34;text&#34;
+      placeholder=&#34;Email&#34;
+      name=&#34;mail&#34;
+      class=&#34;p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500&#34;
+      required
+    /&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;input&#34;&gt;
+    &lt;input
+      type=&#34;text&#34;
+      placeholder=&#34;Title&#34;
+      name=&#34;title&#34;
+      class=&#34;p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500&#34;
+      required
+    /&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;input&#34;&gt;
+    &lt;textarea
+      rows=&#34;5&#34;
+      cols=&#34;30&#34;
+      placeholder=&#34;Message&#34;
+      name=&#34;message&#34;
+      class=&#34;p-4 bg-gray-200 border border-gray-200 focus:outline-none focus:bg-white focus:border-gray-500&#34;
+      required
+    &gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;input
+    type=&#34;submit&#34;
+    value=&#34;Submit&#34;
+    class=&#34;px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400&#34;
+  /&gt;
+&lt;/form&gt;
+ --&gt;
 </description>
     </item>
     

@@ -6,11 +6,20 @@
     <description>Recent content in Categories on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS</title>
+      <link>http://localhost:1313/categories/macos/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/categories/macos/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Programming</title>
       <link>http://localhost:1313/categories/programming/</link>
-      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/categories/programming/</guid>
       <description></description>
@@ -22,15 +31,6 @@
       <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/categories/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MacOS</title>
-      <link>http://localhost:1313/categories/macos/</link>
-      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/categories/macos/</guid>
       <description></description>
     </item>
     
