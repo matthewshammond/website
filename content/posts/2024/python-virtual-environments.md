@@ -42,3 +42,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 - `pyenv activate <environment_name>`: activate virtual environment
 - `source deactivate`: deactivate virtual environment
 - `pyenv uninstall <environment_name or python version>`: delete virtual environment or uninstall python version
+
+## Autoload Virtual Environment
+
+Create `.python-version` inside project directory
+
+Inside file put the environment name you created.
