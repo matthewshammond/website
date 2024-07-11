@@ -238,7 +238,7 @@ hasChildren = true
 
 [[Languages.en.menu.main]]
 weight = 4
-url = "https://contact.matthammond.com/"
+url = "/contact"
 name = "Contact"
 
 ############################# Footer Menu ########################
