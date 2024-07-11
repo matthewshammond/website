@@ -6,7 +6,11 @@
       <div class="col-lg-5">
         <h2 class="mb-4">{{ .Title | markdownify }}</h2>
         <div class="content">{{ .Content }}</div>
-        <form method="POST" action="https://getform.io/f/aqonngka" class="row">
+        <form
+          method="POST"
+          action="https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0"
+          class="row"
+        >
           <div class="col-12">
             <input
               type="text"
@@ -26,9 +30,18 @@
             />
           </div>
           <div class="col-12">
+            <input
+              type="subject"
+              class="form-control mb-4"
+              placeholder="Subject"
+              name="subject"
+              id="subject"
+            />
+          </div>
+          <div class="col-12">
             <textarea
-              name="message"
-              id="message"
+              name="content"
+              id="content"
               class="form-control mb-4"
               placeholder="Type You Message Here"
               rows="5"
