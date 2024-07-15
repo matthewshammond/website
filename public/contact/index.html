@@ -294,11 +294,7 @@
         <div class="content"><p>If you have any questions, please feel free to reach out.</p>
 <p>The quickest way to get in touch with me for questions is via email. Email me at <a href="mailto:contact@matthammond.com">contact@matthammond.com</a> with any inquiries or suggestions you have.</p>
 <p>Trouble emailing me? Use this form instead.</p>
-<!-- <form
-  name="contact"
-  action="https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0"
-  method="POST"
->
+<!-- <form id="contact-form" name="contact">
   <div class="input">
     <input
       type="text"
@@ -342,6 +338,50 @@
     class="px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400"
   />
 </form>
+
+<script>
+  $(document).ready(function () {
+    var $contactForm = $("#contact-form");
+    $contactForm.submit(function (e) {
+      e.preventDefault();
+      $.ajax({
+        url: "https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0",
+        method: "POST",
+        data: $(this).serialize(),
+        dataType: "json",
+        beforeSend: function () {
+          $contactForm
+            .find(".overlay div")
+            .html(
+              '<div class="alert alert--loading"><i class="fa fa-circle-o-notch fa-spin"></i> &nbsp; Sending message...</div>',
+            );
+          $contactForm.find(".overlay").fadeIn();
+        },
+        success: function (data) {
+          $contactForm.find(".alert--loading").hide();
+          $contactForm
+            .find(".overlay div")
+            .html(
+              '<div class="alert alert--success"><i class="fa fa-check"></i> &nbsp; Your message was sent successfully!</div>',
+            );
+          $contactForm.find(".overlay").fadeIn();
+        },
+        error: function (err) {
+          $contactForm.find(".alert--loading").hide();
+          $contactForm
+            .find(".overlay div")
+            .html(
+              '<div class="alert alert--error"><i class="fa fa-warning"></i> &nbsp; Ooops, something went wrong.</div>',
+            );
+          $contactForm.find(".overlay").fadeIn();
+        },
+      });
+    });
+    $contactForm.find(".overlay").click(function (e) {
+      $(this).fadeOut();
+    });
+  });
+</script>
  -->
 </div>
         <form
@@ -410,6 +450,8 @@
   
   
   
+  
+  <script src="/js/code-copy.js"></script>
   
   
   

@@ -6,18 +6,7 @@
     <description>Recent content in Programming on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>http://localhost:1313/test/</link>
-      <pubDate>Mon, 15 Jul 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/test/</guid>
-      <description>&lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
-&lt;p&gt;This is a test adding author.&lt;/p&gt;
-</description>
-    </item>
-    
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python Virtual Environments</title>
       <link>http://localhost:1313/python-virtual-environments/</link>

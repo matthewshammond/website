@@ -6,18 +6,7 @@
     <description>Recent content in CTF on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 15 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Test</title>
-      <link>http://localhost:1313/test/</link>
-      <pubDate>Mon, 15 Jul 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/test/</guid>
-      <description>&lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
-&lt;p&gt;This is a test adding author.&lt;/p&gt;
-</description>
-    </item>
-    
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Anonymous</title>
       <link>http://localhost:1313/anonymous/</link>
@@ -26,10 +15,10 @@
       <guid>http://localhost:1313/anonymous/</guid>
       <description>&lt;h2 id=&#34;questions&#34;&gt;Questions&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Enumerate the machine.  How many ports are open? &lt;code&gt;4&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enumerate the machine. How many ports are open? &lt;code&gt;4&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;What service is running on port 21? &lt;code&gt;ftp&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;What service is running on ports 139 and 445? &lt;code&gt;smb&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;There&amp;rsquo;s a share on the user&amp;rsquo;s computer.  What&amp;rsquo;s it called? &lt;code&gt;pics&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;There&amp;rsquo;s a share on the user&amp;rsquo;s computer. What&amp;rsquo;s it called? &lt;code&gt;pics&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;user.txt &lt;code&gt;90d6f992585815ff991e68748c414740&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;root.txt &lt;code&gt;4d930091c31a622a7ed10f27999af363&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -273,9 +262,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/initrd.img.old
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
@@ -344,9 +334,10 @@ phpinfo();?&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
@@ -466,7 +457,7 @@ edited /etc/hosts&lt;/li&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;hydra -v -t 30 -L users.txt -P /usr/local/share/wordlists/rockyou.txt 10.10.98.173 http-post-form &amp;ldquo;/api/login:username=^USER^&amp;amp;password=^PASS^:Incorrect Credentials&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;ffuf -w  -X POST -d &amp;ldquo;username=FUZZ&amp;amp;email=x&amp;amp;password=x&amp;amp;cpassword=x&amp;rdquo; -H &amp;ldquo;Content-Type: text/html; charset=UTF-8&amp;rdquo; -u http://10.10.190.191/customers/signup -mr &amp;ldquo;username already exists&amp;rdquo;
+&lt;p&gt;ffuf -w -X POST -d &amp;ldquo;username=FUZZ&amp;amp;email=x&amp;amp;password=x&amp;amp;cpassword=x&amp;rdquo; -H &amp;ldquo;Content-Type: text/html; charset=UTF-8&amp;rdquo; -u http://10.10.190.191/customers/signup -mr &amp;ldquo;username already exists&amp;rdquo;
 ffuf -u &lt;a href=&#34;https://W2.io/W1&#34;&gt;https://W2.io/W1&lt;/a&gt; -w ./wordlist.txt:W1,./domains.txt:W2
 ffuf -w /usr/local/share/wordlists/rockyou.txt:W1,users.txt:W2 -X POST -d &amp;ldquo;username=W2&amp;amp;password=W1&amp;rdquo; -H &amp;ldquo;content-Type: application/x-www-form-urlencoded&amp;rdquo; -u http://10.10.98.173/admin -mr &amp;ldquo;Incorrect Credentials&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;ssh2john id_rsa &amp;gt; id_rsa.john
@@ -588,9 +579,10 @@ john &amp;ndash;wordlist=/usr/local/share/wordlists/rockyou.txt &amp;ndash;forma
 &lt;/ul&gt;
 &lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
@@ -639,9 +631,10 @@ john &amp;ndash;wordlist=/usr/local/share/wordlists/rockyou.txt &amp;ndash;forma
 &lt;/ul&gt;
 &lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
@@ -706,10 +699,7 @@ john &amp;ndash;wordlist=/usr/local/share/wordlists/rockyou.txt &amp;ndash;forma
 &lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
 &lt;p&gt;5417.6878333333/-00215.0221666667
 54.2947972222,-2.2503694444&lt;/p&gt;
-&lt;p&gt;google: OWoodflint
-- found twitter
-- found wordpress
-- found github&lt;/p&gt;
+&lt;p&gt;google: OWoodflint - found twitter - found wordpress - found github&lt;/p&gt;
 &lt;p&gt;Bssid: B4:5D:50:AA:86:41 - Go nuts!&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
@@ -1014,9 +1004,10 @@ Find SUID flags&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
 &lt;hr&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;
 &lt;code&gt;sudo nmap -sC -sV -oN nmap/initial 10.10.2.159&lt;/code&gt;&lt;/p&gt;
