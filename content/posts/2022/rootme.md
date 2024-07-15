@@ -1,6 +1,7 @@
 ---
 title: "Rootme"
 
+author: Matt Hammond
 date: 2022-12-18
 url: /rootme/
 image: images/2022-thumbs/rootme.jpg
@@ -14,6 +15,7 @@ draft: false
 A ctf for beginners, can you root me?
 
 ## Questions
+
 1. Scan the machine, how many ports are open? `2`
 2. What version of Apache is running? `2.4.29`
 3. What service is running on port 22? `ssh`
@@ -23,26 +25,33 @@ A ctf for beginners, can you root me?
 7. Flag in root.txt? 'THM{pr1v1l3g3_3sc4l4t10n}'
 
 ---
+
 ## Notes
+
 - IP = 10.10.119.146
 
 ### Exposed Services
+
 ```bash
 22
 80
 ```
 
 ### Users:Passwords
-- 
+
+-
 
 ### Vulnerabilities
+
 - unrestricted file uploads
-    - does not allow .php
-    - used .php5
-    - uploaded php reverse shell
+  - does not allow .php
+  - used .php5
+  - uploaded php reverse shell
 
 ---
+
 ## Commands
+
 `ping $IP`
 
 `sudo nmap -sC -sV -oN scans/initial $IP`

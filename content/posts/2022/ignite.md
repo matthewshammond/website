@@ -1,6 +1,7 @@
 ---
 title: "Ignite"
 
+author: Matt Hammond
 date: 2022-12-22
 url: /ignite/
 image: images/2022-thumbs/ignite.png
@@ -12,29 +13,37 @@ draft: false
 ---
 
 ## Questions
+
 1. User.txt `6470e394cbf6dab6a91682cc8585059b`
 2. Root.txt `b9bbcb33e11b80be759c4e844862482d`
 
 ---
+
 ## Notes
+
 - myIP = 10.18.53.113
 - IP = 10.10.27.31
 
 robots.txt = /fuel/
 
 ### Exposed Services
+
 ```bash
 80
 ```
 
 ### Users:Passwords
+
 - admin:admin (found via setup info on http://10.10.27.31)
 
 ### Vulnerabilities
+
 - CVE-2018-16763
 
 ---
+
 ## Commands
+
 `ping $IP`
 
 `sudo nmap -sC -sV -oN scans/initial $IP`

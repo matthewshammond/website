@@ -1,6 +1,7 @@
 ---
 title: "Simple Ctf"
 
+author: Matt Hammond
 date: 2022-12-18
 url: /simple-ctf/
 image: images/2022-thumbs/simple-ctf.png
@@ -14,6 +15,7 @@ draft: false
 Beginner level ctf
 
 ## Questions
+
 1. How many services are running under port 1000? `2`
 2. What is running on the higher port? `ssh`
 3. What's the CVE you're using against the application? `CVE-2019-9053`
@@ -26,10 +28,13 @@ Beginner level ctf
 10. What's the root flag? `W3ll d0n3. You made it!`
 
 ---
+
 ## Notes
+
 - IP = 10.10.123.106
 
 ### Exposed Services
+
 ```bash
 21
 80
@@ -37,28 +42,34 @@ Beginner level ctf
 ```
 
 ### Users:Passwords
+
 - mitch:secret
-    - username found via 46635.py script
-    - password found via hydra
+  - username found via 46635.py script
+  - password found via hydra
 
 ### Vulnerabilities
+
 - CVE-2019-9053
-    - found via $IP/simple
-    - CMS Made Simple version 2.2.8
-    - exploitdb 46635.py
+  - found via $IP/simple
+  - CMS Made Simple version 2.2.8
+  - exploitdb 46635.py
 
 ### 46635.py
+
 ```bash
 [+] Salt for password found: 1dac0d92e9fa6bb2
 [+] Username found: mitch
 [+] Email found: admin@admin.com
 [+] Password found: 0c01f4468bd75d7a84c7eb73846e8d96
 ```
+
 - hash.txt
-`0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2`
+  `0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2`
 
 ---
+
 ## Commands
+
 `ping $IP`
 
 `sudo nmap -sC -sV -p 1-1000 -oN scans/initial $IP`

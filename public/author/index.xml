@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</title>
+    <link>http://localhost:1313/author/</link>
+    <description>Recent content in Authors on Matt Hammond | Professional Pilot | CEH | Sec&#43; | Splunk | Homelab</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="http://localhost:1313/author/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matt Hammond</title>
+      <link>http://localhost:1313/author/matt-hammond/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/author/matt-hammond/</guid>
+      <description>&lt;p&gt;I am a prior military professional with military aviation experience and Special Operations experience. As well as civilian aviation experience in helicopters and fixed wing stateside and abroad. I have turned an interest, hobby, and passion of IT related content into a strong knowledge in the areas of cyber network security analysis, DevOps tool administration, and information security system analysis by completing Security+, CEH, and Splunk Core User certifications. I will be using Github and my website to continue my learning and as a place to implement what I learn.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

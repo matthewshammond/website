@@ -1,6 +1,7 @@
 ---
 title: "Professional Email Signatures"
 
+author: Matt Hammond
 date: 2024-04-24
 url: /professional-email-signatures/
 image: images/2024-thumbs/professional-email-signatures.jpg

@@ -1,6 +1,7 @@
 ---
 title: "Crack the Hash"
 
+author: Matt Hammond
 date: 2022-12-18
 url: /crack-the-hash/
 image: images/2022-thumbs/crack-the-hash.jpg
@@ -14,6 +15,7 @@ draft: false
 Cracking hashes challenges
 
 ## Questions
+
 1. 48bb6e862e54f2a795ffc4e541caed4d `easy`
 2. CBFDAC6008F9CAB4083784CBD1874F76618D2A97 `password123`
 3. 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032 `letmein`
@@ -25,7 +27,9 @@ Cracking hashes challenges
 9. e5d8870e5bdd26602cab8dbe07a942c8669e56d6 `481616481616`
 
 ---
+
 ## Commands
+
 `hashid $HASH`
 `awk 'length($0) == 4' rockyou.txt > shortrockyou.txt`
 

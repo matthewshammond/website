@@ -1,6 +1,7 @@
 ---
 title: "Skynet"
 
+author: Matt Hammond
 date: 2022-12-21
 url: /skynet/
 image: images/2022-thumbs/skynet.jpg
@@ -12,6 +13,7 @@ draft: false
 ---
 
 ## Questions
+
 1. What is Miles password for his emails? `cyborg007haloterminator`
 2. What is the hidden directory? `/45kra24zxs28v3yd`
 3. What is the vulnerability called when you can include a remote file for malicious purposes? `Remote File Inclusion`
@@ -19,11 +21,14 @@ draft: false
 5. What is the root flag? `3f0372db24753accc7179a282cd6a949`
 
 ---
+
 ## Notes
+
 - myIP = 10.18.53.113
 - IP = 10.10.242.171
 
 ### Exposed Services
+
 ```bash
 22
 80
@@ -33,18 +38,22 @@ draft: false
 ```
 
 ### Users:Passwords
+
 - milesdyson:cyborg007haloterminator (squirrelmail)
 - milesdyson:)s{A&2Z=F^n_E.B` (smb)
 - serenakogan:
 
 ### Vulnerabilities
-- 
+
+-
 
 - important.txt $IP/45kra24zxs28v3yd
-    - gobuster on this $IP/45kra24zxs28v3yd/administrator
+  - gobuster on this $IP/45kra24zxs28v3yd/administrator
 
 ---
+
 ## Commands
+
 `ping $IP`
 
 `sudo nmap -sC -sV -oN scans/initial $IP`

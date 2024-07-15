@@ -1,6 +1,7 @@
 ---
 title: "Homebridge Restore Backup"
 
+author: Matt Hammond
 date: 2023-11-24
 url: /homebridge-restore-backup/
 image: images/2023-thumbs/homebridge.svg

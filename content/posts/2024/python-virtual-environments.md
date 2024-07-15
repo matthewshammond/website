@@ -1,6 +1,7 @@
 ---
 title: "Python Virtual Environments"
 
+author: Matt Hammond
 date: 2024-06-03
 url: /python-virtual-environments/
 image: images/2024-thumbs/python-virtual-environments.png

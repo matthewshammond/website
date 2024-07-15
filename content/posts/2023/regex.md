@@ -1,6 +1,7 @@
 ---
 title: "Regex"
 
+author: Matt Hammond
 date: 2023-01-12
 url: /regex/
 image: images/tux_apple.png
@@ -11,7 +12,6 @@ categories:
 tags:
   - regex
 draft: false
-
 ---
 
 ```
