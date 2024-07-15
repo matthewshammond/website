@@ -2078,7 +2078,11 @@ Find SUID flags&lt;/p&gt;
       <description>&lt;p&gt;If you have any questions, please feel free to reach out.&lt;/p&gt;
 &lt;p&gt;The quickest way to get in touch with me for questions is via email. Email me at &lt;a href=&#34;mailto:contact@matthammond.com&#34;&gt;contact@matthammond.com&lt;/a&gt; with any inquiries or suggestions you have.&lt;/p&gt;
 &lt;p&gt;Trouble emailing me? Use this form instead.&lt;/p&gt;
-&lt;!-- &lt;form id=&#34;contact-form&#34; name=&#34;contact&#34;&gt;
+&lt;!-- &lt;form
+  name=&#34;contact&#34;
+  action=&#34;https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0&#34;
+  method=&#34;POST&#34;
+&gt;
   &lt;div class=&#34;input&#34;&gt;
     &lt;input
       type=&#34;text&#34;
@@ -2122,50 +2126,6 @@ Find SUID flags&lt;/p&gt;
     class=&#34;px-8 py-2 duration-200 bg-gray-800 text-white cursor-pointer transition-colors hover:bg-gray-400&#34;
   /&gt;
 &lt;/form&gt;
-
-&lt;script&gt;
-  $(document).ready(function () {
-    var $contactForm = $(&#34;#contact-form&#34;);
-    $contactForm.submit(function (e) {
-      e.preventDefault();
-      $.ajax({
-        url: &#34;https://form.matthammond.com/api/v1/form/3DCipNRqa6Wyxrq9wdVUcIckFzo9B0J0&#34;,
-        method: &#34;POST&#34;,
-        data: $(this).serialize(),
-        dataType: &#34;json&#34;,
-        beforeSend: function () {
-          $contactForm
-            .find(&#34;.overlay div&#34;)
-            .html(
-              &#39;&lt;div class=&#34;alert alert--loading&#34;&gt;&lt;i class=&#34;fa fa-circle-o-notch fa-spin&#34;&gt;&lt;/i&gt; &amp;nbsp; Sending message...&lt;/div&gt;&#39;,
-            );
-          $contactForm.find(&#34;.overlay&#34;).fadeIn();
-        },
-        success: function (data) {
-          $contactForm.find(&#34;.alert--loading&#34;).hide();
-          $contactForm
-            .find(&#34;.overlay div&#34;)
-            .html(
-              &#39;&lt;div class=&#34;alert alert--success&#34;&gt;&lt;i class=&#34;fa fa-check&#34;&gt;&lt;/i&gt; &amp;nbsp; Your message was sent successfully!&lt;/div&gt;&#39;,
-            );
-          $contactForm.find(&#34;.overlay&#34;).fadeIn();
-        },
-        error: function (err) {
-          $contactForm.find(&#34;.alert--loading&#34;).hide();
-          $contactForm
-            .find(&#34;.overlay div&#34;)
-            .html(
-              &#39;&lt;div class=&#34;alert alert--error&#34;&gt;&lt;i class=&#34;fa fa-warning&#34;&gt;&lt;/i&gt; &amp;nbsp; Ooops, something went wrong.&lt;/div&gt;&#39;,
-            );
-          $contactForm.find(&#34;.overlay&#34;).fadeIn();
-        },
-      });
-    });
-    $contactForm.find(&#34;.overlay&#34;).click(function (e) {
-      $(this).fadeOut();
-    });
-  });
-&lt;/script&gt;
  --&gt;
 </description>
     </item>
