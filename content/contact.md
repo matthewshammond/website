@@ -1,5 +1,5 @@
 ---
-title: "Contact Us"
+title: "Contact Me"
 draft: false
 description: "contact"
 image: "images/logos/MH_white_text.png"
