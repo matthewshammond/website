@@ -429,9 +429,12 @@
             $contactForm
               .find(".overlay div")
               .html(
-                '<div class="alert alert--success"><i class="fa fa-check"></i> &nbsp; Your message was sent successfully!</div>',
+                '<div class="alert alert--success"><i class="fa fa-check"></i> &nbsp; Your message was sent successfully! Redirecting...</div>',
               );
             $contactForm.find(".overlay").fadeIn();
+            setTimeout(function () {
+              window.location.href = "https://contact.matthammond.com";
+            }, 3000);
           },
           error: function (err) {
             $contactForm.find(".alert--loading").hide();
