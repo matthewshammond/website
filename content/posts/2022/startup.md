@@ -58,12 +58,10 @@ draft: false
 
 ### Vulnerabilities
 
-- ***
-
 ## Commands
 
 `ping $IP`
 
 `sudo nmap -sC -sV -oN scans/initial $IP`
 
-gobuster dir -u http://10.10.79.182 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster
+`gobuster dir -u http://10.10.79.182 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster`
