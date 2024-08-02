@@ -34,7 +34,7 @@ logo = "images/logos/MH_white_text_transparent.png"
 logoWidth = 200
 logoHeight = 200
 # favicon
-favicon = "images/favicon.png"
+favicon = "images/favicon.ico"
 # meta data
 author = "Matt Hammond"
 description = "Professional Pilot | CEH | Sec+ | Splunk | Homelab"
