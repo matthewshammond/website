@@ -2,7 +2,7 @@
 title: "Contact Me"
 draft: false
 description: "contact"
-image: "images/logos/MH_white_text.png"
+image: "images/logos/contact_logo.png"
 layout: contact
 ---
 
