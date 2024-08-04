@@ -21,7 +21,14 @@ Let's create a professional looking signature for your email. This tutorial will
 
 If you want a logo or photo in your signature, it is important that the image is available online and the location does not move. The next section will walk you through hosting your own images. If you are not going to have an image in your signature, skip the next section.
 
-## Host Your Own Image
+## Signature Images
+
+You can either host your own image on a public facing domain or encode your image directly into the signature. Below will show both methods.
+
+- [Host Image](#host-your-own-image)
+- [Encode Image](#encode-your-own-image)
+
+### Host Your Own Image
 
 To ensure the image location does not move on the internet, it is best to host the image yourself. Even if not a developer, I recommend creating a free **[ Github ](https://github.com)** account to host your own images. Go to **[Github.com](https://github.com)** and sign up. Once signed up:
 
@@ -29,11 +36,64 @@ To ensure the image location does not move on the internet, it is best to host t
 - Name this repository _images_
 - Save all images that will be used in your signature to this repo
 
+### Encode Your Own Image
+
+Open the terminal on your Mac (Applications -> Utilities -> Terminal) or open `Spotlight` using `CMD + Space` and type `terminal` and open. Type the following command to download the script to encode images OR copy the block of code:
+
+```bash
+curl -o base64image.sh 'https://gist.githubusercontent.com/matthewshammond/e908ebc41791c4837725015d72ebe82c/raw/base64img.sh'
+```
+
+If you prefer to copy and paste the code into a script use this code below (also hosted [HERE](https://gist.github.com/matthewshammond/e908ebc41791c4837725015d72ebe82c)):
+
+```bash
+#!/usr/bin/env bash
+
+usage() {
+  echo "Usage: base64img [FILE]"
+  echo "Formats: APNG BMP GIF JPEG PNG WEBP"
+}
+
+# Print usage and exit if the file was not provided
+[ $# -eq 0 ] && usage && exit 1
+
+# Grab the image format
+fmt=$(file "$1" | grep -iEo 'apng|bmp|gif|jpeg|png|webp' | head -n1 | tr '[:upper:]' '[:lower:]')
+
+# Check if the image format is supported
+[ -z "$fmt" ] && usage && exit 1
+
+# Create an IMG template
+img="<img src='data:image/"$fmt";base64, $(base64 -i "$1")' />"
+
+echo "$img"
+```
+
+After you have the script, you need to make the script executable by typing `chmod +x base64img.sh` into the temrinal.
+
+In order to use this script to process each image, you will use the command `./base64img.sh <image>` where `<image>` is the location and name of the image. For example:
+
+```bash
+./base64img.sh ~/Downloads/logo.png
+```
+
+> [!NOTE]
+> If you are unfamiliar with the terminal, I recommend you move all your images to your `Downloads` folder and use the example above only requiring you to change `logo.png` with the name of your image file.
+
 ## Create Your Signature
 
 The easiest method to building your own custom html styled email signature is to start with a template. There are many free services to create the template. Almost all, will allow a free trial and then charge a monthly subscription. You only need the service for a few minutes; therefore, we aren't worried about a paid service. These free services also do not require payment unless you continue using the service after the free trial. Ensure you search for `html email signature` when finding a site.
 
-If you prefer my template from above, the html code is [HERE](https://gist.github.com/matthewshammond/a5cb215114af4c48be909c511a608087) or copy the code below:
+If you prefer my template from above, you can download it by running the following in your terminal:
+
+```bash
+curl -o signature.html 'https://gist.githubusercontent.com/matthewshammond/a5cb215114af4c48be909c511a608087/raw/signature_support.html'
+```
+
+or the html code is [HERE](https://gist.github.com/matthewshammond/a5cb215114af4c48be909c511a608087) or copy the code below:
+
+> [!NOTE]
+> THE EASIEST WAY TO EDIT THE FILE IF UNFAMILIAR WITH TERMINAL TEXT EDITORS IS TO CHANGE THE EXTENSION BY RENAMING THE FILE FROM **.html** TO **.txt** SO THAT YOU CAN OPEN AND EDIT THE FILE WITH THE BUILT-IN TEXT EDITOR
 
 > [!CAUTION]
 > Ensure you update the html code with your name, phone, email, images
@@ -365,9 +425,46 @@ If you prefer my template from above, the html code is [HERE](https://gist.githu
 > [!CAUTION]
 > Ensure you update the html code with your name, phone, email, images
 
-**Anywhere you see `img src` be sure to put the link to your image hosted on github**
+**Anywhere you see `img src` be sure to put the link to your image hosted on github or the base64 code snippet that was produced when encoding the image**
 
-Go to your github repo you created earlier. Select the image you uploaded and then `right click` on the image and select `Copy Image Address`. This is the url link you will use in `img src`.
+### Example
+
+Using a public facing link:
+
+> [!NOTE]
+> Go to your github repo you created earlier. Select the image you uploaded and then `right click` on the image and select `Copy Image Address`. This is the url link you will use in `img src`.
+
+```html
+<img
+  style="
+    border: 0px;
+    height: 120px;
+    min-width: 150px;
+    width: 150px;
+    "
+  src="https://matthammond.com/images/logos/MH_signature.png"
+  width="150"
+  height="120"
+/>
+```
+
+---
+
+Using base64 encode:
+
+```html
+<img
+  style="
+    border: 0px;
+    height: 120px;
+    min-width: 150px;
+    width: 150px;
+    "
+  src="data:image/png;base64, iVBORw0KGgo...AAAANSUhEUgA"
+  width="150"
+  height="120"
+/>
+```
 
 ## Using Your Signature in macOS Mail
 
@@ -379,7 +476,7 @@ Now that you have the html code edited with your information, you are going to c
 - Type anything you want **_we will change this to your signature soon_**
 - Completely quit macOS Mail
 
-Open your `terminal`. To do so, open `Spotlight` using `CMD + Space` and type `terminal` and open. When terminal opens type `open ~/Library/Mail/`. This will open a **Finder** window at the Mail folder. You may or may not see multiple folders labeled with `V` and a number like **V3**, **V4**, **V10**, etc. Open the folder with the highest `V` number. Then open `MailData` then `Signatures`. Looking at the `Date Modified` column, the newest `.mailsignature` file is the signature we just created.
+Open the terminal on your Mac (Applications -> Utilities -> Terminal) or open `Spotlight` using `CMD + Space` and type `terminal` and open. When terminal opens type `open ~/Library/Mail/`. This will open a **Finder** window at the Mail folder. You may or may not see multiple folders labeled with `V` and a number like **V3**, **V4**, **V10**, etc. Open the folder with the highest `V` number. Then open `MailData` then `Signatures`. Looking at the `Date Modified` column, the newest `.mailsignature` file is the signature we just created.
 
 Right click on the file and select open with **TextEdit**. At the top of the file you should see a header block that looks something like:
 
