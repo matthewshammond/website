@@ -1,0 +1,379 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Matt Hammond Inc | Professional Email Signatures</title>
+<meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=https://matthammond.com/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://matthammond.com/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://matthammond.com/favicon/favicon-16x16.png><link rel=manifest href=https://matthammond.com/favicon/site.webmanifest><link rel=mask-icon href=https://matthammond.com/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=https://matthammond.com/favicon/favicon.ico><meta name=msapplication-TileColor content="#da532c"><meta name=msapplication-config content="https://matthammond.com/favicon/browserconfig.xml"><meta name=theme-color content="#ffffff"><link href=/css/fa6.min.css rel=stylesheet type=text/css><link rel=stylesheet href="/css/style.min.099260e14dab0b0321519bdba09c996a48bd65073ea1b5e20da9367cfed4984d.css"><link href=/css/style.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Matt Hammond Inc | Professional Email Signatures"><meta name=description content="Create your own html email signature."><meta property="og:title" content=" | "><meta property="og:site_name" content="Matt Hammond Inc"><meta property="og:description" content="Create your own html email signature."><meta property="og:url" content="https://matthammond.com/articles/2024/professional-email-signatures/"><meta property="og:type" content="website"><meta property="og:locale" content><link rel=canonical href=https://matthammond.com/articles/2024/professional-email-signatures/><meta property="article:published_time" content="2024-04-24T00:00:00+00:00"><meta property="article:updated_time" content="2024-04-24T00:00:00+00:00"><meta property="og:image" content="https://matthammond.com/images/2024-thumbs/professional-email-signatures.jpg"><meta name=twitter:title content="Professional Email Signatures"><link rel=preload href=/css/sweetalert2.min.css as=style onload='this.onload=null,this.rel="stylesheet"'></head><body class="flex flex-col min-h-screen bg-nord-6"><main class=flex-grow><header><div id=overlay><ul class="text-center list-none text-white text-3xl"><li class=p-2><a href=/services/><span>Services</span></a></li><li class=p-2><a href=/articles/><span>Articles</span></a></li><li class=p-2><a href=/about/><span>About</span></a></li><li class=p-2><a href=/contact/><span>Contact</span></a></li></ul></div><nav class="flex items-center justify-between flex-wrap bg-nord-0 p-8"><div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6"><a href=https://matthammond.com/><img alt="Matt Hammond Inc" class="h-16 mr-3" src=/img/logos/logo.png></a></div><script src=https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js></script><script>addBackToTop({diameter:52,backgroundColor:"#3B4252",textColor:"#ECEFF4"})</script><div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto" id=mobileMenu><div class="text-lg lg:flex-grow"></div><div class=text-lg><a href=/services/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Services
+</a><a href=/articles/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Articles
+</a><a href=/about/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">About
+</a><a href=/contact/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Contact</a></div></div></nav></header><div class="mx-auto my-10 max-w-6xl"><div class="mx-3 col-span-3 lg:col-span-2 px-2"><h1 class="title text-5xl font-bold mb-3">Professional Email Signatures</h1><section class="mb-4 text-lg"><h4 id=date class="flex flex-row items-center"><span class="icon-access_time text-2xl mr-2"></span> April 24, 2024</h4><h4 class="flex flex-row items-center"><span class="icon-person text-2xl mr-2"></span>Matt Hammond</h4></section><div class="content prose md:prose-lg lg:prose-xl max-w-none py-1 text-nord-0"><h2 id=intro>Intro</h2><p>Let&rsquo;s create a professional looking signature for your email. This tutorial will give you step-by-step instructions on creating and deploying an email signature for <strong>iCloud</strong> (macOS Mail client and iPhone) along with <strong>Google</strong>. It may work for other providers such as Outlook, but has not been tested.</p><center><img src=/images/2024/professional-email-signatures/signature_example.jpg alt="Example Signature" title="Example Signature" width=400></center><p>If you want a logo or photo in your signature, it is important that the image is available online and the location does not move. The next section will walk you through hosting your own images. If you are not going to have an image in your signature, skip the next section.</p><h2 id=signature-images>Signature Images</h2><p>You can either host your own image on a public facing domain or encode your image directly into the signature. Below will show both methods.</p><ul><li><a href=#host-your-own-image>Host Image</a></li><li><a href=#encode-your-own-image>Encode Image</a></li></ul><h3 id=host-your-own-image>Host Your Own Image</h3><p>To ensure the image location does not move on the internet, it is best to host the image yourself. Even if not a developer, I recommend creating a free <strong><a href=https://github.com>Github </a></strong>account to host your own images. Go to <strong><a href=https://github.com>Github.com</a></strong> and sign up. Once signed up:</p><ul><li>Create a new repository</li><li>Name this repository <em>images</em></li><li>Save all images that will be used in your signature to this repo</li></ul><h3 id=encode-your-own-image>Encode Your Own Image</h3><p>Open the terminal on your Mac (Applications -> Utilities -> Terminal) or open <code>Spotlight</code> using <code>CMD + Space</code> and type <code>terminal</code> and open. Type the following command to download the script to encode images OR copy the block of code:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -o base64image.sh <span class=s1>&#39;https://gist.githubusercontent.com/matthewshammond/e908ebc41791c4837725015d72ebe82c/raw/base64img.sh&#39;</span>
+</span></span></code></pre></div><p>If you prefer to copy and paste the code into a script use this code below (also hosted <a href=https://gist.github.com/matthewshammond/e908ebc41791c4837725015d72ebe82c>HERE</a>):</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/usr/bin/env bash
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl>usage<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Usage: base64img [FILE]&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=nb>echo</span> <span class=s2>&#34;Formats: APNG BMP GIF JPEG PNG WEBP&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Print usage and exit if the file was not provided</span>
+</span></span><span class=line><span class=cl><span class=o>[</span> <span class=nv>$#</span> -eq <span class=m>0</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> usage <span class=o>&amp;&amp;</span> <span class=nb>exit</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Grab the image format</span>
+</span></span><span class=line><span class=cl><span class=nv>fmt</span><span class=o>=</span><span class=k>$(</span>file <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span> <span class=p>|</span> grep -iEo <span class=s1>&#39;apng|bmp|gif|jpeg|png|webp&#39;</span> <span class=p>|</span> head -n1 <span class=p>|</span> tr <span class=s1>&#39;[:upper:]&#39;</span> <span class=s1>&#39;[:lower:]&#39;</span><span class=k>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Check if the image format is supported</span>
+</span></span><span class=line><span class=cl><span class=o>[</span> -z <span class=s2>&#34;</span><span class=nv>$fmt</span><span class=s2>&#34;</span> <span class=o>]</span> <span class=o>&amp;&amp;</span> usage <span class=o>&amp;&amp;</span> <span class=nb>exit</span> <span class=m>1</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Create an IMG template</span>
+</span></span><span class=line><span class=cl><span class=nv>img</span><span class=o>=</span><span class=s2>&#34;&lt;img src=&#39;data:image/&#34;</span><span class=nv>$fmt</span><span class=s2>&#34;;base64, </span><span class=k>$(</span>base64 -i <span class=s2>&#34;</span><span class=nv>$1</span><span class=s2>&#34;</span><span class=k>)</span><span class=s2>&#39; /&gt;&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$img</span><span class=s2>&#34;</span>
+</span></span></code></pre></div><p>After you have the script, you need to make the script executable by typing <code>chmod +x base64img.sh</code> into the temrinal.</p><p>In order to use this script to process each image, you will use the command <code>./base64img.sh &lt;image></code> where <code>&lt;image></code> is the location and name of the image. For example:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./base64img.sh ~/Downloads/logo.png
+</span></span></code></pre></div><blockquote><p class=note>If you are unfamiliar with the terminal, I recommend you move all your images to your <code>Downloads</code> folder and use the example above only requiring you to change <code>logo.png</code> with the name of your image file.</p></blockquote><h2 id=create-your-signature>Create Your Signature</h2><p>The easiest method to building your own custom html styled email signature is to start with a template. There are many free services to create the template. Almost all, will allow a free trial and then charge a monthly subscription. You only need the service for a few minutes; therefore, we aren&rsquo;t worried about a paid service. These free services also do not require payment unless you continue using the service after the free trial. Ensure you search for <code>html email signature</code> when finding a site.</p><p>If you prefer my template from above, you can download it by running the following in your terminal:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>curl -o signature.html <span class=s1>&#39;https://gist.githubusercontent.com/matthewshammond/a5cb215114af4c48be909c511a608087/raw/signature_support.html&#39;</span>
+</span></span></code></pre></div><p>or the html code is <a href=https://gist.github.com/matthewshammond/a5cb215114af4c48be909c511a608087>HERE</a> or copy the code below:</p><blockquote><p class=note>THE EASIEST WAY TO EDIT THE FILE IF UNFAMILIAR WITH TERMINAL TEXT EDITORS IS TO CHANGE THE EXTENSION BY RENAMING THE FILE FROM <strong>.html</strong> TO <strong>.txt</strong> SO THAT YOU CAN OPEN AND EDIT THE FILE WITH THE BUILT-IN TEXT EDITOR</p></blockquote><blockquote><p class=danger>Ensure you update the html code with your name, phone, email, images</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span>
+</span></span><span class=line><span class=cl>  <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 0 !important; padding: 0 !important; width: 100% !important&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;</span><span class=nt>div</span>
+</span></span><span class=line><span class=cl>    <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>      font-family: Helvetica, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>      color: #000000;
+</span></span></span><span class=line><span class=cl><span class=s>      font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>      line-height: 1.3;
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;</span>
+</span></span><span class=line><span class=cl>    <span class=na>class</span><span class=o>=</span><span class=s>&#34;template-template2 is-flipped-false font-family-helvetica font-size font-family text-color&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>      <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>role</span><span class=o>=</span><span class=s>&#34;presentation&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=na>style</span><span class=o>=</span><span class=s>&#34;border-collapse: collapse !important; font-size: inherit&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>td</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;font-size: 0px; line-height: 0px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>            <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>role</span><span class=o>=</span><span class=s>&#34;presentation&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>style</span><span class=o>=</span><span class=s>&#34;border-collapse: collapse !important; font-size: inherit&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;</span><span class=nt>td</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;text-align: center; padding: 0px 5px 0px 0px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>                  <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                    border: 0px;
+</span></span></span><span class=line><span class=cl><span class=s>                    height: 120px;
+</span></span></span><span class=line><span class=cl><span class=s>                    line-height: 100%;
+</span></span></span><span class=line><span class=cl><span class=s>                    outline: none;
+</span></span></span><span class=line><span class=cl><span class=s>                    text-decoration: none;
+</span></span></span><span class=line><span class=cl><span class=s>                    -ms-interpolation-mode: bicubic;
+</span></span></span><span class=line><span class=cl><span class=s>                    min-width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>                    width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>                  &#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/images/logos/MH_signature.png&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>alt</span><span class=o>=</span><span class=s>&#34;MattHammond.com&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>width</span><span class=o>=</span><span class=s>&#34;150&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>height</span><span class=o>=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>class</span><span class=o>=</span><span class=s>&#34;photo photo-size&#34;</span>
+</span></span><span class=line><span class=cl>                <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>          <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>            padding: 2px 0px 2px 5px;
+</span></span></span><span class=line><span class=cl><span class=s>            border-left-width: 2px;
+</span></span></span><span class=line><span class=cl><span class=s>            border-left-style: solid;
+</span></span></span><span class=line><span class=cl><span class=s>            border-left-color: rgb(46, 52, 64);
+</span></span></span><span class=line><span class=cl><span class=s>          &#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>            <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>role</span><span class=o>=</span><span class=s>&#34;presentation&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=na>style</span><span class=o>=</span><span class=s>&#34;border-collapse: collapse !important; font-size: inherit&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                  padding-top: 2px;
+</span></span></span><span class=line><span class=cl><span class=s>                  font-weight: 700;
+</span></span></span><span class=line><span class=cl><span class=s>                  color: #2e3440;
+</span></span></span><span class=line><span class=cl><span class=s>                  font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                  font-family: Helvetica, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                &#34;</span>
+</span></span><span class=line><span class=cl>                <span class=na>class</span><span class=o>=</span><span class=s>&#34;name title-color&#34;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                Matt Hammond
+</span></span><span class=line><span class=cl>              <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;</span><span class=nt>td</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding-top: 4px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>                  <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>role</span><span class=o>=</span><span class=s>&#34;presentation&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                    border-collapse: collapse !important;
+</span></span></span><span class=line><span class=cl><span class=s>                    font-size: inherit;
+</span></span></span><span class=line><span class=cl><span class=s>                  &#34;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;</span><span class=nt>td</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding-top: 12px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>                  <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>role</span><span class=o>=</span><span class=s>&#34;presentation&#34;</span>
+</span></span><span class=line><span class=cl>                  <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                    border-collapse: collapse !important;
+</span></span></span><span class=line><span class=cl><span class=s>                    font-size: inherit;
+</span></span></span><span class=line><span class=cl><span class=s>                  &#34;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;vertical-align: middle; padding: 1px 5px 1px 0px&#34;</span>
+</span></span><span class=line><span class=cl>                      <span class=na>valign</span><span class=o>=</span><span class=s>&#34;middle&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>                          <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/images/logos/email/email.png&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>alt</span><span class=o>=</span><span class=s>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>width</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>height</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;display: block; border: 0px; max-width: 18px&#34;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                        line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                        white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                        color: rgb(59, 66, 81) !important;
+</span></span></span><span class=line><span class=cl><span class=s>                        padding: 1px 0px;
+</span></span></span><span class=line><span class=cl><span class=s>                        vertical-align: middle;
+</span></span></span><span class=line><span class=cl><span class=s>                      &#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                          <span class=na>href</span><span class=o>=</span><span class=s>&#34;mailto:support@matthammond.com&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                            line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                            white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                            color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                            text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                          &#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                            <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                              line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                              white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                              color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                              text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                            &#34;</span>
+</span></span><span class=line><span class=cl>                            <span class=p>&gt;</span>support@matthammond.com<span class=p>&lt;/</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;/</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;vertical-align: middle; padding: 1px 5px 1px 0px&#34;</span>
+</span></span><span class=line><span class=cl>                      <span class=na>valign</span><span class=o>=</span><span class=s>&#34;middle&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>                          <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/images/logos/email/telephone.png&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>alt</span><span class=o>=</span><span class=s>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>width</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>height</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;display: block; border: 0px; max-width: 18px&#34;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                        line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                        white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                        color: rgb(59, 66, 81) !important;
+</span></span></span><span class=line><span class=cl><span class=s>                        padding: 1px 0px;
+</span></span></span><span class=line><span class=cl><span class=s>                        vertical-align: middle;
+</span></span></span><span class=line><span class=cl><span class=s>                      &#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                          <span class=na>href</span><span class=o>=</span><span class=s>&#34;tel:7066100375&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                            line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                            white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                            color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                            text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                          &#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                            <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                              line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                              white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                              color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                              text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                            &#34;</span>
+</span></span><span class=line><span class=cl>                            <span class=p>&gt;</span>706.610.0375<span class=p>&lt;/</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;/</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=c>&lt;!----&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>valign</span><span class=o>=</span><span class=s>&#34;middle&#34;</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding: 1px 5px 1px 0px; vertical-align: middle&#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>                          <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/images/logos/email/website.png&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>alt</span><span class=o>=</span><span class=s>&#34;&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>width</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>height</span><span class=o>=</span><span class=s>&#34;18&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;display: block; border: 0px; max-width: 18px&#34;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>/&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>                      <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                        line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                        white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                        color: rgb(94, 129, 171) !important;
+</span></span></span><span class=line><span class=cl><span class=s>                        font-weight: 700;
+</span></span></span><span class=line><span class=cl><span class=s>                        padding: 1px 0px;
+</span></span></span><span class=line><span class=cl><span class=s>                        vertical-align: middle;
+</span></span></span><span class=line><span class=cl><span class=s>                      &#34;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;</span><span class=nt>p</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;margin: 1px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&lt;</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                          <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                            font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                            line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                            white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                            color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                            font-weight: 700;
+</span></span></span><span class=line><span class=cl><span class=s>                            text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                          &#34;</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                            <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                              font-size: 13px;
+</span></span></span><span class=line><span class=cl><span class=s>                              line-height: 15px;
+</span></span></span><span class=line><span class=cl><span class=s>                              white-space: nowrap;
+</span></span></span><span class=line><span class=cl><span class=s>                              color: rgb(59, 66, 82);
+</span></span></span><span class=line><span class=cl><span class=s>                              font-weight: 700;
+</span></span></span><span class=line><span class=cl><span class=s>                              text-decoration: none !important;
+</span></span></span><span class=line><span class=cl><span class=s>                            &#34;</span>
+</span></span><span class=line><span class=cl>                            <span class=p>&gt;</span>matthammond.com<span class=p>&lt;/</span><span class=nt>span</span>
+</span></span><span class=line><span class=cl>                          <span class=p>&gt;&lt;/</span><span class=nt>a</span>
+</span></span><span class=line><span class=cl>                        <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                      <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                    <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                  <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!----&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=c>&lt;!----&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;</span><span class=nt>td</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;padding: 0px 1px 0px 0px&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>table</span>
+</span></span><span class=line><span class=cl>          <span class=na>cellpadding</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=na>cellspacing</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=na>border</span><span class=o>=</span><span class=s>&#34;0&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=na>style</span><span class=o>=</span><span class=s>&#34;max-width: 450px; margin: 0px; border-collapse: collapse&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;</span><span class=nt>td</span>
+</span></span><span class=line><span class=cl>              <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                padding: 6px 1px 0px 0px;
+</span></span></span><span class=line><span class=cl><span class=s>                font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                font-size: 10px;
+</span></span></span><span class=line><span class=cl><span class=s>                line-height: 12px;
+</span></span></span><span class=line><span class=cl><span class=s>                color: rgb(136, 136, 136);
+</span></span></span><span class=line><span class=cl><span class=s>              &#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&lt;</span><span class=nt>p</span>
+</span></span><span class=line><span class=cl>                <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>                  font-family: Arial, sans-serif;
+</span></span></span><span class=line><span class=cl><span class=s>                  font-size: 10px;
+</span></span></span><span class=line><span class=cl><span class=s>                  line-height: 12px;
+</span></span></span><span class=line><span class=cl><span class=s>                  color: rgb(136, 136, 136);
+</span></span></span><span class=line><span class=cl><span class=s>                  margin: 1px;
+</span></span></span><span class=line><span class=cl><span class=s>                &#34;</span>
+</span></span><span class=line><span class=cl>              <span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>                IMPORTANT NOTICE: This e-mail message is intended to be received
+</span></span><span class=line><span class=cl>                only by persons entitled to receive the confidential information
+</span></span><span class=line><span class=cl>                it may contain. E-mail messages may contain information that is
+</span></span><span class=line><span class=cl>                confidential and legally privileged. Please do not read, copy,
+</span></span><span class=line><span class=cl>                forward, or store this message unless you are an intended
+</span></span><span class=line><span class=cl>                recipient of it. If you have received this message in error,
+</span></span><span class=line><span class=cl>                please forward it to the sender and delete it completely from
+</span></span><span class=line><span class=cl>                your computer system.
+</span></span><span class=line><span class=cl>              <span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>            <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>          <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>table</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>      <span class=p>&lt;/</span><span class=nt>td</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>tr</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></div><blockquote><p class=danger>Ensure you update the html code with your name, phone, email, images</p></blockquote><p><strong>Anywhere you see <code>img src</code> be sure to put the link to your image hosted on github or the base64 code snippet that was produced when encoding the image</strong></p><h3 id=example>Example</h3><p>Using a public facing link:</p><blockquote><p class=note>Go to your github repo you created earlier. Select the image you uploaded and then <code>right click</code> on the image and select <code>Copy Image Address</code>. This is the url link you will use in <code>img src</code>.</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>  <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    border: 0px;
+</span></span></span><span class=line><span class=cl><span class=s>    height: 120px;
+</span></span></span><span class=line><span class=cl><span class=s>    min-width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>    width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://matthammond.com/images/logos/MH_signature.png&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>width</span><span class=o>=</span><span class=s>&#34;150&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>height</span><span class=o>=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>/&gt;</span>
+</span></span></code></pre></div><hr><p>Using base64 encode:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>img</span>
+</span></span><span class=line><span class=cl>  <span class=na>style</span><span class=o>=</span><span class=s>&#34;
+</span></span></span><span class=line><span class=cl><span class=s>    border: 0px;
+</span></span></span><span class=line><span class=cl><span class=s>    height: 120px;
+</span></span></span><span class=line><span class=cl><span class=s>    min-width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>    width: 150px;
+</span></span></span><span class=line><span class=cl><span class=s>    &#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>src</span><span class=o>=</span><span class=s>&#34;data:image/png;base64, iVBORw0KGgo...AAAANSUhEUgA&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>width</span><span class=o>=</span><span class=s>&#34;150&#34;</span>
+</span></span><span class=line><span class=cl>  <span class=na>height</span><span class=o>=</span><span class=s>&#34;120&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>/&gt;</span>
+</span></span></code></pre></div><h2 id=using-your-signature-in-macos-mail>Using Your Signature in macOS Mail</h2><p>Now that you have the html code edited with your information, you are going to create a new email signature in macOS Mail. In macOS Mail, at the top, in the menu bar, select:</p><ul><li><code>Mail -> Settings</code></li><li>Signatures</li><li>Select the <code>+</code></li><li>Type anything you want <strong><em>we will change this to your signature soon</em></strong></li><li>Completely quit macOS Mail</li></ul><p>Open the terminal on your Mac (Applications -> Utilities -> Terminal) or open <code>Spotlight</code> using <code>CMD + Space</code> and type <code>terminal</code> and open. When terminal opens type <code>open ~/Library/Mail/</code>. This will open a <strong>Finder</strong> window at the Mail folder. You may or may not see multiple folders labeled with <code>V</code> and a number like <strong>V3</strong>, <strong>V4</strong>, <strong>V10</strong>, etc. Open the folder with the highest <code>V</code> number. Then open <code>MailData</code> then <code>Signatures</code>. Looking at the <code>Date Modified</code> column, the newest <code>.mailsignature</code> file is the signature we just created.</p><p>Right click on the file and select open with <strong>TextEdit</strong>. At the top of the file you should see a header block that looks something like:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>Content-Transfer-Encoding: 7bit Content-Type: text/html; charset=us-ascii
+</span></span><span class=line><span class=cl>Message-Id:
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>B0A5E262-7970-469B-9A83-25E0F9A8A8F8</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>  Mime-Version: 1.0 (Mac OS X Mail 16.0
+</span></span><span class=line><span class=cl>  \(3774.600.62\))<span class=p>&lt;/</span><span class=nt>B0A5E262-7970-469B-9A83-25E0F9A8A8F8</span>
+</span></span><span class=line><span class=cl><span class=p>&gt;</span>
+</span></span></code></pre></div><p>There should be a blank line and then the code for the signature. Delete everything below the blank line and then paste your html code created earlier here. Save and close the file. Right click on the file and select <code>Get Info</code> and then check the <code>Locked</code> button. Now open macOS Mail and go back to your <code>Settings -> Signatures</code>. You should now see your signature. Your images will not appear in your signature in this view. When you compose a new email, your signature will be rendered properly. Try sending yourself an email to test your new signature. If you have issues, comment below. Which you will now easily will be able to with your new GitHub account we created earlier.</p><h2 id=create-ios-signature>Create iOS Signature</h2><p>Open the email you sent yourself in your iOS Mail app on your iPhone/iPad. Copy your signature from the email and then open your <code>Settings</code> on your device. Scroll down and find <code>Mail</code> and then scroll down to <code>Signature</code>. Paste your signature in the field. It will not look correct. <strong>SHAKE YOUR PHONE</strong> and then select undo to correct the formatting. You&rsquo;re all done!</p><h2 id=conclusion>Conclusion</h2><p>Hopefully this tutorial has allowed you to create your own custom html signature for your emails. Should you have any issues, ensure you are logged into your newly created GitHub account and leave any questions/comments below.</p><script src=https://giscus.app/client.js data-repo=matthewshammond/website data-repo-id=R_kgDOIvbsJA data-category=Comments data-category-id=DIC_kwDOIvbsJM4Ce6wo data-mapping=title data-reactions-enabled=0 data-theme=dark_dimmed crossorigin=anonymous async></script></div></div></div><script src=/js/code-copy.js></script></main><footer class=bg-tlgray-100><script src=/js/clipboard.min.js></script><script src=/js/highlight.min.js></script><script src=/js/highlightjs-line-numbers.min.js></script><script src=/js/sweetalert2.min.js></script><script>hljs.initHighlightingOnLoad(),hljs.initLineNumbersOnLoad(),new ClipboardJS(".url");function OnClickURL(){Swal.fire({icon:"success",title:"Copied!",text:"Copied the URL and title."})}</script><script>function toggleNav(){var e=document.getElementById("hamburgerbtn"),t=document.getElementById("overlay"),n=document.body;e.addEventListener("click",function(){t.classList.toggle("open"),e.classList.toggle("is-open"),n.classList.toggle("scroll-lock")})}toggleNav(),document.querySelector(".scroll-top").addEventListener("click",()=>{document.documentElement.scrollTop=0})</script><link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel=stylesheet><div class="flex items-center justify-between flex-wrap bg-nord-0 p-8 text-nord-6"><div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6"><a href=https://matthammond.com/><img alt="Matt Hammond Inc" class="h-16 mr-3" src=/img/logos/logo.png></a></div><div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"><div class="text-lg lg:flex-grow"></div><div class="flex flex-row items-center text-lg"><a href="https://keys.openpgp.org/search?q=matt%40matthammond.com">PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884</a></div></div><div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id=mobileMenu><div class="text-lg lg:flex-grow"></div><div class="flex flex-row items-center text-lg"><a href=https://github.com/matthewshammond class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-github text-2xl'></i>
+</a><a href=https://linkedin.com/in/matthewshammond class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-linkedin text-2xl'></i>
+</a><a href=https://discord.gg/kU2wgApBgK class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-discord text-2xl'></i></a></div></div></div><div class="copy pl-8 py-5 bg-tlgray-700 text-nord-6 text-md">&copy; Matt Hammond Inc 2024 All Rights Reserved.</div></footer></body></html>

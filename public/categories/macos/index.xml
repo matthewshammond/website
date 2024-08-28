@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on Matt Hammond Inc</title>
+    <link>http://localhost:1313/categories/macos/</link>
+    <description>Recent content in MacOS on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 03 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Virtual Environments</title>
+      <link>http://localhost:1313/python-virtual-environments/</link>
+      <pubDate>Mon, 03 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/python-virtual-environments/</guid>
+      <description>Quick reference to installing pyenv and managing different python versions. Also, steps for creating and managing virtual environments.&#xA;Install pyenv and Setup Environment For full documentation on pyenv visit Github&#xA;brew install pyenv Add the following to your .zshrc file # Enable shims and autocompletion eval &amp;#34;$(pyenv init -)&amp;#34; eval &amp;#34;$(pyenv virtualenv-init -)&amp;#34; # Add pyenv to $PATH export PYENV_ROOT=&amp;#34;$HOME/.pyenv&amp;#34; [[ &amp;#34;:$PATH:&amp;#34; =~ &amp;#34;:$PYENV_ROOT/bin:&amp;#34; ]] || export PATH=&amp;#34;$PYENV_ROOT/bin:$PATH&amp;#34; Commands pyenv install -l: list versions for installation pyenv install &amp;lt;version&amp;gt;: install selected version pyenv virtualenv &amp;lt;version&amp;gt; &amp;lt;environment_name&amp;gt;: create virtual environment pyenv virtualenvs: list virtual environments pyenv activate &amp;lt;environment_name&amp;gt;: activate virtual environment source deactivate: deactivate virtual environment pyenv uninstall &amp;lt;environment_name or python version&amp;gt;: delete virtual environment or uninstall python version Autoload Virtual Environment Create .</description>
+    </item>
+    <item>
+      <title>Disable MacOS SSH Password Login</title>
+      <link>http://localhost:1313/disable-macos-ssh-password-login/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/disable-macos-ssh-password-login/</guid>
+      <description>Create 000-hostname.conf in /etc/ssh/sshd_config.d&#xA;000-hostname.conf UsePAM no PasswordAuthentication no Restart SSH sudo launchctl stop com.openssh.sshd sudo launchctl start com.openssh.sshd </description>
+    </item>
+    <item>
+      <title>Crontab</title>
+      <link>http://localhost:1313/crontab/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/crontab/</guid>
+      <description># ┌───────────── minute (0 - 59) # │ ┌───────────── hour (0 - 23) # │ │ ┌───────────── day of month (1 - 31) # │ │ │ ┌───────────── month (1 - 12) # │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday; # │ │ │ │ │ 7 is also Sunday on some systems) # │ │ │ │ │ # │ │ │ │ │ # * * * * * command_to_execute https://crontab.</description>
+    </item>
+    <item>
+      <title>Regex</title>
+      <link>http://localhost:1313/regex/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/regex/</guid>
+      <description>. - Any Character Except New Line \d - Digit (0-9) \D - Not a Digit (0-9) \w - Word Character (a-z, A-Z, 0-9, _) \W - Not a Word Character \s - Whitespace (space, tab, newline) \S - Not Whitespace (space, tab, newline) \b - Word Boundary \B - Not a Word Boundary ^ - Beginning of a String $ - End of a String [] - Matches Characters in brackets [^ ] - Matches Characters NOT in brackets | - Either Or ( ) - Group Quantifiers: * - 0 or More + - 1 or More ?</description>
+    </item>
+    <item>
+      <title>Mac Network Cli Snippets</title>
+      <link>http://localhost:1313/mac-network-cli-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mac-network-cli-snippets/</guid>
+      <description>ipconfig get ip address ipconfig getifaddr en0 get subnet mask ipconfig getoption en0 subnet_mask get dns server ipconfig getoption en0 domain_name_server get info about how en0 got its dhcp on ipconfig getpacket en0 renew dhcp lease ipconfig set en0 DHCP # or this ipconfig set en1 BOOTP &amp;amp;&amp;amp; ipconfig set en1 DHCP ifconfig en1 down &amp;amp;&amp;amp; ifconfig en1 up set a specific ip address ipconfig set en0 INFORM 192.168.1.160 ifconfig get network info ifconfig en0 set ip address and netmask ifconfig en0 inet 192.</description>
+    </item>
+    <item>
+      <title>Mac Snippets</title>
+      <link>http://localhost:1313/mac-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mac-snippets/</guid>
+      <description>Code Snippets remove duplicates from $PATH typeset -U PATH link airport sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport partition USB sudo diskutil partitionDisk /dev/disk2 4 GPT ExFAT Tails 32G APFS Keys 10M ExFAT Drive 1G ExFAT Go\ Drive R sudo diskutil apfs encryptVolume disk3s1 -user disk format USB diskutil erasedisk ExFAT GoDrive disk2 #format for Linux only diskutil erasedisk MS-DOS GODRIVE disk2 #format for Mac/Linux write image to usb sudo gdd if=~/Downloads/debian.iso of=/dev/disk2 status=progress bs=4M unload macfuse kernel sudo kextunload -b io.</description>
+    </item>
+    <item>
+      <title>Netcat Chat Server</title>
+      <link>http://localhost:1313/netcat-chat-server/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/netcat-chat-server/</guid>
+      <description>Local Host netcat -l -p 1299 Connecting Host netcat localhost 1299 </description>
+    </item>
+    <item>
+      <title>SSH Keys</title>
+      <link>http://localhost:1313/ssh-keys/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ssh-keys/</guid>
+      <description>create ssh key in terminal ssh-keygen -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C &amp;#34;john@example.com&amp;#34; -a: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen. -t: Specifies the type of key to create, in our case the Ed25519. -f: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default .</description>
+    </item>
+    <item>
+      <title>Steganography Payload</title>
+      <link>http://localhost:1313/steganography-payload/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/steganography-payload/</guid>
+      <description>Create Payload create a bash script (i.e. payload.sh) #!/bin/bash echo &amp;#34;This is the payload script&amp;#34; transform script to base64 cat payload.sh | base64 | tr -d &amp;#39;\n&amp;#39; Embed Payload clear metadata from image exiftool -all= image.jpg load hash into image exiftool -Certificate=&amp;#39;base64 hash&amp;#39; image.jpg Execute Payload p=$(cat image.jpg | grep Cert -a | sed &amp;#39;s/&amp;lt;[^&amp;gt;]*&amp;gt;//g&amp;#39; | base64 -D);eval $p </description>
+    </item>
+  </channel>
+</rss>

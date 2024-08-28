@@ -1,0 +1,561 @@
+/* 
+ This CSS file is used to override the existing styles of the theme.
+ You can change the article headings, fonts, colors, etc.
+*/
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+.social {
+  position: relative;
+  display: inline-block;
+  float: left;
+  padding: 10px;
+}
+.highlight {
+  position: relative;
+}
+.highlight pre {
+  padding-right: 75px;
+}
+.highlight-copy-btn {
+  position: absolute;
+  bottom: 7px;
+  right: 7px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.7em;
+  line-height: 1.8;
+  color: #eceff4;
+  background-color: #4c566a;
+  min-width: 55px;
+  text-align: center;
+}
+.highlight-copy-btn:hover {
+  background-color: #3b4252;
+}
+.content {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 10px;
+  }
+
+  ol {
+    padding-left: 20px;
+    li {
+      margin-bottom: 5px;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    li {
+      list-style-position: inside;
+      list-style-type: disc;
+      margin-block-start: 0.1em;
+      margin-block-end: 0.1em;
+      padding-inline-start: 0px;
+    }
+  }
+
+  table {
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+
+    border: 1px solid #3b4252;
+
+    th,
+    td {
+      padding: 0.75rem;
+      vertical-align: top;
+      border: 1px solid #3b4252;
+    }
+
+    thead {
+      background: darken($color: #eceff4, $amount: 2);
+    }
+
+    tbody {
+      background: #3b4252;
+
+      td {
+        text-align: left !important;
+      }
+    }
+  }
+
+  blockquote {
+    padding: 0px;
+    background: #3b4252;
+    border-left: 3px solid #eceff4;
+    border-radius: 0.5rem;
+
+    p {
+      margin-bottom: 0;
+      color: #eceff4;
+      font-style: italic !important;
+    }
+  }
+
+  pre {
+    padding: 10px 20px;
+    background: #2e3440;
+
+    code {
+      border: 0;
+      background: transparent;
+      padding: 0;
+    }
+  }
+
+  a {
+    color: #3b4252;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  code {
+    font-size: 80%;
+    padding: 3px 5px;
+    background: #3b4252;
+    border: 1px solid #3b4252;
+    border-radius: 3px;
+    color: #eceff4;
+  }
+}
+
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before {
+  content: "";
+}
+
+.prose
+  :where(code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: "";
+}
+.prose
+  :where(ul > li):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::marker {
+  color: #3b4252;
+}
+/* Background */
+.bg {
+  color: #d8dee9;
+  background-color: #2e3440;
+}
+/* PreWrapper */
+.chroma {
+  color: #d8dee9;
+  background-color: #2e3440;
+}
+/* Other */
+.chroma .x {
+}
+/* Error */
+.chroma .err {
+  color: #bf616a;
+}
+/* CodeLine */
+.chroma .cl {
+}
+/* LineLink */
+.chroma .lnlinks {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineHighlight */
+.chroma .hl {
+  background-color: #2e3440;
+}
+/* LineNumbersTable */
+.chroma .lnt {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #6c6f74;
+}
+/* LineNumbers */
+.chroma .ln {
+  white-space: pre;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #6c6f74;
+}
+/* Line */
+.chroma .line {
+  display: flex;
+}
+/* Keyword */
+.chroma .k {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* KeywordConstant */
+.chroma .kc {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* KeywordDeclaration */
+.chroma .kd {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* KeywordNamespace */
+.chroma .kn {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* KeywordPseudo */
+.chroma .kp {
+  color: #81a1c1;
+}
+/* KeywordReserved */
+.chroma .kr {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* KeywordType */
+.chroma .kt {
+  color: #81a1c1;
+}
+/* Name */
+.chroma .n {
+}
+/* NameAttribute */
+.chroma .na {
+  color: #8fbcbb;
+}
+/* NameBuiltin */
+.chroma .nb {
+  color: #81a1c1;
+}
+/* NameBuiltinPseudo */
+.chroma .bp {
+}
+/* NameClass */
+.chroma .nc {
+  color: #8fbcbb;
+}
+/* NameConstant */
+.chroma .no {
+  color: #8fbcbb;
+}
+/* NameDecorator */
+.chroma .nd {
+  color: #d08770;
+}
+/* NameEntity */
+.chroma .ni {
+  color: #d08770;
+}
+/* NameException */
+.chroma .ne {
+  color: #bf616a;
+}
+/* NameFunction */
+.chroma .nf {
+  color: #88c0d0;
+}
+/* NameFunctionMagic */
+.chroma .fm {
+}
+/* NameLabel */
+.chroma .nl {
+  color: #8fbcbb;
+}
+/* NameNamespace */
+.chroma .nn {
+  color: #8fbcbb;
+}
+/* NameOther */
+.chroma .nx {
+}
+/* NameProperty */
+.chroma .py {
+  color: #8fbcbb;
+}
+/* NameTag */
+.chroma .nt {
+  color: #81a1c1;
+}
+/* NameVariable */
+.chroma .nv {
+}
+/* NameVariableClass */
+.chroma .vc {
+}
+/* NameVariableGlobal */
+.chroma .vg {
+}
+/* NameVariableInstance */
+.chroma .vi {
+}
+/* NameVariableMagic */
+.chroma .vm {
+}
+/* Literal */
+.chroma .l {
+}
+/* LiteralDate */
+.chroma .ld {
+}
+/* LiteralString */
+.chroma .s {
+  color: #a3be8c;
+}
+/* LiteralStringAffix */
+.chroma .sa {
+  color: #a3be8c;
+}
+/* LiteralStringBacktick */
+.chroma .sb {
+  color: #a3be8c;
+}
+/* LiteralStringChar */
+.chroma .sc {
+  color: #a3be8c;
+}
+/* LiteralStringDelimiter */
+.chroma .dl {
+  color: #a3be8c;
+}
+/* LiteralStringDoc */
+.chroma .sd {
+  color: #616e87;
+}
+/* LiteralStringDouble */
+.chroma .s2 {
+  color: #a3be8c;
+}
+/* LiteralStringEscape */
+.chroma .se {
+  color: #ebcb8b;
+}
+/* LiteralStringHeredoc */
+.chroma .sh {
+  color: #a3be8c;
+}
+/* LiteralStringInterpol */
+.chroma .si {
+  color: #a3be8c;
+}
+/* LiteralStringOther */
+.chroma .sx {
+  color: #a3be8c;
+}
+/* LiteralStringRegex */
+.chroma .sr {
+  color: #ebcb8b;
+}
+/* LiteralStringSingle */
+.chroma .s1 {
+  color: #a3be8c;
+}
+/* LiteralStringSymbol */
+.chroma .ss {
+  color: #a3be8c;
+}
+/* LiteralNumber */
+.chroma .m {
+  color: #b48ead;
+}
+/* LiteralNumberBin */
+.chroma .mb {
+  color: #b48ead;
+}
+/* LiteralNumberFloat */
+.chroma .mf {
+  color: #b48ead;
+}
+/* LiteralNumberHex */
+.chroma .mh {
+  color: #b48ead;
+}
+/* LiteralNumberInteger */
+.chroma .mi {
+  color: #b48ead;
+}
+/* LiteralNumberIntegerLong */
+.chroma .il {
+  color: #b48ead;
+}
+/* LiteralNumberOct */
+.chroma .mo {
+  color: #b48ead;
+}
+/* Operator */
+.chroma .o {
+  color: #81a1c1;
+}
+/* OperatorWord */
+.chroma .ow {
+  color: #81a1c1;
+  font-weight: bold;
+}
+/* Punctuation */
+.chroma .p {
+  color: #eceff4;
+}
+/* Comment */
+.chroma .c {
+  color: #616e87;
+  font-style: italic;
+}
+/* CommentHashbang */
+.chroma .ch {
+  color: #616e87;
+  font-style: italic;
+}
+/* CommentMultiline */
+.chroma .cm {
+  color: #616e87;
+  font-style: italic;
+}
+/* CommentSingle */
+.chroma .c1 {
+  color: #616e87;
+  font-style: italic;
+}
+/* CommentSpecial */
+.chroma .cs {
+  color: #616e87;
+  font-style: italic;
+}
+/* CommentPreproc */
+.chroma .cp {
+  color: #5e81ac;
+  font-style: italic;
+}
+/* CommentPreprocFile */
+.chroma .cpf {
+  color: #5e81ac;
+  font-style: italic;
+}
+/* Generic */
+.chroma .g {
+}
+/* GenericDeleted */
+.chroma .gd {
+  color: #bf616a;
+}
+/* GenericEmph */
+.chroma .ge {
+  font-style: italic;
+}
+/* GenericError */
+.chroma .gr {
+  color: #bf616a;
+}
+/* GenericHeading */
+.chroma .gh {
+  color: #88c0d0;
+  font-weight: bold;
+}
+/* GenericInserted */
+.chroma .gi {
+  color: #a3be8c;
+}
+/* GenericOutput */
+.chroma .go {
+}
+/* GenericPrompt */
+.chroma .gp {
+  color: #4c566a;
+  font-weight: bold;
+}
+/* GenericStrong */
+.chroma .gs {
+  font-weight: bold;
+}
+/* GenericSubheading */
+.chroma .gu {
+  color: #88c0d0;
+  font-weight: bold;
+}
+/* GenericTraceback */
+.chroma .gt {
+  color: #bf616a;
+}
+/* GenericUnderline */
+.chroma .gl {
+}
+/* TextWhitespace */
+.chroma .w {
+}
+.danger,
+.note,
+.warning {
+  background: #2e3440;
+  border-left-style: solid;
+  border-left-width: 0.5rem;
+  border-radius: 0.2rem;
+  padding-left: 10px;
+  margin-left: 0;
+  > p {
+    padding: 5rem 1rem;
+  }
+}
+
+.warning {
+  border-left-color: #ebcb8b;
+}
+
+.note {
+  border-left-color: #a3be8c;
+}
+
+.danger {
+  border-left-color: #bf616a;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}

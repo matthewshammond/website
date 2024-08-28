@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Aviation",
+    "description": "Contract pilot for fixed wing, rotary wing, and sUAS.",
+    "icon": "fa-solid fa-plane",
+    "link": "/services/aviation"
+  },
+  {
+    "title": "DevOps",
+    "description": "Workflow automations and network installation/management.",
+    "icon": "fa-solid fa-infinity",
+    "link": "/services/devops"
+  },
+  {
+    "title": "Military Advisor",
+    "description": "Contractor for advising and mentoring staff positions.",
+    "icon": "fa-solid fa-people-arrows",
+    "link": "/services/advisor"
+  }
+]

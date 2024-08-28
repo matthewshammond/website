@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on Matt Hammond Inc</title>
+    <link>http://localhost:1313/tags/ctf/</link>
+    <description>Recent content in CTF on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 04 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Anonymous</title>
+      <link>http://localhost:1313/anonymous/</link>
+      <pubDate>Wed, 04 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/anonymous/</guid>
+      <description>Questions Enumerate the machine. How many ports are open? 4 What service is running on port 21? ftp What service is running on ports 139 and 445? smb There&amp;rsquo;s a share on the user&amp;rsquo;s computer. What&amp;rsquo;s it called? pics user.txt 90d6f992585815ff991e68748c414740 root.txt 4d930091c31a622a7ed10f27999af363 Notes myIP = 10.18.53.113 IP = 10.10.63.78 Exposed Services Users:Passwords Vulnerabilities Commands ping $IP&#xA;sudo nmap -vv -sC -sV -oN scans/initial $IP</description>
+    </item>
+  </channel>
+</rss>

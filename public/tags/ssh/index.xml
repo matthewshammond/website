@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on Matt Hammond Inc</title>
+    <link>http://localhost:1313/tags/ssh/</link>
+    <description>Recent content in Ssh on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Disable MacOS SSH Password Login</title>
+      <link>http://localhost:1313/disable-macos-ssh-password-login/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/disable-macos-ssh-password-login/</guid>
+      <description>Create 000-hostname.conf in /etc/ssh/sshd_config.d&#xA;000-hostname.conf UsePAM no PasswordAuthentication no Restart SSH sudo launchctl stop com.openssh.sshd sudo launchctl start com.openssh.sshd </description>
+    </item>
+    <item>
+      <title>SSH Keys</title>
+      <link>http://localhost:1313/ssh-keys/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ssh-keys/</guid>
+      <description>create ssh key in terminal ssh-keygen -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C &amp;#34;john@example.com&amp;#34; -a: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen. -t: Specifies the type of key to create, in our case the Ed25519. -f: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default .</description>
+    </item>
+  </channel>
+</rss>

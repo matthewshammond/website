@@ -1,0 +1,55 @@
+{{- partial "analytics" . -}}
+<meta charset="utf-8" />
+<title>{{site.Title}}{{if not .IsHome}} | {{.Title}}{{end}}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://matthammond.com/favicon/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://matthammond.com/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://matthammond.com/favicon/favicon-16x16.png"
+/>
+<link rel="manifest" href="https://matthammond.com/favicon/site.webmanifest" />
+<link
+  rel="mask-icon"
+  href="https://matthammond.com/favicon/safari-pinned-tab.svg"
+  color="#5bbad5"
+/>
+<link rel="shortcut icon" href="https://matthammond.com/favicon/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta
+  name="msapplication-config"
+  content="https://matthammond.com/favicon/browserconfig.xml"
+/>
+<meta name="theme-color" content="#ffffff" />
+{{ if .Site.Params.icon.fontawesome }}
+<link
+  href='{{ "/css/fa6.min.css" | relURL }}'
+  rel="stylesheet"
+  type="text/css"
+/>
+{{ end }} {{ $styles := resources.Get "css/style.css" | postCSS }} {{ if
+hugo.IsServer }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ else }} {{ $styles := $styles | minify | fingerprint | resources.PostProcess
+}}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+{{ end }} {{ if .IsHome }}
+<link rel="stylesheet" href='{{ "/css/swiper-bundle.min.css" | relURL }}' />
+{{ end }}
+<link
+  href='{{ "/css/style.min.css" | relURL }}'
+  rel="stylesheet"
+  type="text/css"
+/>
+<link rel="stylesheet" href='{{ "/css/custom.css" | relURL }}' />

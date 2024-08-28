@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on Matt Hammond Inc</title>
+    <link>http://localhost:1313/tags/general/</link>
+    <description>Recent content in General on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Professional Email Signatures</title>
+      <link>http://localhost:1313/professional-email-signatures/</link>
+      <pubDate>Wed, 24 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/professional-email-signatures/</guid>
+      <description>Intro Let&amp;rsquo;s create a professional looking signature for your email. This tutorial will give you step-by-step instructions on creating and deploying an email signature for iCloud (macOS Mail client and iPhone) along with Google. It may work for other providers such as Outlook, but has not been tested.&#xA;If you want a logo or photo in your signature, it is important that the image is available online and the location does not move.</description>
+    </item>
+  </channel>
+</rss>

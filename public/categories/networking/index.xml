@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Matt Hammond Inc</title>
+    <link>http://localhost:1313/categories/networking/</link>
+    <description>Recent content in Networking on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 16 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Disable MacOS SSH Password Login</title>
+      <link>http://localhost:1313/disable-macos-ssh-password-login/</link>
+      <pubDate>Mon, 16 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/disable-macos-ssh-password-login/</guid>
+      <description>Create 000-hostname.conf in /etc/ssh/sshd_config.d&#xA;000-hostname.conf UsePAM no PasswordAuthentication no Restart SSH sudo launchctl stop com.openssh.sshd sudo launchctl start com.openssh.sshd </description>
+    </item>
+    <item>
+      <title>Mac Network Cli Snippets</title>
+      <link>http://localhost:1313/mac-network-cli-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mac-network-cli-snippets/</guid>
+      <description>ipconfig get ip address ipconfig getifaddr en0 get subnet mask ipconfig getoption en0 subnet_mask get dns server ipconfig getoption en0 domain_name_server get info about how en0 got its dhcp on ipconfig getpacket en0 renew dhcp lease ipconfig set en0 DHCP # or this ipconfig set en1 BOOTP &amp;amp;&amp;amp; ipconfig set en1 DHCP ifconfig en1 down &amp;amp;&amp;amp; ifconfig en1 up set a specific ip address ipconfig set en0 INFORM 192.168.1.160 ifconfig get network info ifconfig en0 set ip address and netmask ifconfig en0 inet 192.</description>
+    </item>
+    <item>
+      <title>Netcat Chat Server</title>
+      <link>http://localhost:1313/netcat-chat-server/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/netcat-chat-server/</guid>
+      <description>Local Host netcat -l -p 1299 Connecting Host netcat localhost 1299 </description>
+    </item>
+  </channel>
+</rss>

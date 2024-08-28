@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on Matt Hammond Inc</title>
+    <link>http://localhost:1313/tags/networking/</link>
+    <description>Recent content in Networking on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac Network Cli Snippets</title>
+      <link>http://localhost:1313/mac-network-cli-snippets/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/mac-network-cli-snippets/</guid>
+      <description>ipconfig get ip address ipconfig getifaddr en0 get subnet mask ipconfig getoption en0 subnet_mask get dns server ipconfig getoption en0 domain_name_server get info about how en0 got its dhcp on ipconfig getpacket en0 renew dhcp lease ipconfig set en0 DHCP # or this ipconfig set en1 BOOTP &amp;amp;&amp;amp; ipconfig set en1 DHCP ifconfig en1 down &amp;amp;&amp;amp; ifconfig en1 up set a specific ip address ipconfig set en0 INFORM 192.168.1.160 ifconfig get network info ifconfig en0 set ip address and netmask ifconfig en0 inet 192.</description>
+    </item>
+  </channel>
+</rss>

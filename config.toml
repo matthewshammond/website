@@ -1,0 +1,106 @@
+baseURL = "https://matthammond.com"
+title = "Matt Hammond Inc"
+author = "Matt Hammond"
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+theme = "tella"
+enableRobotsTXT = false
+
+# If you're using Google Analytics, you can enable this feature.
+#googleAnalytics = "UA-12345678-1"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = false
+  [markup.goldmark.parser.attribute]
+    block = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Style = "nord"
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = false
+    tabWidth = 4
+    noClasses = false
+
+[params]
+
+  showBlog = true
+  mainSections = ['articles']
+
+  googleFonts = true
+
+  [params.logo]
+    main = "img/logos/logo.png"
+    alt = "Matt Hammond Inc"
+
+    # The size parameter is the class name of tailwindcss
+    # https://tailwindcss.com/
+    size = "h-16"
+
+  [params.site]
+    name = "Matt Hammond Inc"
+
+  [params.icon]
+    #If you want to use FontAwesome, set this parameter to true.
+    fontawesome = true
+
+  [params.pgp]
+    url = "https://keys.openpgp.org/search?q=matt%40matthammond.com"
+    key = "PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884"
+
+
+  [params.homepage_meta_tags]
+    meta_description = "Contract pilot for fixed wing, rotary wing, and sUAS. Workflow automations and SMB networks. Military advising and mentoring."
+    meta_og_title = "Matt Hammond Inc"
+    meta_og_type = "website"
+    meta_og_url = "https://matthammond.com"
+    meta_og_image = "img/logos/MH.png"
+    meta_og_description = "Contract pilot for fixed wing, rotary wing, and sUAS. Workflow automations and SMB networks. Military advising and mentoring."
+
+[menu]
+
+  [[menu.main]]
+    identifier = "services"
+    name = "Services"
+    url = "/services/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "articles"
+    name = "Articles"
+    url = "/articles/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
+
+  # Footer Menu
+  [[menu.footer]]
+    name = "Github"
+    url = "https://github.com/matthewshammond"
+    pre = "<i class='fab fa-github text-2xl'></i>"
+      weight = 1
+
+  [[menu.footer]]
+    name = "LinkedIn"
+    url = "https://linkedin.com/in/matthewshammond"
+    pre = "<i class='fab fa-linkedin text-2xl'></i>"
+      weight = 2
+
+  [[menu.footer]]
+    name = "Discord"
+    url = "https://discord.gg/kU2wgApBgK"
+    pre = "<i class='fab fa-discord text-2xl'></i>"
+      weight = 3

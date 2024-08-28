@@ -1,0 +1,14 @@
+{{ range first 3 (where site.RegularPages.ByDate.Reverse "Type" "in"
+site.Params.mainSections )}}
+<a href="{{ .Permalink }}">{{ partial "summary.html" . }}</a>
+{{ end }}
+
+<div class="flex flex-wrap justify-center text-nord-6 my-5">
+  <a
+    href="articles/"
+    class="duration-200 px-6 py-3 bg-nord-0 hover:opacity-95 hover:text-nord-4 relative block focus:outline-none text-md text-center"
+  >
+    All Posts >
+  </a>
+</div>
+

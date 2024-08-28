@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regex on Matt Hammond Inc</title>
+    <link>http://localhost:1313/tags/regex/</link>
+    <description>Recent content in Regex on Matt Hammond Inc</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regex</title>
+      <link>http://localhost:1313/regex/</link>
+      <pubDate>Thu, 12 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/regex/</guid>
+      <description>. - Any Character Except New Line \d - Digit (0-9) \D - Not a Digit (0-9) \w - Word Character (a-z, A-Z, 0-9, _) \W - Not a Word Character \s - Whitespace (space, tab, newline) \S - Not Whitespace (space, tab, newline) \b - Word Boundary \B - Not a Word Boundary ^ - Beginning of a String $ - End of a String [] - Matches Characters in brackets [^ ] - Matches Characters NOT in brackets | - Either Or ( ) - Group Quantifiers: * - 0 or More + - 1 or More ?</description>
+    </item>
+  </channel>
+</rss>
