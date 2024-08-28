@@ -9,6 +9,8 @@ enableRobotsTXT = false
 
 # If you're using Google Analytics, you can enable this feature.
 #googleAnalytics = "UA-12345678-1"
+[outputs]
+home = ["HTML", "AMP", "RSS", "JSON"]
 
 [markup]
   [markup.goldmark.renderer]
