@@ -14,7 +14,7 @@ Strong knowledge acquired in the areas of cyber network security analysis, DevOp
 
 {{< rawhtml >}}
 
-<div class="container">
+<div class="certificates">
   <div align="center;" class="social">
     <a href="https://www.credly.com/badges/869407ff-4350-4613-a230-a1e18c29c116"><img src="/img/certificates/comptia-security-ce-certification.png" alt="Security+"></a>
   </div>
