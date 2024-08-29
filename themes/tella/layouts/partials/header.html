@@ -19,6 +19,16 @@
           src="{{ .Site.Params.logo.main | relURL }}"
       /></a>
     </div>
+    <div class="block lg:hidden">
+      <div
+        id="hamburgerbtn"
+        class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen"
+      >
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
+    </div>
     <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
     <script>
       addBackToTop({

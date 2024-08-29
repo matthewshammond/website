@@ -2759,6 +2759,10 @@ video {
   aspect-ratio: 16 / 9;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-16 {
   height: 4rem;
 }
@@ -2769,6 +2773,10 @@ video {
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-14 {
+  width: 3.5rem;
 }
 
 .w-auto {
@@ -4181,6 +4189,10 @@ video {
 
   .lg\:flex {
     display: flex;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-44 {
