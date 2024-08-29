@@ -3,16 +3,6 @@
   property="og:title"
   content="{{site.Title}}{{if not .IsHome}} | {{.Title}}{{end}}"
 />
-{{ partial "seo/print.html" . }} {{- with .Site.Params.facebookAppId }}
-<meta property="fb:app_id" content="{{ . }}" />
-{{- end }}
-<meta name="twitter:title" content="{{ .Title }}" />
-<link
-  rel="preload"
-  href='{{ "/css/sweetalert2.min.css" | relURL }}'
-  as="style"
-  onload="this.onload=null;this.rel='stylesheet'"
-/>
 {{ end }} {{ define "main" }}
 <div class="mx-auto my-10 max-w-6xl">
   <div class="mx-3 col-span-3 lg:col-span-2 px-2">

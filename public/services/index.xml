@@ -1,33 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Services on Matt Hammond Inc</title>
-    <link>http://localhost:1313/services/</link>
-    <description>Recent content in Services on Matt Hammond Inc</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 27 Aug 2024 21:41:12 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/services/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Aviation</title>
-      <link>http://localhost:1313/services/aviation/</link>
-      <pubDate>Tue, 27 Aug 2024 21:41:12 -0400</pubDate>
-      <guid>http://localhost:1313/services/aviation/</guid>
-      <description>Prior military professional with military aviation experience as well as civilian aviation experience in helicopters and fixed wing stateside and abroad.&#xA;Excellent personal skills, computer skills, professionalism, responsibility, reliability, and moral and ethical judgment. Consistently maintains a high degree of work principles while still remaining flexible and adaptive in dynamic environments.&#xA;Contract pilot for fixed wing. Cirrus Vision Jet SF-50 Contract pilot for rotary wing. BV-234 EC-145 EC-145e Bell 212 Operator for sUAS.</description>
-    </item>
-    <item>
-      <title>DevOps</title>
-      <link>http://localhost:1313/services/devops/</link>
-      <pubDate>Tue, 27 Aug 2024 18:57:14 -0400</pubDate>
-      <guid>http://localhost:1313/services/devops/</guid>
-      <description>Strong knowledge acquired in the areas of cyber network security analysis, DevOps tool administration, and information security system analysis. Expertise in implementing DevOps practices into IT organizations in a cost-efficient manner in compliance with the design. Skilled in analyzing security implications when integrating systems and data with third-party vendors/solutions considering data ownership, backups, policies around unauthorized data sharing, etc. Well-versed in various threats, vulnerabilities, and attacks. Proficient in evaluating mitigation controls and deterrent techniques to handle attacks efficiently.</description>
-    </item>
-    <item>
-      <title>Advisor</title>
-      <link>http://localhost:1313/services/advisor/</link>
-      <pubDate>Tue, 27 Aug 2024 21:38:52 -0400</pubDate>
-      <guid>http://localhost:1313/services/advisor/</guid>
-      <description>Retired military professional with expertise in military aviation and Special Operations.&#xA;Demonstrate excellent interpersonal skills, computer proficiency, professionalism, responsibility, reliability, and strong moral and ethical judgment. Consistently upholds high work standards while remaining adaptable in dynamic and austere environments.&#xA;Provides mentorship during military training, aiding in the creation of scenarios that simulate potential deployment situations.&#xA;Provide an insider&amp;rsquo;s view, sharing unique experiences and highlighting the vital role that staff and/or SOF plays in global events.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Services on Matt Hammond Inc</title><link>https://matthammond.com/services/</link><description>Recent content in Services on Matt Hammond Inc</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 27 Aug 2024 21:41:12 -0400</lastBuildDate><atom:link href="https://matthammond.com/services/index.xml" rel="self" type="application/rss+xml"/><item><title>Aviation</title><link>https://matthammond.com/services/aviation/</link><pubDate>Tue, 27 Aug 2024 21:41:12 -0400</pubDate><guid>https://matthammond.com/services/aviation/</guid><description>Prior military professional with military aviation experience as well as civilian aviation experience in helicopters and fixed wing stateside and abroad.
+Excellent personal skills, computer skills, professionalism, responsibility, reliability, and moral and ethical judgment. Consistently maintains a high degree of work principles while still remaining flexible and adaptive in dynamic environments.
+Contract pilot for fixed wing. Cirrus Vision Jet SF-50 Contract pilot for rotary wing. BV-234 EC-145 EC-145e Bell 212 Operator for sUAS.</description></item><item><title>DevOps</title><link>https://matthammond.com/services/devops/</link><pubDate>Tue, 27 Aug 2024 18:57:14 -0400</pubDate><guid>https://matthammond.com/services/devops/</guid><description>Strong knowledge acquired in the areas of cyber network security analysis, DevOps tool administration, and information security system analysis. Expertise in implementing DevOps practices into IT organizations in a cost-efficient manner in compliance with the design. Skilled in analyzing security implications when integrating systems and data with third-party vendors/solutions considering data ownership, backups, policies around unauthorized data sharing, etc. Well-versed in various threats, vulnerabilities, and attacks. Proficient in evaluating mitigation controls and deterrent techniques to handle attacks efficiently.</description></item><item><title>Advisor</title><link>https://matthammond.com/services/advisor/</link><pubDate>Tue, 27 Aug 2024 21:38:52 -0400</pubDate><guid>https://matthammond.com/services/advisor/</guid><description>Retired military professional with expertise in military aviation and Special Operations.
+Demonstrate excellent interpersonal skills, computer proficiency, professionalism, responsibility, reliability, and strong moral and ethical judgment. Consistently upholds high work standards while remaining adaptable in dynamic and austere environments.
+Provides mentorship during military training, aiding in the creation of scenarios that simulate potential deployment situations.
+Provide an insider&amp;rsquo;s view, sharing unique experiences and highlighting the vital role that staff and/or SOF plays in global events.</description></item></channel></rss>
