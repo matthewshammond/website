@@ -37,7 +37,7 @@
   rel="stylesheet"
   type="text/css"
 />
-{{ end }}
+{{ end }} {{ $styles := resources.Get "css/style.css" | postCSS }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 {{ if .IsHome }}
 <link rel="stylesheet" href='{{ "/css/swiper-bundle.min.css" | relURL }}' />
