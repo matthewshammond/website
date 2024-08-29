@@ -559,3 +559,6 @@
 .column {
   flex: 50%;
 }
+.mopen span {
+  background: #eceff4;
+}

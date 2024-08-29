@@ -55,7 +55,9 @@
           src="{{ .Site.Params.logo.main | relURL }}"
       /></a>
     </div>
-    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <div
+      class="hidden sm:hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+    >
       <div class="text-lg lg:flex-grow"></div>
       <div class="flex flex-row items-center text-lg">
         <a href="{{ .Site.Params.PGP.url }}">{{ .Site.Params.PGP.key }}</a>
