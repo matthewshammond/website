@@ -1,7 +1,7 @@
 ---
 title: "Regex"
 date: 2023-01-12
-image: images/tux_apple.png
+image: images/2023-thumbs/regex.png
 draft: false
 author: "Matt Hammond"
 description: "Regular Expressions cheat sheet."
