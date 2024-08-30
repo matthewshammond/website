@@ -1,7 +1,7 @@
 ---
 title: "Mac Snippets"
 date: 2023-01-11
-image: images/tux_apple.png
+image: images/2023-thumbs/mac-snippets.png
 draft: false
 author: "Matt Hammond"
 description: "Collection of random terminal snippets for macOS."

@@ -1,7 +1,7 @@
 ---
 title: "SSH Keys"
 date: 2023-01-11
-image: images/tux_apple.png
+image: images/2023-thumbs/ssh-keys.png
 draft: false
 author: "Matt Hammond"
 description: "Create your own ssh keys in the terminal."

@@ -2,6 +2,7 @@
 title: "Homebridge Restore Backup"
 date: 2023-11-24
 image: images/2023-thumbs/homebridge.jpg
+draft: false
 author: "Matt Hammond"
 description: "Tutorial on how to restore Homebridge from a backup."
 ---

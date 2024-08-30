@@ -1,8 +1,7 @@
 ---
 title: "Mac Network Cli Snippets"
 date: 2023-01-11
-url: /mac-network-cli-snippets/
-image: images/tux_apple.png
+image: images/2023-thumbs/mac-network-cli-snippets.png
 draft: false
 author: "Matt Hammond"
 description: "Collection of network code terminal snippets for macOS."
