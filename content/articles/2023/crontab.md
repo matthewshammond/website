@@ -1,7 +1,7 @@
 ---
 title: "Crontab"
 date: 2023-01-12
-image: images/tux_apple.png
+image: images/2023-thumbs/crontab.png
 draft: false
 author: "Matt Hammond"
 description: "Create commands to execute at a specified time and on a regular schedule with crontab."
