@@ -1,7 +1,7 @@
 ---
 title: "Disable MacOS SSH Password Login"
 date: 2023-01-16
-image: images/tux_apple.png
+image: images/2023-thumbs/disable-macos-ssh-password-login.png
 draft: false
 author: "Matt Hammond"
 description: "Steps on disabling MacOS SSH password login."
