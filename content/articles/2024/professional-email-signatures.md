@@ -18,6 +18,8 @@ Let's create a professional looking signature for your email. This tutorial will
 
 If you want a logo or photo in your signature, it is important that the image is available online and the location does not move. The next section will walk you through hosting your own images. If you are not going to have an image in your signature, skip the next section.
 
+{{< toc >}}
+
 ## Signature Images
 
 You can either host your own image on a public facing domain or encode your image directly into the signature. Below will show both methods.
