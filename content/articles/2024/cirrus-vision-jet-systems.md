@@ -1,7 +1,7 @@
 ---
 title: "Cirrus Vision Jet Systems"
 date: 2024-08-31T09:22:47-04:00
-image: images/2024-thumbs/cirrus-vision-jet-systems.png
+image: images/2024-thumbs/sf50-systems.png
 draft: false
 author: "Matt Hammond"
 description: "Systems information and diagrams for the SF50."
