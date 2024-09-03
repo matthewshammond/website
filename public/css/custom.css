@@ -562,3 +562,9 @@
 .mopen span {
   background: #eceff4;
 }
+.prose :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-color: #2e3440;
+  border-top-width: 1px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}

@@ -1,67 +1,512 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><title>Matt Hammond Inc | Mac Network Cli Snippets</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=https://matthammond.com/favicon/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://matthammond.com/favicon/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://matthammond.com/favicon/favicon-16x16.png><link rel=manifest href=https://matthammond.com/favicon/site.webmanifest><link rel=mask-icon href=https://matthammond.com/favicon/safari-pinned-tab.svg color=#5bbad5><link rel="shortcut icon" href=https://matthammond.com/favicon/favicon.ico><meta name=msapplication-TileColor content="#da532c"><meta name=msapplication-config content="https://matthammond.com/favicon/browserconfig.xml"><meta name=theme-color content="#ffffff"><link href=/css/fa6.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/style.css><link href=/css/style.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/css/custom.css><meta property="og:title" content="Matt Hammond Inc | Mac Network Cli Snippets"></head><body class="flex flex-col min-h-screen bg-nord-6"><main class=flex-grow><header><div id=overlay><ul class="text-center list-none text-white text-3xl"><li class=p-2><a href=/services/><span>Services</span></a></li><li class=p-2><a href=/articles/><span>Articles</span></a></li><li class=p-2><a href=/about/><span>About</span></a></li><li class=p-2><a href=/contact/><span>Contact</span></a></li></ul></div><nav class="flex items-center justify-between flex-wrap bg-nord-0 p-8"><div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6"><a href=https://matthammond.com/><img alt="Matt Hammond Inc" class="h-16 mr-3" src=/img/logos/logo.png></a></div><div class="block lg:hidden"><div id=hamburgerbtn class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen"><span class=top></span>
-<span class=middle></span>
-<span class=bottom></span></div></div><script src=https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js></script><script>addBackToTop({diameter:52,backgroundColor:"#3B4252",textColor:"#ECEFF4"})</script><div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto" id=mobileMenu><div class="text-lg lg:flex-grow"></div><div class=text-lg><a href=/services/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Services
-</a><a href=/articles/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Articles
-</a><a href=/about/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">About
-</a><a href=/contact/ class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8">Contact</a></div></div></nav></header><div class="mx-auto my-10 max-w-6xl"><div class="mx-3 col-span-3 lg:col-span-2 px-2"><h1 class="title text-5xl font-bold mb-3">Mac Network Cli Snippets</h1><section class="mb-4 text-lg"><h4 id=date class="flex flex-row items-center"><span class="icon-access_time text-2xl mr-2"></span> January 11, 2023</h4><h4 class="flex flex-row items-center"><span class="icon-person text-2xl mr-2"></span>Matt Hammond</h4></section><div class="content prose md:prose-lg lg:prose-xl max-w-none py-1 text-nord-0"><h2 id=ipconfig>ipconfig</h2><ul><li>get <code>ip address</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig getifaddr en0
-</span></span></code></pre></div><ul><li>get <code>subnet mask</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig getoption en0 subnet_mask
-</span></span></code></pre></div><ul><li>get <code>dns server</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig getoption en0 domain_name_server
-</span></span></code></pre></div><ul><li>get <code>info about how en0 got its dhcp on</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig getpacket en0
-</span></span></code></pre></div><ul><li>renew dhcp lease</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig <span class=nb>set</span> en0 DHCP
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1># or this</span>
-</span></span><span class=line><span class=cl>ipconfig <span class=nb>set</span> en1 BOOTP <span class=o>&amp;&amp;</span> ipconfig <span class=nb>set</span> en1 DHCP
-</span></span><span class=line><span class=cl>ifconfig en1 down <span class=o>&amp;&amp;</span> ifconfig en1 up
-</span></span></code></pre></div><ul><li>set a specific ip address</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig <span class=nb>set</span> en0 INFORM 192.168.1.160
-</span></span></code></pre></div><h2 id=ifconfig>ifconfig</h2><ul><li>get <code>network info</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ifconfig en0
-</span></span></code></pre></div><ul><li>set <code>ip address</code> and <code>netmask</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ifconfig en0 inet 192.168.1.154 netmask 255.255.255.0
-</span></span></code></pre></div><ul><li>renew <code>dhcp leases</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ipconfig <span class=nb>set</span> en0 BOOTP <span class=o>&amp;&amp;</span> ipconfig <span class=nb>set</span> en0 DHCP
-</span></span><span class=line><span class=cl>ifconfig en0 down <span class=o>&amp;&amp;</span> ifconfig en0 up
-</span></span></code></pre></div><h2 id=networksetup>networksetup</h2><ul><li>get a list of <code>location</code> on the computer</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>networksetup -listlocations
-</span></span></code></pre></div><ul><li>get <code>active location</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>networksetup -getcurrentlocation
-</span></span></code></pre></div><ul><li>config manual <code>static ip address</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>networksetup -setmanual Wi-Fi 192.168.1.154 255.255.255.0 192.168.1.253
-</span></span></code></pre></div><ul><li>config <code>dns server</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>networksetup -setdnsservers Wi-Fi 192.168.1.154 192.168.1.253
-</span></span></code></pre></div><ul><li>get <code>dns server</code></li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>networksetup -getdnsservers Wi-Fi
-</span></span></code></pre></div><h2 id=firewall>firewall</h2><ul><li>stop the application layer firewall</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>launchctl unload /System/Library/LaunchAgents/com.apple.alf.useragent.plist
-</span></span><span class=line><span class=cl>launchctl unload /System/Library/LaunchAgents/com.apple.alf.agent.plist
-</span></span></code></pre></div><ul><li>start the application layer firewall</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>launchctl load /System/Library/LaunchAgents/com.apple.alf.agent.plist
-</span></span><span class=line><span class=cl>launchctl load /System/Library/LaunchAgents/com.apple.alf.useragent.plist
-</span></span></code></pre></div><ul><li>allow an app to communicate outside through the application layer firewall</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>socketfilterfw -t <span class=s2>&#34;/Applications/...&#34;</span>
-</span></span></code></pre></div><h2 id=route>route</h2><ul><li>routing table</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -nr
-</span></span></code></pre></div><ul><li>add a route</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># so that traffice for 192.168.1.0/24</span>
-</span></span><span class=line><span class=cl><span class=c1># communicates over the 192.168.1.253</span>
-</span></span><span class=line><span class=cl>sudo route -n add 192.168.1.0/24 192.168.1.253
-</span></span></code></pre></div><ul><li>delete a route</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo route -n delete 192.168.1.0/24 192.168.1.253
-</span></span></code></pre></div><h2 id=netstat>netstat</h2><ul><li>view info on all sockets</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -at
-</span></span></code></pre></div><ul><li>network info for ipv6</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -lt
-</span></span></code></pre></div><ul><li>per protocol network statistics</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -s
-</span></span></code></pre></div><ul><li>statistics for a specific network protocol</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -p igmp
-</span></span></code></pre></div><ul><li>statistics for network interfaces</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>netstat -i
-</span></span></code></pre></div><ul><li>view network info as it happens</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ntop
-</span></span></code></pre></div><h2 id=ping>ping</h2><ul><li>put a delay in pings</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping -i <span class=m>5</span> 192.168.1.253
-</span></span></code></pre></div><ul><li>ping hostname 5 times and then stop</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping -c <span class=m>5</span> 192.168.1.253
-</span></span></code></pre></div><ul><li>flood ping the host</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping -f location
-</span></span></code></pre></div><ul><li>set packet size during ping</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping -s <span class=m>100</span> 192.168.1.253
-</span></span></code></pre></div><ul><li>customize source ip during ping</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ping -S 192.168.1.160 192.168.1.253
-</span></span></code></pre></div><h2 id=trace>trace</h2><ul><li>trace the path packets go through</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>traceroute baidu.com
-</span></span></code></pre></div><ul><li>without looking up names</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>traceroute -n baidu.com
-</span></span></code></pre></div><ul><li>in debug mode</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>traceroute -d baidu.com
-</span></span></code></pre></div><h2 id=nc>nc</h2><ul><li>establish a network connection</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nc -v baidu.com <span class=m>80</span>
-</span></span></code></pre></div><ul><li>establish a network connection over port 2195</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nc -v -w <span class=m>15</span> baidu.com <span class=m>2196</span>
-</span></span></code></pre></div><ul><li>establish a network connection only allowing ipv4</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nc -v -4 baidu.com <span class=m>2196</span>
-</span></span></code></pre></div><ul><li>setup a network listener on port 2196 for testing</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nc -l -p <span class=m>2196</span>
-</span></span></code></pre></div><h2 id=tcpdump>tcpdump</h2><ul><li>capture some packets</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -nS
-</span></span></code></pre></div><ul><li>capture all packets</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -nnvvXS
-</span></span></code></pre></div><ul><li>capture packets for port</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -nnvvXs <span class=m>548</span>
-</span></span></code></pre></div><ul><li>capture all packets for a given port going to destination 192.168.1.160</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -nnvvXs <span class=m>548</span> dst 192.168.1.160
-</span></span></code></pre></div><ul><li>capture packets as above but dump to a pcap file</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -nnvvXs <span class=m>548</span> dst 192.168.1.160 -w /tmp/demo.pcap
-</span></span></code></pre></div><ul><li>read tcpdump (cap) files and make them human readable</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>tcpdump -qns <span class=m>0</span> -A -r /tmp/demo.pcap
-</span></span></code></pre></div><h2 id=other>other</h2><ul><li>flush the dns cache</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>dscacheutil -flushcache
-</span></span></code></pre></div><ul><li>clear arp cache</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>arp -ad
-</span></span></code></pre></div><ul><li>what binaries have what ports and in what states are those ports</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>lsof -n -i4TCP
-</span></span></code></pre></div><ul><li>make an alias for looking at what has a listener open, called ports</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>alias</span> <span class=nv>ports</span><span class=o>=</span><span class=s1>&#39;lsof -n -i4TCP | grep LISTEN&#39;</span>
-</span></span></code></pre></div><ul><li>edit hosts file</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo vim /private/etc/hosts
-</span></span></code></pre></div><script src=https://giscus.app/client.js data-repo=matthewshammond/website data-repo-id=R_kgDOMpvAww data-category=Comments data-category-id=DIC_kwDOMpvAw84CiDKo data-mapping=title data-strict=0 data-reactions-enabled=0 data-emit-metadata=0 data-input-position=bottom data-theme=dark_dimmed data-lang=en crossorigin=anonymous async></script></div></div></div><script src=/js/code-copy.js></script></main><footer class=bg-tlgray-100><script src=/js/clipboard.min.js></script><script src=/js/highlight.min.js></script><script src=/js/highlightjs-line-numbers.min.js></script><script src=/js/sweetalert2.min.js></script><script>hljs.initHighlightingOnLoad(),hljs.initLineNumbersOnLoad(),new ClipboardJS(".url");function OnClickURL(){Swal.fire({icon:"success",title:"Copied!",text:"Copied the URL and title."})}</script><script>function toggleNav(){var e=document.getElementById("hamburgerbtn"),t=document.getElementById("overlay"),n=document.body;e.addEventListener("click",function(){t.classList.toggle("open"),e.classList.toggle("is-open"),n.classList.toggle("scroll-lock")})}toggleNav(),document.querySelector(".scroll-top").addEventListener("click",()=>{document.documentElement.scrollTop=0})</script><link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel=stylesheet><div class="flex items-center justify-between flex-wrap bg-nord-0 p-8 text-nord-6"><div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6"><a href=https://matthammond.com/><img alt="Matt Hammond Inc" class="h-16 mr-3" src=/img/logos/logo.png></a></div><div class="hidden sm:hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto"><div class="text-lg lg:flex-grow"></div><div class="flex flex-row items-center text-lg"><a href="https://keys.openpgp.org/search?q=matt%40matthammond.com">PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884</a></div></div><div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id=mobileMenu><div class="text-lg lg:flex-grow"></div><div class="flex flex-row items-center text-lg"><a href=https://github.com/matthewshammond class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-github text-2xl'></i>
-</a><a href=https://linkedin.com/in/matthewshammond class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-linkedin text-2xl'></i>
-</a><a href=https://discord.gg/kU2wgApBgK class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"><i class='fab fa-discord text-2xl'></i></a></div></div></div><div class="copy pl-8 py-5 bg-tlgray-700 text-nord-6 text-md">&copy; Matt Hammond Inc 2024 All Rights Reserved.</div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8" />
+<title>Matt Hammond Inc | Mac Network Cli Snippets</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="https://matthammond.com/favicon/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="https://matthammond.com/favicon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="https://matthammond.com/favicon/favicon-16x16.png"
+/>
+<link rel="manifest" href="https://matthammond.com/favicon/site.webmanifest" />
+<link
+  rel="mask-icon"
+  href="https://matthammond.com/favicon/safari-pinned-tab.svg"
+  color="#5bbad5"
+/>
+<link rel="shortcut icon" href="https://matthammond.com/favicon/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta
+  name="msapplication-config"
+  content="https://matthammond.com/favicon/browserconfig.xml"
+/>
+<meta name="theme-color" content="#ffffff" />
+
+<link
+  href='/css/fa6.min.css'
+  rel="stylesheet"
+  type="text/css"
+/>
+ 
+<link rel="stylesheet" href="/css/style.css" />
+
+<link
+  href='/css/style.min.css'
+  rel="stylesheet"
+  type="text/css"
+/>
+<link rel="stylesheet" href='/css/custom.css' />
+
+<meta
+  property="og:title"
+  content="Matt Hammond Inc | Mac Network Cli Snippets"
+/>
+
+</head>
+
+<body class="flex flex-col min-h-screen bg-nord-6">
+  <main class="flex-grow"><header>
+  <div id="overlay">
+    <ul class="text-center list-none text-white text-3xl">
+      
+      <li class="p-2">
+        <a href="/services/">
+          <span>Services</span>
+        </a>
+      </li>
+      
+      <li class="p-2">
+        <a href="/articles/">
+          <span>Articles</span>
+        </a>
+      </li>
+      
+      <li class="p-2">
+        <a href="/about/">
+          <span>About</span>
+        </a>
+      </li>
+      
+      <li class="p-2">
+        <a href="/contact/">
+          <span>Contact</span>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+  <nav class="flex items-center justify-between flex-wrap bg-nord-0 p-8">
+    <div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6">
+      <a href="http://localhost:1313/"
+        ><img
+          alt="Matt Hammond Inc"
+          class="h-16 mr-3"
+          src="/img/logos/logo.png"
+      /></a>
+    </div>
+    <div class="block lg:hidden">
+      <div
+        id="hamburgerbtn"
+        class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen"
+      >
+        <span class="top"></span>
+        <span class="middle"></span>
+        <span class="bottom"></span>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+    <script>
+      addBackToTop({
+        diameter: 52,
+        backgroundColor: "#3B4252",
+        textColor: "#ECEFF4",
+      });
+    </script>
+    <div
+      class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+      id="mobileMenu"
+    >
+      <div class="text-lg lg:flex-grow"></div>
+      <div class="text-lg">
+        
+        <a
+          href="/services/"
+          class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8"
+        >
+          Services
+        </a>
+        
+        <a
+          href="/articles/"
+          class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8"
+        >
+          Articles
+        </a>
+        
+        <a
+          href="/about/"
+          class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8"
+        >
+          About
+        </a>
+        
+        <a
+          href="/contact/"
+          class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-nord-6 hover:opacity-60 mr-8"
+        >
+          Contact
+        </a>
+        
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="mx-auto my-10 max-w-6xl">
+  <div class="mx-3 col-span-3 lg:col-span-2 px-2">
+    <h1 class="title text-5xl font-bold mb-3">Mac Network Cli Snippets</h1>
+    <section class="mb-4 text-lg">
+      <h4 id="date" class="flex flex-row items-center">
+        <span class="icon-access_time text-2xl mr-2"></span> January 11, 2023
+      </h4>
+      
+      <h4 class="flex flex-row items-center">
+        <span class="icon-person text-2xl mr-2"></span>Matt Hammond
+      </h4>
+       
+    </section>
+    <div
+      class="content prose md:prose-lg lg:prose-xl max-w-none py-1 text-nord-0"
+    >
+      <h2 id="ipconfig">ipconfig</h2>
+<ul>
+<li>get <code>ip address</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig getifaddr en0
+</span></span></code></pre></div><ul>
+<li>get <code>subnet mask</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig getoption en0 subnet_mask
+</span></span></code></pre></div><ul>
+<li>get <code>dns server</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig getoption en0 domain_name_server
+</span></span></code></pre></div><ul>
+<li>get <code>info about how en0 got its dhcp on</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig getpacket en0
+</span></span></code></pre></div><ul>
+<li>renew dhcp lease</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig <span class="nb">set</span> en0 DHCP
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># or this</span>
+</span></span><span class="line"><span class="cl">ipconfig <span class="nb">set</span> en1 BOOTP <span class="o">&amp;&amp;</span> ipconfig <span class="nb">set</span> en1 DHCP
+</span></span><span class="line"><span class="cl">ifconfig en1 down <span class="o">&amp;&amp;</span> ifconfig en1 up
+</span></span></code></pre></div><ul>
+<li>set a specific ip address</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig <span class="nb">set</span> en0 INFORM 192.168.1.160
+</span></span></code></pre></div><h2 id="ifconfig">ifconfig</h2>
+<ul>
+<li>get <code>network info</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ifconfig en0
+</span></span></code></pre></div><ul>
+<li>set <code>ip address</code> and <code>netmask</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ifconfig en0 inet 192.168.1.154 netmask 255.255.255.0
+</span></span></code></pre></div><ul>
+<li>renew <code>dhcp leases</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ipconfig <span class="nb">set</span> en0 BOOTP <span class="o">&amp;&amp;</span> ipconfig <span class="nb">set</span> en0 DHCP
+</span></span><span class="line"><span class="cl">ifconfig en0 down <span class="o">&amp;&amp;</span> ifconfig en0 up
+</span></span></code></pre></div><h2 id="networksetup">networksetup</h2>
+<ul>
+<li>get a list of <code>location</code> on the computer</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">networksetup -listlocations
+</span></span></code></pre></div><ul>
+<li>get <code>active location</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">networksetup -getcurrentlocation
+</span></span></code></pre></div><ul>
+<li>config manual <code>static ip address</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">networksetup -setmanual Wi-Fi 192.168.1.154 255.255.255.0 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>config <code>dns server</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">networksetup -setdnsservers Wi-Fi 192.168.1.154 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>get <code>dns server</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">networksetup -getdnsservers Wi-Fi
+</span></span></code></pre></div><h2 id="firewall">firewall</h2>
+<ul>
+<li>stop the application layer firewall</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">launchctl unload /System/Library/LaunchAgents/com.apple.alf.useragent.plist
+</span></span><span class="line"><span class="cl">launchctl unload /System/Library/LaunchAgents/com.apple.alf.agent.plist
+</span></span></code></pre></div><ul>
+<li>start the application layer firewall</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">launchctl load /System/Library/LaunchAgents/com.apple.alf.agent.plist
+</span></span><span class="line"><span class="cl">launchctl load /System/Library/LaunchAgents/com.apple.alf.useragent.plist
+</span></span></code></pre></div><ul>
+<li>allow an app to communicate outside through the application layer firewall</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">socketfilterfw -t <span class="s2">&#34;/Applications/...&#34;</span>
+</span></span></code></pre></div><h2 id="route">route</h2>
+<ul>
+<li>routing table</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -nr
+</span></span></code></pre></div><ul>
+<li>add a route</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># so that traffice for 192.168.1.0/24</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># communicates over the 192.168.1.253</span>
+</span></span><span class="line"><span class="cl">sudo route -n add 192.168.1.0/24 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>delete a route</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo route -n delete 192.168.1.0/24 192.168.1.253
+</span></span></code></pre></div><h2 id="netstat">netstat</h2>
+<ul>
+<li>view info on all sockets</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -at
+</span></span></code></pre></div><ul>
+<li>network info for ipv6</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -lt
+</span></span></code></pre></div><ul>
+<li>per protocol network statistics</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -s
+</span></span></code></pre></div><ul>
+<li>statistics for a specific network protocol</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -p igmp
+</span></span></code></pre></div><ul>
+<li>statistics for network interfaces</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">netstat -i
+</span></span></code></pre></div><ul>
+<li>view network info as it happens</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ntop
+</span></span></code></pre></div><h2 id="ping">ping</h2>
+<ul>
+<li>put a delay in pings</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -i <span class="m">5</span> 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>ping hostname 5 times and then stop</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -c <span class="m">5</span> 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>flood ping the host</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -f location
+</span></span></code></pre></div><ul>
+<li>set packet size during ping</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -s <span class="m">100</span> 192.168.1.253
+</span></span></code></pre></div><ul>
+<li>customize source ip during ping</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping -S 192.168.1.160 192.168.1.253
+</span></span></code></pre></div><h2 id="trace">trace</h2>
+<ul>
+<li>trace the path packets go through</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">traceroute baidu.com
+</span></span></code></pre></div><ul>
+<li>without looking up names</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">traceroute -n baidu.com
+</span></span></code></pre></div><ul>
+<li>in debug mode</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">traceroute -d baidu.com
+</span></span></code></pre></div><h2 id="nc">nc</h2>
+<ul>
+<li>establish a network connection</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -v baidu.com <span class="m">80</span>
+</span></span></code></pre></div><ul>
+<li>establish a network connection over port 2195</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -v -w <span class="m">15</span> baidu.com <span class="m">2196</span>
+</span></span></code></pre></div><ul>
+<li>establish a network connection only allowing ipv4</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -v -4 baidu.com <span class="m">2196</span>
+</span></span></code></pre></div><ul>
+<li>setup a network listener on port 2196 for testing</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nc -l -p <span class="m">2196</span>
+</span></span></code></pre></div><h2 id="tcpdump">tcpdump</h2>
+<ul>
+<li>capture some packets</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -nS
+</span></span></code></pre></div><ul>
+<li>capture all packets</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -nnvvXS
+</span></span></code></pre></div><ul>
+<li>capture packets for port</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -nnvvXs <span class="m">548</span>
+</span></span></code></pre></div><ul>
+<li>capture all packets for a given port going to destination 192.168.1.160</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -nnvvXs <span class="m">548</span> dst 192.168.1.160
+</span></span></code></pre></div><ul>
+<li>capture packets as above but dump to a pcap file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -nnvvXs <span class="m">548</span> dst 192.168.1.160 -w /tmp/demo.pcap
+</span></span></code></pre></div><ul>
+<li>read tcpdump (cap) files and make them human readable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tcpdump -qns <span class="m">0</span> -A -r /tmp/demo.pcap
+</span></span></code></pre></div><h2 id="other">other</h2>
+<ul>
+<li>flush the dns cache</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dscacheutil -flushcache
+</span></span></code></pre></div><ul>
+<li>clear arp cache</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arp -ad
+</span></span></code></pre></div><ul>
+<li>what binaries have what ports and in what states are those ports</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">lsof -n -i4TCP
+</span></span></code></pre></div><ul>
+<li>make an alias for looking at what has a listener open, called ports</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">ports</span><span class="o">=</span><span class="s1">&#39;lsof -n -i4TCP | grep LISTEN&#39;</span>
+</span></span></code></pre></div><ul>
+<li>edit hosts file</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /private/etc/hosts
+</span></span></code></pre></div>
+      <script
+        src="https://giscus.app/client.js"
+        data-repo="matthewshammond/website"
+        data-repo-id="R_kgDOMpvAww"
+        data-category="Comments"
+        data-category-id="DIC_kwDOMpvAw84CiDKo"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_dimmed"
+        data-lang="en"
+        crossorigin="anonymous"
+        async
+      ></script>
+    </div>
+  </div>
+</div>
+
+    <script src="/js/code-copy.js"></script>
+  </main><footer class="bg-tlgray-100">
+  
+  <script src='/js/clipboard.min.js'></script>
+  <script src='/js/highlight.min.js'></script>
+  <script src='/js/highlightjs-line-numbers.min.js'></script>
+  <script src='/js/sweetalert2.min.js'></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    new ClipboardJS(".url");
+
+    function OnClickURL() {
+      Swal.fire({
+        icon: "success",
+        title: "Copied!",
+        text: "Copied the URL and title.",
+      });
+    }
+  </script>
+  
+  <script>
+    function toggleNav() {
+      var hamburger = document.getElementById("hamburgerbtn");
+      var overlay = document.getElementById("overlay");
+      var body = document.body;
+
+      hamburger.addEventListener("click", function () {
+        overlay.classList.toggle("open");
+        hamburger.classList.toggle("is-open");
+        body.classList.toggle("scroll-lock");
+      });
+    }
+    toggleNav();
+
+    document.querySelector(".scroll-top").addEventListener("click", () => {
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+    rel="stylesheet"
+  />
+  
+  <div
+    class="flex items-center justify-between flex-wrap bg-nord-0 p-8 text-nord-6"
+  >
+    <div class="flex items-center flex-shrink-0 text-xl text-nord-0 mr-6">
+      <a href="http://localhost:1313/"
+        ><img
+          alt="Matt Hammond Inc"
+          class="h-16 mr-3"
+          src="/img/logos/logo.png"
+      /></a>
+    </div>
+    <div
+      class="hidden sm:hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+    >
+      <div class="text-lg lg:flex-grow"></div>
+      <div class="flex flex-row items-center text-lg">
+        <a href="https://keys.openpgp.org/search?q=matt%40matthammond.com">PGP public key fingerprint: CC62 A990 773D 843D 7E27 3E0D 6350 0E3E B057 5884</a>
+      </div>
+    </div>
+    <div
+      class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+      id="mobileMenu"
+    >
+      <div class="text-lg lg:flex-grow"></div>
+      <div class="flex flex-row items-center text-lg">
+        
+        <a
+          href="https://github.com/matthewshammond"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"
+        >
+           <i class='fab fa-github text-2xl'></i> 
+        </a>
+        
+        <a
+          href="https://linkedin.com/in/matthewshammond"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"
+        >
+           <i class='fab fa-linkedin text-2xl'></i> 
+        </a>
+        
+        <a
+          href="https://discord.gg/kU2wgApBgK"
+          class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-8"
+        >
+           <i class='fab fa-discord text-2xl'></i> 
+        </a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="copy pl-8 py-5 bg-tlgray-700 text-nord-6 text-md">
+    &copy; Matt Hammond Inc 2024 All Rights Reserved.
+  </div>
+</footer>
+</body>
+
+</html>
