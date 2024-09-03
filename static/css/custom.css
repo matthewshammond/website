@@ -562,3 +562,11 @@
 .mopen span {
   background: #eceff4;
 }
+hr {
+  height: 0;
+  /* 1 */
+  color: #2e3440;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
