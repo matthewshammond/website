@@ -38,9 +38,7 @@ password: password
 
 ## Installation
 
-### Install Docker
-
-#### Install Docker on Windows
+### Install Docker on Windows
 
 1. **Install WSL 2**:
 
@@ -64,7 +62,7 @@ password: password
      ```
    - This should display the installed Docker version, confirming Docker is running.
 
-#### Install Docker on macOS
+### Install Docker on macOS
 
 1. **Download Docker Desktop for macOS**:
 
@@ -84,7 +82,7 @@ password: password
      ```
    - This command will show the Docker version, confirming successful installation.
 
-#### Install Docker on Linux
+### Install Docker on Linux
 
 1. **Install Docker**:
 
