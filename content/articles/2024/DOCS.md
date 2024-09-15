@@ -23,6 +23,8 @@ username: leadpilot
 password: password
 ```
 
+{{< toc >}}
+
 ## Features
 
 - **User Management**: Register, login, and manage users with the admin user.
@@ -31,17 +33,6 @@ password: password
 - **Admin Panel**: Built-in admin interface for managing users.
 - **Database**: Uses PostgreSQL as the database backend.
 - **Dockerized**: Easy setup and deployment using Docker and Docker Compose.
-
-## Table of Contents
-
-- [Installation](#installation)
-  - [Install Docker](#install-docker)
-    - [Windows](#install-docker-on-windows)
-    - [macOS](#install-docker-on-macos)
-    - [Linux](#install-docker-on-linux)
-  - [Installation from GitHub](#installation-from-github)
-- [Usage](#usage)
-- [Future Plans](#future-plans)
 
 ---
 
