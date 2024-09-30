@@ -11,7 +11,7 @@ description: "Quick reference to installing `pyenv` and managing different pytho
 
 For full documentation on [pyenv](https://github.com/pyenv/pyenv) visit [Github](https://github.com/pyenv/pyenv).
 
-- `brew install pyenv`
+- `brew install pyenv pyenv-virtualenv`
 - Add the following to your .zshrc file.
 
 ```bash
