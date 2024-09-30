@@ -4,7 +4,7 @@ date: 2024-09-15T18:54:53-04:00
 image: images/2024-thumbs/docs.png
 draft: false
 author: "Matt Hammond"
-description: "Dispatching Operational Chopper Software. DOCS is an application designed for managing landing zones for HAA programs. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment."
+description: "Dispatching Operational Copter Software. DOCS is an application designed for managing landing zones for HAA programs. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment."
 ---
 
 This software maintains a database of landing zones for _Helicopter Air Ambulance (HAA)_ programs. You can export your database for _Computer Aided Dispatching (CAD)_ software, _avionics_, and _ForeFlight_.
