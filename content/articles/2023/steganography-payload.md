@@ -1,7 +1,7 @@
 ---
 title: "Steganography Payload"
 date: 2023-01-11
-image: images/2023-thumbs/steganography-payload.png
+image: images/2023-thumbs/steganography-payload.jpeg
 draft: false
 author: "Matt Hammond"
 description: "Conceal a messages, information, or payload within other nonsecret text, data, or image."
