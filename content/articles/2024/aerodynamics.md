@@ -1,7 +1,7 @@
 ---
 title: "Aerodynamics"
 date: 2024-10-29T13:23:27-04:00
-image: images/2024-thumbs/aerodynamics.jpg
+image: images/2024-thumbs/aerodynamics.png
 draft: false
 author: "Matt Hammond"
 description: "Helicopter specific aerodynamic topics."
