@@ -71,7 +71,7 @@ description: "Helicopter specific aerodynamic topics."
 
 **Definition**: Condition of powered flight in which the helicopter settles in its own downwash. Also known as **_Vortex Ring State_**.
 
-### Cause:
+### Cause
 
 **Normal Hover**-induced airflow coming **_down_** through the rotor system.
 ![Normal Hover](/images/2024/aerodynamics/normal-hover.png)
@@ -82,20 +82,20 @@ description: "Helicopter specific aerodynamic topics."
 **Vortex Ring State**-the opposing airflow has **_cancelled_** the induced airflow = **_less lift_**.
 ![Vortex Ring State](/images/2024/aerodynamics/vortex-ring-state.png)
 
-### Conditions Conductive to Settling with Power: (VSI)
+### Conditions Conductive to Settling with Power (VSI)
 
 1. Vertical airspeed greater than 300 fpm
 1. Slow to no airspeed (less than ETL)
 1. Insufficient power to recover - high power (20 to 100 percent being applied)
 
-### Recovery:
+### Recovery
 
 1. If power is available, increase collective normally.
 1. If insufficient power:
    1. Increase airspeed
    1. Reducing collective (if altitude permits)
 
-### Conditions Conducive to Settle with Power:
+### Conditions Conducive to Settle with Power
 
 1. Downwind approach
 1. Steep approach with high rate of descent (above 30 degrees)
@@ -112,7 +112,7 @@ description: "Helicopter specific aerodynamic topics."
 - The stall originates at the blade tip and moves inboard
 - The critical angle of attack to stall the retreating blade is 15 to 20 degrees
 
-### Causes: (STAALL)
+### Causes (STAALL)
 
 1. Steep turns (high G maneuvers)
 1. Turbulent Air
@@ -121,13 +121,13 @@ description: "Helicopter specific aerodynamic topics."
 1. Low Rotor RPM
 1. Loads - High Gross Weight
 
-### Signs:
+### Signs
 
 1. Abnormal vibrations, then…
 1. Pitching up of the nose
 1. Left Roll
 
-### Corrective Action: (RRRRI)
+### Corrective Action (RRRRI)
 
 1. Reduce Collective
 1. Reduce Airspeed
@@ -143,7 +143,7 @@ description: "Helicopter specific aerodynamic topics."
 
 ![Dissymmetry of Lift](/images/2024/aerodynamics/dissymmetry-of-lift.png)
 
-### Causes:
+### Causes
 
 1. Velocity of the advancing and retreating blades
    1. The advancing blade is going into the relative wind and has more speed
@@ -157,11 +157,11 @@ description: "Helicopter specific aerodynamic topics."
 
 **Definition**: During hovering flight, the single-rotor helicopter tends to drift laterally to the right.
 
-### Cause:
+### Cause
 
 This tendency results from the thrust exerted to the right by the tail rotor (to compensate for the main rotor torque)
 
-### Compensated By:
+### Compensated By
 
 1. The pilot by applying left cyclic during a hover
 1. A built-in left cyclic rigging
