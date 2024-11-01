@@ -121,6 +121,7 @@ password: password
      ```bash
      git clone https://github.com/matthewshammond/DOCS.git
      cd DOCS
+     cp .env.sample .env
      ```
 
 2. **Enable Password Reset (Optional)**
