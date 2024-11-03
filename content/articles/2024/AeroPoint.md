@@ -1,20 +1,20 @@
 ---
-title: "DOCS"
+title: "AeroPoint"
 date: 2024-09-15T18:54:53-04:00
 image: images/2024-thumbs/docs.png
-draft: false
+draft: true
 author: "Matt Hammond"
-description: "Dispatching Operational Copter Software. DOCS is an application designed for managing landing zones for HAA programs. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment."
+description: "AeroPoint is an application designed for managing landing zones, hazards, and waypoints for HAA programs and flight departments. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment."
 ---
 
-This software maintains a database of landing zones for _Helicopter Air Ambulance (HAA)_ programs. You can export your database for _Computer Aided Dispatching (CAD)_ software, _avionics_, and _ForeFlight_.
+This software maintains a database of landing zones, hazards, and waypoints for _Helicopter Air Ambulance (HAA)_ programs or any flight department. You can export your database for _Computer Aided Dispatching (CAD)_ software, _avionics_, and _ForeFlight_.
 
 {{< rawhtml >}}
 
-<center><img src="/images/2024/docs/docs.png" alt="DOCS" title="DOCS" width="400"></center>
+<center><img src="/images/2024/aeropoint/aeropoint.png" alt="AeroPoint" title="AeroPoint" width="400"></center>
 {{< /rawhtml >}}
 
-DOCS is an application designed for managing landing zones for HAA programs. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment.
+AeroPoint is an application designed for managing landing zones, hazards, and waypoints for HAA programs and flight departments. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment.
 
 **Default login information is:**
 
@@ -119,8 +119,8 @@ password: password
 
    - Open your terminal and run:
      ```bash
-     git clone https://github.com/matthewshammond/DOCS.git
-     cd DOCS
+     git clone https://github.com/matthewshammond/AeroPoint.git
+     cd AeroPoint
      cp .env.sample .env
      ```
 
@@ -150,7 +150,7 @@ password: password
 
 4. **Access the Application**:
 
-   - After the build process is complete, visit `localhost` in your web browser to access DOCS.
+   - After the build process is complete, visit `localhost` in your web browser to access AeroPoint.
    - Default login information:
 
    ```bash
@@ -162,7 +162,7 @@ password: password
 
 ## Usage
 
-Once DOCS is running, you can use it to:
+Once AeroPoint is running, you can use it to:
 
 - Import hospital data via CAD file.
 - Add hospitals.
@@ -183,5 +183,5 @@ A Sample CAD file has been included. Use this as a template if you are going to 
 
 ## Future Plans
 
-- **ForeFlight Content Packs**: Users will be able to create ForeFlight content packs directly within the DOCS application.
+- **ForeFlight Content Packs**: Users will be able to create ForeFlight content packs directly within the AeroPoint application.
 - **County Map Export**: Ability to export maps of counties across the lower 48 states for use in dispatch operations.
