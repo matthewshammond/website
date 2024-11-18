@@ -1,187 +1,275 @@
 ---
 title: "AeroPoint"
 date: 2024-09-15T18:54:53-04:00
-image: images/2024-thumbs/docs.png
-draft: true
+image: images/2024-thumbs/AeroPoint.png
+draft: false
 author: "Matt Hammond"
-description: "AeroPoint is an application designed for managing landing zones, hazards, and waypoints for HAA programs and flight departments. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment."
+description: "AeroPoint is a comprehensive aviation waypoint management system designed to help users create, manage, and export waypoints and associated files for use in various aviation platforms, particularly ForeFlight. The software allows for organized storage of waypoints, plates, map layers, and associated files within program-specific containers."
 ---
 
-This software maintains a database of landing zones, hazards, and waypoints for _Helicopter Air Ambulance (HAA)_ programs or any flight department. You can export your database for _Computer Aided Dispatching (CAD)_ software, _avionics_, and _ForeFlight_.
+# AeroPoint Documentation
 
 {{< rawhtml >}}
 
-<center><img src="/images/2024/aeropoint/aeropoint.png" alt="AeroPoint" title="AeroPoint" width="400"></center>
+<center><img src="/images/2024/AeroPoint/AeroPoint.png" alt="AeroPoint" title="AeroPoint" width="200"></center>
 {{< /rawhtml >}}
 
-AeroPoint is an application designed for managing landing zones, hazards, and waypoints for HAA programs and flight departments. The app features user authentication, CAD import/export, ForeFlight user waypoints export, and settings management. This project is fully containerized with Docker for easy deployment.
+## Table of Contents
 
-**Default login information is:**
+1. [Introduction](#introduction)
+2. [Getting Started](#getting-started)
+3. [Core Features](#core-features)
+4. [Programs](#programs)
+5. [Waypoints](#waypoints)
+6. [File Management](#file-management)
+7. [Export Options](#export-options)
+8. [User Interface Elements](#user-interface-elements)
+9. [Feature Requests](#feature-requests)
+10. [Tips and Tricks](#tips-and-tricks)
 
-```bash
-username: leadpilot
-password: password
-```
+## Introduction
 
-{{< toc >}}
+AeroPoint is a comprehensive aviation waypoint management system designed to help users create, manage, and export waypoints and associated files for use in various aviation platforms, particularly ForeFlight. The software allows for organized storage of waypoints, plates, map layers, and associated files within program-specific containers.
 
-## Features
+## Getting Started
 
-- **User Management**: Register, login, and manage users with the admin user.
-- **Hospital Data Management**: Add, view, and import hospital data from CAD files.
-- **CSV Export/Import**: Export hospital data to CAD formats.
-- **Admin Panel**: Built-in admin interface for managing users.
-- **Database**: Uses PostgreSQL as the database backend.
-- **Dockerized**: Easy setup and deployment using Docker and Docker Compose.
+### User Access
 
----
+- Users must be invited to access the system
+- Each user belongs to one or more groups
+- Groups determine which programs a user can access
+- Admin users have access to all programs
 
-## Installation
+### Initial Setup
 
-### Install Docker on Windows
+1. Log in with provided credentials
+2. Select or create a program
+3. Begin adding waypoints or importing existing data
 
-1. **Install WSL 2**:
+## Core Features
 
-   - Press `Win + X` and select **Windows PowerShell (Admin)**.
-   - Run:
-     ```bash
-     wsl --install
-     ```
-   - After installation, restart your computer if prompted.
+### Program Management
 
-2. **Download and Install Docker Desktop**:
+- Create and manage multiple programs
+- Each program contains its own:
+  - Waypoints
+  - Plates
+  - Map Layers
+  - Associated Files
+- Programs can be shared across user groups
 
-   - Visit the [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop) download page.
-   - Install Docker Desktop. During installation, ensure that the option to use WSL 2 instead of Hyper-V is selected.
-   - Once Docker Desktop is installed, launch it, and ensure the Docker whale icon appears in the system tray.
+### File Organization
 
-3. **Check Installation**:
-   - Open PowerShell and run:
-     ```bash
-     docker --version
-     ```
-   - This should display the installed Docker version, confirming Docker is running.
+The system organizes files into four main categories:
 
-### Install Docker on macOS
+1. **Waypoint Files** - Files associated with specific waypoints
+2. **Plates** - Airport plates and procedures
+3. **Layers** - Map overlay files
+4. **Files** - General program-related files
 
-1. **Download Docker Desktop for macOS**:
+### Dropbox Integration
 
-   - Visit the [Docker Desktop for Mac](https://www.docker.com/products/docker-desktop) download page.
-   - Select the appropriate version for your processor (Apple Silicon or Intel).
+- Optional connection to Dropbox for automatic file syncing
+- When connected:
+  - Content packs are saved to `/Apps/ForeFlight/contentpack/`
+  - Program files are saved to `/Apps/ForeFlight/`
+- Without Dropbox:
+  - All files are downloaded directly to your device
 
-2. **Install Docker Desktop**:
+## Programs
 
-   - Open the downloaded `.dmg` file and drag Docker into the **Applications** folder.
-   - Launch Docker from the **Applications** folder.
-   - Follow any installation prompts and ensure the Docker whale icon is visible in the top-right menu bar.
+### Creating a Program
 
-3. **Verify Installation**:
-   - Open **Terminal** and run:
-     ```bash
-     docker --version
-     ```
-   - This command will show the Docker version, confirming successful installation.
+1. Navigate to Settings
+2. Click "Create Program"
+3. Enter:
+   - Program Name
+   - Program Code (unique identifier)
+   - Select Group
 
-### Install Docker on Linux
+### Program Selection
 
-1. **Install Docker**:
+- Use the dropdown at the top of the page to switch between programs
+- Click "Switch Program" to activate the selected program
 
-   - Update your package manager and install Docker by running the following commands:
-     ```bash
-     sudo apt update
-     sudo apt install docker.io
-     ```
+## Waypoints
 
-2. **Start and Enable Docker**:
+### Adding Waypoints
 
-   ```bash
-   sudo systemctl start docker
-   sudo systemctl enable docker
-   ```
+Waypoints can be added in two ways:
 
-3. **Add User to Docker Group** (optional but recommended):
+1. **Individual Entry**:
 
-   ```bash
-   sudo usermod -aG docker ${USER}
-   ```
+   - Click "Add" in the navigation bar
+   - Fill in waypoint details
+   - Supports multiple coordinate formats:
+     - Decimal Degrees (DD): 40.446151
+     - Degrees Decimal Minutes (DDM): 40 26.769 N
+     - Degrees Minutes Seconds (DMS): 40 26 46.14 N
 
-4. **Verify Installation**:
-   - Log out and back in for group changes to take effect, and then check:
-     ```bash
-     docker --version
-     ```
+2. **Bulk Import**:
+   - Click "Import" in the navigation bar
+   - Upload CSV file with waypoint data
+   - Choose existing program or create new one
 
----
+### Waypoint Types
 
-### Installation from GitHub
+- Target (default)
+- Hazard (shown in red bold text)
+- Diamond
+- Square
+- Triangle
+- Pushpin
 
-1. **Clone the Repository**:
+### Airport Waypoints
 
-   - Open your terminal and run:
-     ```bash
-     git clone https://github.com/matthewshammond/AeroPoint.git
-     cd AeroPoint
-     cp .env.sample .env
-     ```
+- Check "Airport" checkbox to designate as airport
+- FAA Identifier required for airport waypoints
+- Cannot be marked as hazard
 
-2. **Enable Password Reset (Optional)**
+### Waypoint Files
 
-   - If you want to enable users to reset their passwords, you need to update the `EMAIL_USER` and `EMAIL_PASS` environment variables in `.env`
-     - simply have the lead pilot replace the `EMAIL_USER` environment variable with their email address
-     - create an app-specific password for the `EMAIL_PASS` environment variable
-       - simply google search your email provider and app specific password (i.e. gmail app specific password) and follow the steps
+- Upload PDF or TXT files to individual waypoints
+- Blue dot indicator shows waypoints with attached files
+- Files are included in exports based on export type
 
-3. **Build and Start Services**:
+## File Management
 
-   - Run the following command to build the application using Docker Compose:
-     ```bash
-     docker compose up -d
-     ```
-   - If you want to build from source, comment out `image` and uncomment `build` and `context` lines.
+### Plates Tab
 
-   ```bash
-   services:
-     docs:
-       container_name: docs
-       # build:
-       #   context: .
-       image: matthewshammond/docs:v1.0
-   ```
+- Upload airport plates and procedures
+- Requires:
+  - FAA Identifier (4 characters)
+  - Procedure Type selection
+- Files are stored in the `byop` directory during export
 
-4. **Access the Application**:
+### Layers Tab
 
-   - After the build process is complete, visit `localhost` in your web browser to access AeroPoint.
-   - Default login information:
+Supports multiple map layer formats:
 
-   ```bash
-   Username: leadpilot
-   Password: password
-   ```
+- KML files
+- MBTiles
+- FBTiles
+- Geospatial PDF
 
----
+### Files Tab
 
-## Usage
+- General file storage for program
+- No format restrictions
+- Files stored here are:
+  - Downloaded individually during export
+  - Placed in ForeFlight root when using Dropbox
 
-Once AeroPoint is running, you can use it to:
+## Export Options
 
-- Import hospital data via CAD file.
-- Add hospitals.
-- View and manage hospital locations.
-- Export data in CAD and ForeFlight formats.
+### ForeFlight Export
 
-Once logged in with leadpilot account, you'll have admin rights. You can access the admin panel from `Settings`-`Admin`. Here you can change your password and add/manage other pilot accounts.
+Two main export options:
 
-A Sample CAD file has been included. Use this as a template if you are going to do a mass import of landing zones. Ensure your columns are in the same order as the included CAD file. Below shows you the possible formats for Latitude and Longitude. The `Airport` column is whether the landing zone has an FAA Identifier. You can use `Yes/True` or `No/False` when determining if the Landing Zone has an FAA Identifier.
-| LATITUDE | LONGITUDE | TITLE | CAD Identifiers and/or Description | FAA IDENTIFIER | AIRPORT |
-| --------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-| 34 9.50 N | 82 22.92 W | ABVLE | "Abbeville Area Med Ctr-Abbeville, SC" | SC83 | True |
-| 31 35.48 N | 84 9.41 W | ABYFP | "Phoebe Putney Mem Hosp-Albany, GA" | | False |
-| 32 57.09 N | 081 14.94 W | ALNDL | "Allendale County Hosp-Fairfax, SC" | | No |
-| 32 04.05 N | 084 15.32 W | AMERI | "Phoebe Sumter Med Ctr-Americus, GA" | 1GA7 | Yes |
+1. **Content Pack**:
 
----
+   - Creates ForeFlight-compatible package
+   - Includes all selected programs and states
+   - Organizes files into appropriate directories:
+     - `/navdata/` - Waypoints and county names
+     - `/layers/` - Map layers and county boundaries
+     - `/byop/` - Plates and procedures
+   - With Dropbox:
+     - Package saved to `/Apps/ForeFlight/contentpack/`
+     - Program files saved to `/Apps/ForeFlight/`
+   - Without Dropbox:
+     - Downloads as zip file
+     - Program files downloaded separately
 
-## Future Plans
+2. **Individual Files**:
+   - Downloads each file separately
+   - Includes:
+     - Program waypoints (CSV or KML)
+     - State files
+     - Program files
+     - Plates
+     - Layers
+     - Waypoint files
 
-- **ForeFlight Content Packs**: Users will be able to create ForeFlight content packs directly within the AeroPoint application.
-- **County Map Export**: Ability to export maps of counties across the lower 48 states for use in dispatch operations.
+### CAD Export
+
+- Exports waypoints in CSV format
+- Includes all waypoint details
+- Suitable for CAD software import
+
+### Avionics Export
+
+- Generates Garmin 650/750 compatible waypoint file
+- Exports in .wpt format
+
+## User Interface Elements
+
+### Navigation Bar
+
+- Home - View waypoints and program files
+- Add - Create new waypoint
+- Export - Access export options
+- Import - Import waypoint data
+- User Menu:
+  - Account settings
+  - Program settings
+  - Feature requests
+  - Logout
+
+### Visual Indicators
+
+- Blue dot: Waypoint has attached files
+- Red bold text: Hazard waypoint
+- Loading spinner: Shows during export operations
+
+## Feature Requests
+
+Users can request new features:
+
+1. Click username in top-right
+2. Select "Request Feature"
+3. Fill out the feature request form
+4. Submit for consideration
+
+## Tips and Tricks
+
+### File Naming
+
+- Original filenames are preserved during upload
+- Spaces in filenames are maintained
+- Only during ForeFlight export are spaces converted to underscores
+
+### State Files
+
+- County boundaries available for multiple states
+- Automatically included in layers directory
+- County names included in navdata directory
+
+### Tab Persistence
+
+- System remembers active tab between operations
+- Maintains tab selection during file operations
+
+### Hazard Waypoints
+
+- Automatically exported as KML regardless of export option
+- Cannot be marked as airports
+- Visually distinct in waypoint list
+
+### Program Organization
+
+- Use meaningful program codes
+- Group related waypoints in same program
+- Utilize description field for detailed information
+
+### Export Considerations
+
+- Content packs require program selection
+- States can be exported without program selection
+- Dropbox connection streamlines ForeFlight integration
+
+### File Management
+
+- Regular cleanup of unused files recommended
+- Use appropriate tabs for different file types
+- Check file indicators before export
