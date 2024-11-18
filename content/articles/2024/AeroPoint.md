@@ -9,11 +9,6 @@ description: "AeroPoint is a comprehensive aviation waypoint management system d
 
 # AeroPoint Documentation
 
-{{< rawhtml >}}
-
-<center><img src="/images/2024/AeroPoint/AeroPoint.png" alt="AeroPoint" title="AeroPoint" width="400"></center>
-{{< /rawhtml >}}
-
 ## Table of Contents
 
 1. [Introduction](#introduction)
