@@ -1,6 +1,6 @@
 ---
 title: "AeroPoint"
-date: 2024-09-15T18:54:53-04:00
+date: 2024-11-18T18:54:53-04:00
 image: images/2024-thumbs/AeroPoint.png
 draft: false
 author: "Matt Hammond"
@@ -106,6 +106,34 @@ Waypoints can be added in two ways:
    - Click "Import" in the navigation bar
    - Upload CSV file with waypoint data
    - Choose existing program or create new one
+
+### CSV Import Format
+
+The system accepts CSV files with specific columns for waypoint data. Here's the required format:
+
+| Column Name    | Description                             | Required | Format Examples                |
+| -------------- | --------------------------------------- | -------- | ------------------------------ |
+| Latitude       | Waypoint latitude                       | Yes      | 34.1583333333333 or 31 35.47 N |
+| Longitude      | Waypoint longitude                      | Yes      | -82.382 or 084 09.40 W         |
+| Waypoint ID    | Unique identifier for the waypoint      | Yes      | ABVLE                          |
+| Waypoint Name  | Descriptive name                        | Yes      | Abbeville Area Med Ctr         |
+| City           | City location                           | Yes      | ABBEVILLE                      |
+| State          | State location (2-letter code)          | Yes      | SC                             |
+| FAA Identifier | FAA identifier (if applicable)          | No       | SC83                           |
+| Airport        | Whether location is an airport (Yes/No) | Yes      | YES                            |
+| Hazard         | Whether location is a hazard (Yes/No)   | Yes      | NO                             |
+| Description    | Additional details about the waypoint   | No       | "Helipad"                      |
+
+### Sample CSV Data
+
+| Latitude         | Longitude         | Waypoint ID | Waypoint Name          | City      | State | FAA Identifier | Airport | Hazard | Description                                             |
+| ---------------- | ----------------- | ----------- | ---------------------- | --------- | ----- | -------------- | ------- | ------ | ------------------------------------------------------- |
+| 34.1583333333333 | -82.382           | ABVLE       | Abbeville Area Med Ctr | ABBEVILLE | SC    | SC83           | YES     | NO     | "Helipad"                                               |
+| 31 35.47 N       | 084 09.40 W       | ABYFP       | Phoebe Putney Mem Hosp | ALBANY    | GA    |                | No      | NO     | "Top of Parking Garage"                                 |
+| 33 34.33 N       | -81.7621666666667 | AIKEN       | Aiken Reg Med Ctr      | AIKEN     | SC    |                | NO      | NO     | "Favorite Zone/Ch: B01/016 Zone: B20 Ch #: 009 AIKN ER" |
+| 31.539           | 082 27.52 W       | ALMA        | Bacon County Hosp      | ALMA      | GA    |                | NO      | NO     |                                                         |
+| 32 57.90 N       | -81.249           | ALNDL       | Allendale County Hosp  | FAIRFAX   | SC    |                | NO      | NO     |                                                         |
+| 32.0675          | -84.2553333333333 | AMERI       | Phoebe Sumter Med Ctr  | AMERICUS  | GA    | 1GA7           | YES     | NO     |                                                         |
 
 ### Waypoint Types
 
