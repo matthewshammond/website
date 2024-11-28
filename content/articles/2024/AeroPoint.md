@@ -111,36 +111,36 @@ Waypoints can be added in two ways:
 
 The system accepts CSV files with specific columns for waypoint data. Here's the required format:
 
-| Column Name    | Description                             | Required | Format Examples                |
-| -------------- | --------------------------------------- | -------- | ------------------------------ |
-| Latitude       | Waypoint latitude                       | Yes      | 34.1583333333333 or 31 35.47 N |
-| Longitude      | Waypoint longitude                      | Yes      | -82.382 or 084 09.40 W         |
-| Waypoint ID    | Unique identifier for the waypoint      | Yes      | ABVLE                          |
-| Waypoint Name  | Descriptive name                        | Yes      | Abbeville Area Med Ctr         |
-| City           | City location                           | Yes      | ABBEVILLE                      |
-| State          | State location (2-letter code)          | Yes      | SC                             |
-| FAA Identifier | FAA identifier (if applicable)          | No       | SC83                           |
-| Airport        | Whether location is an airport (Yes/No) | Yes      | YES                            |
-| Hazard         | Whether location is a hazard (Yes/No)   | Yes      | NO                             |
-| Description    | Additional details about the waypoint   | No       | "Helipad"                      |
+| Column Name    | Description                                              | Required | Format Examples                                    |
+| -------------- | -------------------------------------------------------- | -------- | -------------------------------------------------- |
+| Waypoint ID    | Unique identifier for the waypoint                       | Yes      | ABVLE                                              |
+| Waypoint Name  | Descriptive name                                         | Yes      | Abbeville Area Med Ctr                             |
+| City           | City location                                            | No       | ABBEVILLE                                          |
+| State          | State location (2-letter code)                           | No       | SC                                                 |
+| Latitude       | Waypoint latitude                                        | Yes      | 34.1583333333333 or 31 35.47 N                     |
+| Longitude      | Waypoint longitude                                       | Yes      | -82.382 or 084 09.40 W                             |
+| Waypoint Type  | Set the icon for the waypoint when exported as map layer | No       | target, pushpin, square, triangle, diamond, hazard |
+| Airport        | Whether location is an airport (Yes/No)                  | Yes      | YES                                                |
+| FAA Identifier | FAA identifier (if applicable)                           | No       | SC83                                               |
+| Description    | Additional details about the waypoint                    | No       | "Helipad"                                          |
 
 ### Important Notes:
 
-- Maximum file size for all uploads: 100MB
+- Maximum file size for all uploads: 200MB
 - Coordinates can be entered in multiple formats:
   - Decimal Degrees (DD): 34.1583333333333
   - Degrees Decimal Minutes (DDM): 31 35.47 N
 
 ### Sample CSV Data
 
-| Latitude         | Longitude         | Waypoint ID | Waypoint Name          | City      | State | FAA Identifier | Airport | Hazard | Description                                             |
-| ---------------- | ----------------- | ----------- | ---------------------- | --------- | ----- | -------------- | ------- | ------ | ------------------------------------------------------- |
-| 34.1583333333333 | -82.382           | ABVLE       | Abbeville Area Med Ctr | ABBEVILLE | SC    | SC83           | YES     | NO     | "Helipad"                                               |
-| 31 35.47 N       | 084 09.40 W       | ABYFP       | Phoebe Putney Mem Hosp | ALBANY    | GA    |                | No      | NO     | "Top of Parking Garage"                                 |
-| 33 34.33 N       | -81.7621666666667 | AIKEN       | Aiken Reg Med Ctr      | AIKEN     | SC    |                | NO      | NO     | "Favorite Zone/Ch: B01/016 Zone: B20 Ch #: 009 AIKN ER" |
-| 31.539           | 082 27.52 W       | ALMA        | Bacon County Hosp      | ALMA      | GA    |                | NO      | NO     |                                                         |
-| 32 57.90 N       | -81.249           | ALNDL       | Allendale County Hosp  | FAIRFAX   | SC    |                | NO      | NO     |                                                         |
-| 32.0675          | -84.2553333333333 | AMERI       | Phoebe Sumter Med Ctr  | AMERICUS  | GA    | 1GA7           | YES     | NO     |                                                         |
+| Waypoint ID | Waypoint Name          | City      | State | Latitude         | Longitude         | Waypoint Type | Airport | FAA Identifier | Description                                             |
+| ----------- | ---------------------- | --------- | ----- | ---------------- | ----------------- | ------------- | ------- | -------------- | ------------------------------------------------------- |
+| ABVLE       | Abbeville Area Med Ctr | ABBEVILLE | SC    | 34.1583333333333 | -82.382           | target        | YES     | SC83           | "Helipad"                                               |
+| ABYFP       | Phoebe Putney Mem Hosp | ALBANY    | GA    | 31 35.47 N       | 084 09.40 W       | pushpin       | No      |                | "Top of Parking Garage"                                 |
+| AIKEN       | Aiken Reg Med Ctr      | AIKEN     | SC    | 33 34.33 N       | -81.7621666666667 | square        | NO      |                | "Favorite Zone/Ch: B01/016 Zone: B20 Ch #: 009 AIKN ER" |
+| ALMA        | Bacon County Hosp      | ALMA      | GA    | 31.539           | 082 27.52 W       | triangle      | NO      |                |                                                         |
+| ALNDL       | Allendale County Hosp  | FAIRFAX   | SC    | 32 57.90 N       | -81.249           | diamond       | NO      |                |                                                         |
+| AMERI       | Phoebe Sumter Med Ctr  | AMERICUS  | GA    | 32.0675          | -84.2553333333333 | target        | YES     | 1GA7           |                                                         |
 
 ### Waypoint Types
 
