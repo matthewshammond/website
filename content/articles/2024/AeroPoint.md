@@ -126,7 +126,7 @@ The system accepts CSV files with specific columns for waypoint data. Here's the
 
 ### Important Notes:
 
-- Maximum file size for all uploads: 200MB
+- Maximum file size for all uploads: 100MB
 - Coordinates can be entered in multiple formats:
   - Decimal Degrees (DD): 34.1583333333333
   - Degrees Decimal Minutes (DDM): 31 35.47 N
