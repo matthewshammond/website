@@ -4,7 +4,9 @@ date: 2024-11-18T18:54:53-04:00
 image: images/2024-thumbs/AeroPoint.png
 draft: false
 author: "Matt Hammond"
-description: "AeroPoint is a comprehensive aviation waypoint management system designed to help users create, manage, and export waypoints and associated files for use in various aviation platforms, particularly ForeFlight. The software allows for organized storage of waypoints, plates, map layers, and associated files within program-specific containers."
+description: "AeroPoint is a comprehensive aviation waypoint management system designed to streamline the creation, management, and export of waypoints and associated files for various aviation platforms, particularly ForeFlight. The software allows users to organize waypoints, plates, map layers, and other files within program-specific containers, ensuring easy access and efficient management.
+
+In addition to its waypoint management capabilities, AeroPoint provides advanced tools for aircraft deconfliction tailored for utility, fire, and law enforcement flight departments. By leveraging pilot input and operational timeframes, the software generates and exports precise map overlays directly to ForeFlight, helping to ensure safe and coordinated airspace operations."
 ---
 
 # AeroPoint Documentation
@@ -24,7 +26,9 @@ description: "AeroPoint is a comprehensive aviation waypoint management system d
 
 ## Introduction
 
-AeroPoint is a comprehensive aviation waypoint management system designed to help users create, manage, and export waypoints and associated files for use in various aviation platforms, particularly ForeFlight. The software allows for organized storage of waypoints, plates, map layers, and associated files within program-specific containers.
+AeroPoint is a comprehensive aviation waypoint management system designed to streamline the creation, management, and export of waypoints and associated files for various aviation platforms, particularly ForeFlight. The software allows users to organize waypoints, plates, map layers, and other files within program-specific containers, ensuring easy access and efficient management.
+
+In addition to its waypoint management capabilities, AeroPoint provides advanced tools for aircraft deconfliction tailored for utility, fire, and law enforcement flight departments. By leveraging pilot input and operational timeframes, the software generates and exports precise map overlays directly to ForeFlight, helping to ensure safe and coordinated airspace operations.
 
 ## Getting Started
 
