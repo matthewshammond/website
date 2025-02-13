@@ -9,8 +9,8 @@ description: "A sleek macOS menu bar app that lets you instantly enable or disab
 
 # ProxyToggle - One-Click SOCKS Proxy & SSH Tunnel for macOS
 
-🔒 Need a simple way to toggle a SOCKS proxy and secure your connection?
-🚀 ProxyToggle makes it effortless—just one click from your macOS menu bar.
+- 🔒 Need a simple way to toggle a SOCKS proxy and secure your connection?
+- 🚀 ProxyToggle makes it effortless—just one click from your macOS menu bar.
 
 Whether you’re working remotely, bypassing network restrictions, or securing your browsing, ProxyToggle handles everything for you.
 
@@ -65,8 +65,9 @@ Or, to keep it running even after closing Terminal:
 Click the menu bar icon to enable/disable the SOCKS proxy instantly.
 
 🔹 Auto-Launch at Login
-	1.	Open System Settings → General → Login Items.
-	2.	Click + and select ProxyToggle.app.
+
+	1. Open System Settings → General → Login Items.
+	2. Click + and select ProxyToggle.app.
 
 ### 🛠 Built With
 	•	🐍 Python 3.12
@@ -75,10 +76,10 @@ Click the menu bar icon to enable/disable the SOCKS proxy instantly.
 
 ### 📝 Future Features
 
-💡 Status indicators for SSH connection
-💡 Auto-detect network changes & re-enable proxy
-💡 Customizable proxy & SSH settings
-💡 Launch at startup & integrate with macOS plist
+- 💡 Status indicators for SSH connection
+- 💡 Auto-detect network changes & re-enable proxy
+- 💡 Customizable proxy & SSH settings
+- 💡 Launch at startup & integrate with macOS plist
 
 
 ### 📜 License
