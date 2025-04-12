@@ -1,0 +1,18 @@
+/* reCAPTCHA Badge Styling */
+.grecaptcha-badge {
+  background-color: #2e3440 !important;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+  bottom: 70px !important;
+  right: 5px !important;
+}
+
+.grecaptcha-badge:hover {
+  opacity: 1;
+}
+
+.grecaptcha-badge .grecaptcha-logo {
+  filter: grayscale(100%) brightness(80%);
+} 
