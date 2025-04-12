@@ -1,21 +1,21 @@
-/* reCAPTCHA Badge Styling */
+/* Hide reCAPTCHA badge */
 .grecaptcha-badge {
-  background-color: #2e3440 !important;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-  opacity: 0.9;
-  transition: all 0.3s ease-in-out;
-  bottom: 20px !important;
-  left: 20px !important;
-  right: auto !important;
-  transform: translateX(-85%);
+  visibility: hidden !important;
 }
 
-.grecaptcha-badge:hover {
-  opacity: 1;
-  transform: translateX(0);
+/* Style the reCAPTCHA text disclosure */
+.recaptcha-text {
+  font-size: 12px;
+  color: #4c566a;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.grecaptcha-badge .grecaptcha-logo {
-  filter: grayscale(100%) brightness(80%);
+.recaptcha-text a {
+  color: #5e81ac;
+  text-decoration: none;
+}
+
+.recaptcha-text a:hover {
+  text-decoration: underline;
 } 
