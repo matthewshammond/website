@@ -4,13 +4,16 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
   opacity: 0.9;
-  transition: opacity 0.3s ease-in-out;
-  bottom: 70px !important;
-  right: 5px !important;
+  transition: all 0.3s ease-in-out;
+  bottom: 20px !important;
+  left: 20px !important;
+  right: auto !important;
+  transform: translateX(-85%);
 }
 
 .grecaptcha-badge:hover {
   opacity: 1;
+  transform: translateX(0);
 }
 
 .grecaptcha-badge .grecaptcha-logo {
