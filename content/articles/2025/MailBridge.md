@@ -1,7 +1,7 @@
 ---
 title: "MailBridge"
 date: 2025-04-12T10:05:03-04:00
-image: images/2025-thumbs/MailBridge.jpg
+image: images/2025-thumbs/MailBridge.png
 draft: false
 author: "Matt Hammond"
 description: "A modern, secure, and efficient form submission and email response system"
