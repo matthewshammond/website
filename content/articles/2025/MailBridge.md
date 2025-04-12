@@ -77,8 +77,6 @@ MailBridge operates as a two-part system:
 # iCloud settings
 ICLOUD_EMAIL=your_icloud_email@icloud.com
 ICLOUD_PASSWORD=your_app_specific_password
-PORT=2525
-INSTANCE_EMAILS=info@example.com,contact@website.com
 ```
 
 ### Website Integration
