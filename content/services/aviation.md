@@ -4,7 +4,7 @@ date: 2024-08-27T21:41:12-04:00
 draft: false
 featured: true
 weight: 1
-description: "Contract pilot for Cirrus Vision Jet, BV-234, EC-145, B212 and sUAS."
+description: "Contract pilot for Cirrus Vision Jet, BV-234, EC-145, EC-135, B212 and sUAS."
 ---
 
 Prior military professional with military aviation experience as well as civilian aviation experience in helicopters and fixed wing stateside and abroad.
@@ -17,6 +17,7 @@ Excellent personal skills, computer skills, professionalism, responsibility, rel
   1. BV-234
   1. EC-145
   1. EC-145e
+  1. EC-135
   1. Bell 212
 - Operator for sUAS.
 
@@ -26,7 +27,7 @@ Cirrus Vision Jet SF50 Single Pilot IFR Captain providing private air travel.
 
 ### Air Ambulance
 
-EC-145 and EC-145e Single Pilot IFR Helicopter Air Ambulance Pilot.
+EC-145, EC-145e and EC-135 Single Pilot IFR Helicopter Air Ambulance Pilot.
 
 ### Special Air Missions Pilot
 
